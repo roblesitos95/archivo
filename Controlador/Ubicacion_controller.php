@@ -505,42 +505,43 @@ class Ubicacion_controller
         session_start();
 
         $tipo = $_POST["doc"];
+        $balda = $_POST["balda"];
 
         switch ($tipo) {
             //certificado de desintegracion
             case "Cert_Desintegracion":
-                echo "../cert_desintegracion/Crear_Desintegracion.php";
+                echo '../cert_desintegracion/Crear_Desintegracion.php?balda='.$balda;
                 break;
             //Contratos
             case "Contratos":
-                echo "../Contratos/crear_contratos.php";
+                echo '../Contratos/crear_contratos.php?balda='.$balda;
                 break;
             //documentos contables
             case "Documento_Contable":
-                echo '../contables/crear_contable.php';
+                echo '../contables/crear_contable.php?balda='.$balda;
                 break;
             //Escrituras
             case "Escrituras":
-                echo "../Escrituras/crear_escrituras.php";
+                echo '../Escrituras/crear_escrituras.php?balda='.$balda;
                 break;
             //Facturas
             case "Facturas":
-                echo "../facturas/crear_factura.php";
+                echo '../facturas/crear_factura.php?balda='.$balda;
                 break;
             //historias laborales
             case "Historias_Laborales":
-                echo "../histlaborales/crear.php";
+                echo "../histlaborales/crear.php?balda=".$balda;
                 break;
             //importaciones
             case"Importaciones":
-                echo "../importaciones/cuerpo.php";
+                echo "../importaciones/cuerpo.php?balda=".$balda;
                 break;
             //impuestos
             case"Impuestos":
-                echo "../Impuestos/crear_impuesto.php";
+                echo "../Impuestos/crear_impuesto.php?balda=".$balda;
                 break;
             case "Seguridad_Social";
-                echo "../seguridad/crearseguridadsocial.php";
+                echo "../seguridad/crearseguridadsocial.php?balda=".$balda;
                 break;
         }
     }

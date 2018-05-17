@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-
+        <input type="hidden" name="am" id="am" value="<?php echo $_GET["balda"]?>">
             <!----------------------------- Ubicacion topografica de la importacion------------------------------>
 
             <div class="card-footer text-center">
@@ -115,7 +115,7 @@
 
 <script>
     function enviar() {
-        var balda = $("#balda").val();
+        var balda = $("#am").val();
 
         var Fecha = $("#Fecha").val();
         var area = $("#area").val();
@@ -144,6 +144,8 @@
                 alert("consecutivo numero " + res);
                 $("#div_chatarra").hide();
                 $('#tipodoc').val("1");
+                $('#myModal').modal('toggle');
+
             }
         });
     }

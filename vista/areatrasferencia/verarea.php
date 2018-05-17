@@ -57,6 +57,7 @@ if(isset($_SESSION['sesion'])){
                                     <th>Sede</th>
                                     <th>Area</th>
                                     <th>Consecutivo</th>
+                                    <th>Archivo</th>
                                     <th>Mas</th>
                                 </tr>
                                 </thead>
@@ -71,6 +72,11 @@ if(isset($_SESSION['sesion'])){
                                         <td><?php echo $ipmort->getSede();?></td>
                                         <td><?php echo $ipmort->getArea();?></td>
                                         <td><?php echo $ipmort->getConsecutivo();?></td>
+                                        <td>  <button type="button" rel="tooltip" class="btn btn-warning btn-simple btn-xs hvr-bounce-in hvr-radial-out">
+                                                <a href="<?php echo $ipmort->getArchivo();?>" target="_blank">
+                                                    <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
+                                            </button>
+                                        </td>
                                         <td>
                                             <?php
                                             if ($ipmort->getEstado()== "Activo"){?>

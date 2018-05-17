@@ -18,6 +18,7 @@ class areaclass extends db_abstract_class
     private $Asunto;
     private $Estado;
     private $Consecutivo;
+    private $Archivo;
 
 
 
@@ -39,6 +40,7 @@ class areaclass extends db_abstract_class
             $this->Anho = "";
             $this->Asunto = "";
             $this->Estado = "";
+            $this->Archivo = "";
         }
     }
 
@@ -133,6 +135,7 @@ class areaclass extends db_abstract_class
             $importacion-> Anho =$valor['Anho'];
             $importacion-> Asunto =$valor['Asunto'];
             $importacion-> Estado =$valor['estado'];
+            $importacion-> Archivo =$valor['archivo'];
       ;
 
             array_push($arrayimportacion,$importacion);
@@ -304,6 +307,22 @@ return $id;
         $this->Estado = $Estado;
     }
 
+
+    /**
+     * @return mixed
+     */
+    public function getArchivo()
+    {
+        return $this->Archivo;
+    }
+
+    /**
+     * @param mixed $Archivo
+     */
+    public function setArchivo($Archivo)
+    {
+        $this->Archivo = $Archivo;
+    }
 
 
 

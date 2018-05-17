@@ -157,7 +157,7 @@ class areacontroller
         $success = null;
 
         // file paths to store
-        $paths = ["../../upload"];
+        $paths = ["../upload"];
 
 // get file names
         $filenames = $images['name'];
@@ -165,7 +165,7 @@ class areacontroller
 // loop and process files
         for ($i = 0; $i < count($filenames); $i++) {
             $ext = explode('.', basename($filenames[$i]));
-            $target = "../../upload/" . md5(uniqid()) . "." . array_pop($ext);
+            $target = "../upload/" . md5(uniqid()) . "." . array_pop($ext);
             if (move_uploaded_file($images['tmp_name'][$i], $target)) {
                 $success = true;
                 $paths[] = $target;
@@ -210,8 +210,8 @@ class areacontroller
         if (!$con) {
             echo "Error al conectar :(";
         }
-
-        $sql = 'UPDATE `trasferencia` SET `archivo` = "' . $file . '" WHERE `trasferencia`.`idTrasferencia` =' . $id;
+        $name="../".$file;
+        $sql = 'UPDATE `trasferencia` SET `archivo` = "' . $name . '" WHERE `trasferencia`.`idTrasferencia` =' . $id;
         $con->set_charset("utf8");
         mysqli_query($con, $sql);
 

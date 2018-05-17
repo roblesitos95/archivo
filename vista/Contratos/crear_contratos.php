@@ -82,6 +82,7 @@
                     </div>
                 </div>
 
+                <input type="hidden" name="am" id="am" value="<?php echo $_GET["balda"] ?>">
 
                 <div class="card-footer text-center">
                     <a onclick="enviar()" class="btn btn-primary hvr-float">
@@ -94,32 +95,37 @@
 
 <script>
     function enviar() {
-        var Fecha = $("#Fecha").val();
-        var area = $("#area").val();
-        var Documento = $("#Documento").val();
+
+        var balda = $("#am").val();
+        var Nombre = $("#Nombre").val();
         var Numero = $("#Numero").val();
-        var Placa = $("#Placa").val();
-        var Clase = $("#Clase").val();
+        var Contratista = $("#Contratista").val();
+        var Fecha = $("#Fecha").val();
+        var Area = $("#Area").val();
         var Descripcion = $("#Descripcion").val();
 
         var data = {
-            "Fecha": Fecha,
-            "area": area,
-            "Documento": Documento,
+            "balda": balda,
+            "Nombre": Nombre,
             "Numero": Numero,
-            "Placa": Placa,
-            "Clase": Clase,
+            "Contratista": Contratista,
+            "Fecha": Fecha,
+            "Area": Area,
             "Descripcion": Descripcion,
         }
-        /*
+
+
         $.ajax({
-           data:data,
-           url: "../../Controlador/documentocontroller.php?action=crear&table=desintregracion",
-            type:'POST',
-            success:function (res) {
-               $("#div_chatarra").hide();
+            data: data,
+            url: "../../Controlador/documentocontroller.php?action=crear&table=Contratos",
+            type: 'POST',
+            success: function (res) {
+                alert("consecutivo numero " + res);
+                $("#div_chatarra").hide();
                 $('#tipodoc').val("1");
-           }
-        });*/
+                $('#myModal').modal('toggle');
+
+            }
+        });
     }
 </script>

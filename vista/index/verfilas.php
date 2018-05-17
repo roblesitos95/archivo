@@ -481,8 +481,10 @@ if(isset($_SESSION['sesion'])){
 
             function form4() {
                 var doc=$('#tipodoc').val();
+                var balda =$("#balda").val();
                 var data2={
                     "doc":doc,
+                    "balda":balda,
                 };
                 $.ajax({
                     data:data2,

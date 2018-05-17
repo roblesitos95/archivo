@@ -78,7 +78,7 @@
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10">
                     <div class="form-group label-floating">
-                        <label class="control-label">A</label>
+                        <label class="control-label">Trasferencia</label>
                         <?php echo areaclass::selectarea("Area", "Area", "form-control") ?>
                     </div>
                 </div>
@@ -97,19 +97,50 @@
             </div>
 
             <!----------------------------- Ubicacion topografica de la importacion------------------------------>
+            <input type="hidden" name="am" id="am" value="<?php echo $_GET["balda"] ?>">
 
         </div>
 
-        <div class="card-footer text-center">
-            <button class="btn btn-primary hvr-float " type="submit">
-                <span style="font-size: 15px"><i class="icon-rocket ">  </i></span>Guardar
-            </button>
-            <a href="">
-                <button class="btn btn-danger hvr-float " type="button">
-                    <span style="font-size: 15px"><i class="icon-refresh"> </i></span> Cancelar
-                </button>
-            </a>
-        </div>
-
-    </form>
+<div class="card-footer text-center">
+    <a onclick="enviar()" class="btn btn-primary hvr-float">
+        <i class="icon-save"> </i> enviar
+    </a>
 </div>
+</form>
+</div>
+
+<script>
+    function enviar() {
+        var am= $("#am").val();
+        var Numero = $("#Numero").val();
+        var Notaria = $("#Notaria").val();
+        var De = $("#De").val();
+        var A = $("#A").val();
+        var Fecha = $("#Fecha").val();
+        var Area = $("#Area").val();
+        var Descripcion = $("#Descripcion").val();
+
+        var data = {
+            "balda": am,
+            "Numero": Numero,
+            "Notaria": Notaria,
+            "De": De,
+            "A": A,
+            "Fecha": Fecha,
+            "Area": Area,
+            "Descripcion": Descripcion,
+        }
+
+        $.ajax({
+            data: data,
+            url: "../../Controlador/documentocontroller.php?action=crear&table=Escritura",
+            type: 'POST',
+            success: function (res) {
+                alert("consecutivo numero " + res);
+                $("#div_chatarra").hide();
+                $('#tipodoc').val("1");
+               $('#myModal').modal('toggle');
+            }
+        });
+}
+</script>

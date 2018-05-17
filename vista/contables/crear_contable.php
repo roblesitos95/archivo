@@ -107,7 +107,7 @@
                     </div>
 
                     <!----------------------------- Ubicacion topografica de la importacion------------------------------>
-
+<input type="hidden" id="am" value="<?php echo $_GET["balda"]?>">
                 </div>
 
                 <div class="card-footer text-center">
@@ -120,35 +120,37 @@
 
 <script>
     function enviar() {
-        var balda = $("#balda").val();
-
-        var Fecha = $("#Fecha").val();
-        var area = $("#area").val();
+        var am= $("#am").val();
         var Documento = $("#Documento").val();
         var Numero = $("#Numero").val();
-        var Placa = $("#Placa").val();
-        var Clase = $("#Clase").val();
+        var Proveedor = $("#Proveedor").val();
+        var NIT = $("#NIT").val();
+        var Factura = $("#Factura").val();
+        var Fecha = $("#Fecha").val();
+        var Area = $("#Area").val();
         var Descripcion = $("#Descripcion").val();
 
         var data = {
-            "balda": balda,
-            "Fecha": Fecha,
-            "area": area,
+            "am": am,
             "Documento": Documento,
             "Numero": Numero,
-            "Placa": Placa,
-            "Clase": Clase,
+            "Proveedor": Proveedor,
+            "NIT": NIT,
+            "Factura": Factura,
+            "Fecha": Fecha,
+            "Area": Area,
             "Descripcion": Descripcion,
         }
 
         $.ajax({
             data: data,
-            url: "../../Controlador/documentocontroller.php?action=crear&table=Cert_Desintegracion",
+            url: "../../Controlador/documentocontroller.php?action=crear&table=Doc_Contable",
             type: 'POST',
             success: function (res) {
                 alert("consecutivo numero " + res);
                 $("#div_chatarra").hide();
                 $('#tipodoc').val("1");
+                $('#myModal').modal('toggle');
             }
         });
     }
