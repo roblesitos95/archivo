@@ -234,7 +234,7 @@ if(isset($_SESSION['sesion'])){
                                                                 <option value="Importaciones">Importaciones</option>
                                                                 <option value="Impuestos">Impuestos</option>
                                                                 <option value="Seguridad_Social">Seguridad Social</option>
-                                                                <option value="Informes_de_Entrada">Informes de Entrada</option>
+                                                                <option value="info_entrada">Informes de Entrada</option>
                                                                 <option value="Libros_Oficiales">Libros Oficiales</option>
                                                             </select>
                                                         </div>

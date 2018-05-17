@@ -157,7 +157,7 @@ class documentocontroller
                 break;
 
 //HISTORIAS LABORALES
-            case "HistLabo":
+            case "Historia_laboral":
                 $tipodocumento = $table;
                 $balda = $_POST["balda"];
                 $Documento = $_POST["Documento"];
@@ -185,10 +185,10 @@ class documentocontroller
                 $liquidacion = $_POST["liquidacion"];
                 $Pedido = $_POST["pedido"];
                 $Area = $_POST["area"];
-                $Descripcion= $_POST["Descripcion"];
+                $Descripcion = $_POST["Descripcion"];
                 $balda = $_POST["balda"];
 
-                $sql="INSERT INTO archivos(Tipo_Documento,Documento,fecha,Liquidacion,Pedido,Trasferencia,Descripcion,balda_am_idbalda_am) 
+                $sql = "INSERT INTO archivos(Tipo_Documento,Documento,fecha,Liquidacion,Pedido,Trasferencia,Descripcion,balda_am_idbalda_am) 
                 VALUES ('".$tipodocumento."','".$Nombre."','".$Fecha."','".$liquidacion."','".$Pedido."',".$Area.",'".$Descripcion."',".$balda.")";
 
                 $num = archivo_class::insertar($sql);
@@ -196,17 +196,17 @@ class documentocontroller
                 echo $num;
                 break;
 
-//NUEVO METODO SOLOCOPI Y PEGAR
+//IMPUESTOS
             case "Impuestos":
+
                 $tipodocumento = $table;
-                $balda=$_POST["balda"];
-                $Documento=$_POST["documento"];
-                $Fecha=$_POST["Fecha"];
-                $Area=$_POST["area"];
-                $Descripcion=$_POST["Descripcion"];
+                $balda = $_POST["balda"];
+                $Documento = $_POST["documento"];
+                $Fecha = $_POST["Fecha"];
+                $Area = $_POST["area"];
+                $Descripcion = $_POST["Descripcion"];
 
-
-                $sql="INSERT INTO archivos(Tipo_Documento,Documento,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
+                $sql = "INSERT INTO archivos(Tipo_Documento,Documento,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
                 VALUES ('".$tipodocumento."','".$Documento."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
 
                 $num = archivo_class::insertar($sql);
@@ -214,12 +214,49 @@ class documentocontroller
                 echo $num;
                 break;
 
+//SEGURIDAD SOSIAL
+            case "Seguridad_social":
+                $tipodocumento = $table;
+                $balda = $_POST["balda"];
+                $Fecha = $_POST["Fecha"];
+                $documento = $_POST["documento"];
+                $empresadeservicio = $_POST["empresadeservicio"];
+                $empresalaboral = $_POST["empresalaboral"];
+                $Area = $_POST["Area"];
+                $Ciudad = $_POST["Ciudad"];
+                $Descripcion = $_POST["Descripcion"];
+                $Numero = $_POST["Numero"];
+
+                $sql = "INSERT INTO archivos (Tipo_Documento,balda_am_idbalda_am,fecha,Documento,Empresa,Contratista,Trasferencia,Descripcion,Ciudad,Numero)
+                VALUES ('".$tipodocumento."',".$balda.",'".$Fecha."','".$documento."','".$empresalaboral."','".$empresadeservicio."',".$Area.",'".$Descripcion."','".$Ciudad."','".$Numero."')";
+
+                $num = archivo_class::insertar($sql);
+                echo $num;
+                break;
+
+            //INFORME DE ENTRADA
+            case "Informe_Entrada":
+                $tipodocumento = $table;
+                $Numero = $_POST["Numero"];
+                $Sucursa = $_POST["Sucursal"];
+                $Proveedor = $_POST["Proveedor"];
+                $Fecha = $_POST["Fecha"];
+                $Area = $_POST["Area"];
+                $Descripcion = $_POST["Descripcion"];
+                $balda = $_POST["balda"];
+
+                $sql = "INSERT INTO archivos (Tipo_Documento,Numero,Ciudad,Contratista,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
+                VALUES ('".$tipodocumento."','".$Numero."','".$Sucursa."','".$Proveedor."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
+
+
+                $num = archivo_class::insertar($sql);
+                echo $num;
+                break;
+
 //NUEVO METODO SOLOCOPI Y PEGAR
             case "New_metod":
 
                 break;
-
-
         }
     }
 }

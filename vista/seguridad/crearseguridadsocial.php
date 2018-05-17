@@ -14,7 +14,21 @@
         <div class="card-content">
 
 
+            <!----------------------------- Consecutivo de liquidacion de la importacion------------------------------>
+
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10">
+                    <div class="form-group">
+                        <label class="control-label">Fecha</label>
+                        <input type="text" name="Fecha" id="Fecha" class="form-control" data-provide="datepicker"
+                               data-date-format="yyyy-mm-dd" value="<?php echo date("Y-m-d"); ?> "/>
+                    </div>
+                </div>
+            </div>
+
             <!---------------------- Tipo de documento ---------------------------------->
+
             <div class="row">
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10">
@@ -88,19 +102,6 @@
                 </div>
             </div>
 
-            <!----------------------------- Consecutivo de liquidacion de la importacion------------------------------>
-
-            <div class="row">
-                <div class="col-sm-1"></div>
-                <div class="col-sm-10">
-                    <div class="form-group">
-                        <label class="control-label">Fecha</label>
-                        <input type="text" name="Fecha" id="Fecha" class="form-control" data-provide="datepicker"
-                               data-date-format="yyyy-mm-dd" value="<?php echo date("Y-m-d"); ?> "/>
-                    </div>
-                </div>
-            </div>
-
             <!----------------------------- Consecutivo de pedido de la importacion------------------------------>
 
             <div class="row">
@@ -132,17 +133,25 @@
 <script>
     function enviar() {
         var balda = $("#am").val();
-        var documento = $("#documento").val();
         var Fecha = $("#Fecha").val();
-        var area = $("#Area").val();
+        var documento = $("#documento").val();
+        var Numero = $("#Numero").val();
+        var empresadeservicio = $("#empresadeservicio").val();
+        var empresalaboral = $("#empresalaboral").val();
+        var Area = $("#Area").val();
+        var Ciudad = $("#Ciudad").val();
         var Descripcion = $("#Descripcion").val();
 
         var data = {
             "balda": balda,
-            "documento": documento,
-            "Descripcion": Descripcion,
             "Fecha": Fecha,
-            "area": area,
+            "documento": documento,
+            "Numero": Numero,
+            "empresadeservicio": empresadeservicio,
+            "empresalaboral": empresalaboral,
+            "Area": Area,
+            "Ciudad": Ciudad,
+            "Descripcion": Descripcion,
         }
 
         $.ajax({
@@ -151,9 +160,9 @@
             type: 'POST',
             success: function (res) {
                 alert("consecutivo numero " + res);
-           /*     $("#div_chatarra").hide();
-                $('#tipodoc').val("1");
-                $('#myModal').modal('toggle');*/
+                /*     $("#div_chatarra").hide();
+                     $('#tipodoc').val("1");
+                     $('#myModal').modal('toggle');*/
 
             }
         });

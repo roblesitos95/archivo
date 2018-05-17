@@ -543,6 +543,9 @@ class Ubicacion_controller
             case "Seguridad_Social";
                 echo "../seguridad/crearseguridadsocial.php?balda=".$balda;
                 break;
+            case "info_entrada";
+                echo "../info_entrada/crear_info_entrada.php?balda=".$balda;
+                break;
         }
     }
 
