@@ -546,6 +546,9 @@ class Ubicacion_controller
             case "info_entrada";
                 echo "../info_entrada/crear_info_entrada.php?balda=".$balda;
                 break;
+            case "Libros_Oficiales";
+                echo "../Libros_Oficiales/crear_libro.php?balda=".$balda;
+                break;
         }
     }
 

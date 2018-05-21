@@ -234,7 +234,7 @@ class documentocontroller
                 echo $num;
                 break;
 
-            //INFORME DE ENTRADA
+//INFORME DE ENTRADA
             case "Informe_Entrada":
                 $tipodocumento = $table;
                 $Numero = $_POST["Numero"];
@@ -248,6 +248,21 @@ class documentocontroller
                 $sql = "INSERT INTO archivos (Tipo_Documento,Numero,Ciudad,Contratista,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
                 VALUES ('".$tipodocumento."','".$Numero."','".$Sucursa."','".$Proveedor."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
 
+                $num = archivo_class::insertar($sql);
+                echo $num;
+                break;
+
+//NUEVO METODO SOLOCOPI Y PEGAR
+            case "Libro_oficial":
+                $tipodocumento = $table;
+                $Empresa = $_POST["Empresa"];
+                $Fecha = $_POST["Fecha"];
+                $Area = $_POST["Area"];
+                $Descripcion = $_POST["Descripcion"];
+                $balda = $_POST["balda"];
+
+                $sql = "INSERT INTO archivos (Tipo_Documento,Empresa,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
+VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
 
                 $num = archivo_class::insertar($sql);
                 echo $num;

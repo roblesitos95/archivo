@@ -13,7 +13,6 @@ if(isset($_SESSION['sesion'])){
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="../assets/bonito/animated-sign-up-flow-master/css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../assets/bonito/animated-sign-up-flow-master/css/style.css"> <!-- Resource style -->
