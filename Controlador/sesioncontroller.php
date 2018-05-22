@@ -57,9 +57,9 @@ class sesioncontroller
         }
 
         if (isset($_SESSION["sesion"])) {
-            header('Location:../vista/index/ver_salas');
+            header('Location:../vista/Inicio/Salas');
         } else {
-            header('Location:../vista/index/index?respuesta=error');
+            header('Location:../vista/Inicio/Login?respuesta=error');
 
         }
 
@@ -72,7 +72,7 @@ class sesioncontroller
         session_start();
         session_unset();
         session_destroy();
-        header('location:../vista/index/index');
+        header('location:../vista/Inicio/Login');
 
     }
 

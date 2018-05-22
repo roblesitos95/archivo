@@ -35,7 +35,7 @@
             </div>
             <ul class="nav">
                 <li id="index">
-                    <a href="../index/ver_salas">
+                    <a href="../Inicio/Salas">
                         <i class="icon-th-large"></i>
                         <p> Inicio
                             <b class=""></b>
@@ -54,19 +54,19 @@
                     <div class="collapse" id="Prestamos">
                         <ul class="nav">
                             <li id="crearprestamos">
-                                <a href="../Prestamos/crear_prestamo">
+                                <a href="../Prestamos/crear">
                                     <span class="sidebar-mini"><i class="icon-upload2"></i></span>
                                     <span class="sidebar-normal">Crear Prestamos</span>
                                 </a>
                             </li>
                             <li id="creardevolucion">
-                                <a href="../Prestamos/ver_prestamo?l=<?php echo base64_encode("prestados") ?>">
+                                <a href="../Prestamos/devolver_<?php echo base64_encode("prestados") ?>">
                                     <span class="sidebar-mini"><i class="icon-download2"></i></span>
                                     <span class="sidebar-normal">Crear Devoluciones</span>
                                 </a>
                             </li>
                             <li id="verprestamos">
-                                <a href="../Prestamos/ver_prestamo?l=<?php echo base64_encode("todos") ?>">
+                                <a href="../Prestamos/devolver_<?php echo base64_encode("todos") ?>">
                                     <span class="sidebar-mini"><i class="icon-inbox"></i></span>
                                     <span class="sidebar-normal">Ver Devueltos</span>
                                 </a>
@@ -85,13 +85,13 @@
                     <div class="collapse" id="lol">
                         <ul class="nav">
                             <li id="creararea">
-                                <a href="../areatrasferencia/creararea">
+                                <a href="../Trasferencia/Crear">
                                     <span class="sidebar-mini"><i class="icon-save"></i></span>
                                     <span class="sidebar-normal">Crear Transferencia</span>
                                 </a>
                             </li>
                             <li id="verarea">
-                                <a href="../areatrasferencia/verarea"">
+                                <a href="../Trasferencia/Ver">
                                 <span class="sidebar-mini"><i class="icon-list"></i></span>
                                 <span class="sidebar-normal">Ver listado</span>
                                 </a>
@@ -121,14 +121,8 @@
 
                     <div class="collapse" id="certidesen">
                         <ul class="nav">
-                            <li id="crearcerticha">
-                                <a href="../cert_desintegracion/Crear_Desintegracion">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Certificado</span>
-                                </a>
-                            </li>
                             <li id="vercerticha">
-                                <a href="../cert_desintegracion/ver_desintegracion">
+                                <a href="../Cerificado/Chatarrizacion">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver listado</span>
                                 </a>

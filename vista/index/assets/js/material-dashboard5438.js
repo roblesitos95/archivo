@@ -102,7 +102,7 @@ $(document).ready(function() {
 
     //    Activate bootstrap-select
     $(".select").dropdown({
-        "dropdownClass": "dropdown-menu",
+        "dropdownClass": "dropdown-theme",
         "optionClass": ""
     });
 
@@ -203,7 +203,7 @@ $(document).on('click', '.navbar-toggle', function() {
 
 });
 
-// activate collapse right menu when the windows is resized
+// activate collapse right theme when the windows is resized
 $(window).resize(function() {
     md.initSidebarsCheck();
 });
@@ -308,7 +308,7 @@ md = {
 
             nav_content = $navbar.html();
 
-            nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
+            nav_content = '<ul class="nav nav-mobile-theme">' + nav_content + '</ul>';
 
             navbar_form = $('nav').find('.navbar-form').get(0).outerHTML;
 
@@ -320,7 +320,7 @@ md = {
             $nav_content.insertBefore($sidebar_nav);
             $navbar_form.insertBefore($nav_content);
 
-            $(".sidebar-wrapper .dropdown .dropdown-menu > li > a").click(function(event) {
+            $(".sidebar-wrapper .dropdown .dropdown-theme > li > a").click(function(event) {
                 event.stopPropagation();
 
             });
@@ -333,7 +333,7 @@ md = {
             if ($(window).width() > 991) {
                 // reset all the additions that we made for the sidebar wrapper only if the screen is bigger than 991px
                 $sidebar_wrapper.find('.navbar-form').remove();
-                $sidebar_wrapper.find('.nav-mobile-menu').remove();
+                $sidebar_wrapper.find('.nav-mobile-theme').remove();
 
                 mobile_menu_initialized = false;
             }
@@ -349,13 +349,13 @@ md = {
     //         nav_content = '';
     //         mobile_menu_content = '';
     //
-    //         //add the content from the regular header to the mobile menu
+    //         //add the content from the regular header to the mobile theme
     //         $navbar.children('ul').each(function(){
     //             content_buff = $(this).html();
     //             nav_content = nav_content + content_buff;
     //         });
     //
-    //         nav_content = '<ul class="nav nav-mobile-menu">' + nav_content + '</ul>';
+    //         nav_content = '<ul class="nav nav-mobile-theme">' + nav_content + '</ul>';
     //
     //         $navbar.html(nav_content);
     //         $navbar.addClass('off-canvas-sidebar');
@@ -442,19 +442,6 @@ function debounce(func, wait, immediate) {
         if (immediate && !timeout) func.apply(context, args);
     };
 };
-
-
-(function(i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function() {
-        (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-        m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
 ga('create', 'UA-46172202-1', 'auto');
 ga('send', 'pageview');

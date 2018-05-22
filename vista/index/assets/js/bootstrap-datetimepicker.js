@@ -399,7 +399,7 @@
                     toolbar = $('<li>').addClass('picker-switch' + (options.collapse ? ' accordion-toggle' : '')).append(getToolbar());
 
                 if (options.inline) {
-                    template.removeClass('dropdown-menu');
+                    template.removeClass('dropdown-theme');
                 }
 
                 if (use24Hours) {
@@ -2639,6 +2639,7 @@
                 this.clear();
             }
         },
+
         debug: false,
         allowInputToggle: false,
         disabledTimeIntervals: false,

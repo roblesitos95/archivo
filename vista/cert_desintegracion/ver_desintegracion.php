@@ -8,7 +8,7 @@ if(isset($_SESSION['sesion'])){
 
     <?php require("../theme/head.php");?>
 <?php require("../theme/menuizquierdo.php");?>
-<?php require_once('../../modelo/desintegracionclass.php');?>
+<?php require_once('../../modelo/archivo_class.php');?>
 
 <script>
     window.onload=function() {
@@ -64,9 +64,8 @@ if(isset($_SESSION['sesion'])){
 
 
                             <?php
-                            $arrimportacion = desintegracionclass::getAll();
-                            if (count($arrimportacion)>=1){
-                                ?>
+                            $arrimportacion = archivo_class::getAll("Cert_Desintegracion");
+                                    ?>
                                 <div class="card-header card-header-icon" data-background-color="blue">
                                     <span style="font-size: 30px"><i class=" icon-truck"></i></span>
                                 </div>
@@ -91,64 +90,39 @@ if(isset($_SESSION['sesion'])){
                                 <tbody>
 
 
-                                <?php
-                                foreach ($arrimportacion as $ipmort) {
-                                    ?>
+
                                     <tr>
-                                        <td><?php echo $ipmort->getDocumento()." - ".$ipmort->getNumero(); ?></td>
-                                        <td><?php echo $ipmort->getPlaca(); ?></td>
-                                        <td><?php echo $ipmort->getClase(); ?></td>
-                                        <td><?php echo $ipmort->getFecha(); ?></td>
+                                        <td>ca,m</td>
+                                        <td>hjghj</td>
+                                        <td>fdgfdfgdg</td>
+                                        <td>fgh</td>
 
                                         <td>
                                             <button type="button"
-                                                    onclick="demo.showSwal('basic','<?php echo $ipmort->getDescripcion(); ?>')"
+                                                    onclick="demo.showSwal('basic','1')"
                                                     rel="tooltip" title="Ver Descripcion"
                                                     class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
                                                 <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
                                             </button>
                                             <button type="button"
-                                                    onclick="demo.showSwal('title-and-text','<?php echo $ipmort->getUbicacion(); ?>')"
+                                                    onclick="demo.showSwal('title-and-text','2')"
                                                     rel="tooltip" title="Ver Ubicacion"
                                                     class="btn btn-primary btn-xs btn-simple hvr-bounce-in hvr-radial-out " >
                                                 <span style="font-size: 15px"><i class="icon-location2"></i></span>
                                             </button>
                                             <button type="button" rel="tooltip" title="Editar"
                                                     class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
-                                                <a href="../../Controlador/desintegracioncontroller.php?action=editar&id=<?php echo $ipmort->getIdCertificado(); ?>">
+                                                <a href="../../Controlador/desintegracioncontroller.php?action=editar&id=k">
                                                     <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
                                             </button>
                                         </td>
 
                                     </tr>
-
-
-                                    <?php
-                                }
-                                ?>
                                 </tbody>
                                 </table>
                                 </div>
                                 </div>
-                                <?php
-                            }
-                            else{ ?>
 
-                                <div class="card-header card-header-icon" data-background-color="blue">
-                                    <i class="material-icons">priority_high</i>
-                                </div>
-                                <div class="card-content"  >
-                                    <h4 class="card-title"></h4>
-                                    <div class="card-content col-md-6">
-                                        <div class="alert alert-primary" >
-                                            <span >No se han encontrado Certificaciones  </span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <?php
-                            }
-                            ?>
 
                             <!-- end content-->
                         </div>

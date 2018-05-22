@@ -54,6 +54,8 @@ slideOutRight,   slideOutUp }
 
     <script src="../assets/chat-master/script.js"></script>
 
+
+
 </head>
 <body onload="ajax();">
 

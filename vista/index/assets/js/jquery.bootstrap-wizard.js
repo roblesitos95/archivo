@@ -227,7 +227,7 @@
                 $($href).remove();
             }
 
-            // Remove menu item
+            // Remove theme item
             $item.remove();
         };
 

@@ -445,13 +445,13 @@
                      .after(this.$newElement)
                      .appendTo(this.$newElement);
                  this.$button = this.$newElement.children('button');
-                 this.$menu = this.$newElement.children('.dropdown-menu');
+                 this.$menu = this.$newElement.children('.dropdown-theme');
                  this.$menuInner = this.$menu.children('.inner');
                  this.$searchbox = this.$menu.find('input');
 
                  this.$element.removeClass('bs-select-hidden');
 
-                 if (this.options.dropdownAlignRight === true) this.$menu.addClass('dropdown-menu-right');
+                 if (this.options.dropdownAlignRight === true) this.$menu.addClass('dropdown-theme-right');
 
                  if (typeof id !== 'undefined') {
                      this.$button.attr('data-id', id);
@@ -502,7 +502,7 @@
                              },
                              'shown.bs.select': function() {
                                  that.$element
-                                     .val(that.$element.val()) // set the value to hide the validation message in Chrome when menu is opened
+                                     .val(that.$element.val()) // set the value to hide the validation message in Chrome when theme is opened
                                      .off('shown.bs.select');
                              },
                              'rendered.bs.select': function() {
@@ -562,11 +562,11 @@
                      this.options.template.caret +
                      '</span>' +
                      '</button>' +
-                     '<div class="dropdown-menu open" role="combobox">' +
+                     '<div class="dropdown-theme open" role="combobox">' +
                      header +
                      searchbox +
                      actionsbox +
-                     '<ul class="dropdown-menu inner" role="listbox" aria-expanded="false">' +
+                     '<ul class="dropdown-theme inner" role="listbox" aria-expanded="false">' +
                      '</ul>' +
                      donebutton +
                      '</div>' +
@@ -896,8 +896,8 @@
 
                  text.className = 'text';
                  newElement.className = this.$menu[0].parentNode.className + ' open';
-                 menu.className = 'dropdown-menu open';
-                 menuInner.className = 'dropdown-menu inner';
+                 menu.className = 'dropdown-theme open';
+                 menuInner.className = 'dropdown-theme inner';
                  divider.className = 'divider';
 
                  text.appendChild(document.createTextNode('Inner text'));
@@ -1059,7 +1059,7 @@
                          }
 
                          if (that.options.dropdownAlignRight === 'auto') {
-                             $menu.toggleClass('dropdown-menu-right', selectOffsetLeft > selectOffsetRight && (menuWidth - menuExtras.horiz) < (getWidth - selectWidth));
+                             $menu.toggleClass('dropdown-theme-right', selectOffsetLeft > selectOffsetRight && (menuWidth - menuExtras.horiz) < (getWidth - selectWidth));
                          }
 
                          if ((lisVisible.length + optGroup.length) > 3) {
@@ -1118,7 +1118,7 @@
                      // Get correct width if element is hidden
                      var $selectClone = this.$menu.parent().clone().appendTo('body'),
                          $selectClone2 = this.options.container ? this.$newElement.clone().appendTo('body') : $selectClone,
-                         ulWidth = $selectClone.children('.dropdown-menu').outerWidth(),
+                         ulWidth = $selectClone.children('.dropdown-theme').outerWidth(),
                          btnWidth = $selectClone2.css('width', 'auto').children('button').outerWidth();
 
                      $selectClone.remove();
@@ -1313,7 +1313,7 @@
                          prevIndex = that.$element.prop('selectedIndex'),
                          triggerChange = true;
 
-                     // Don't close on multi choice menu
+                     // Don't close on multi choice theme
                      if (that.multiple && that.options.maxOptions !== 1) {
                          e.stopPropagation();
                      }
@@ -1795,7 +1795,7 @@
                      $items.eq(keyIndex[count - 1]).children('a').focus();
                  }
 
-                 // Select focused option if "Enter", "Spacebar" or "Tab" (when selectOnTab is true) are pressed inside the menu.
+                 // Select focused option if "Enter", "Spacebar" or "Tab" (when selectOnTab is true) are pressed inside the theme.
                  if ((/(13|32)/.test(e.keyCode.toString(10)) || (/(^9$)/.test(e.keyCode.toString(10)) && that.options.selectOnTab)) && isActive) {
                      if (!/(32)/.test(e.keyCode.toString(10))) e.preventDefault();
                      if (!that.options.liveSearch) {

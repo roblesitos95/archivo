@@ -58,7 +58,7 @@ if(isset($_SESSION['sesion'])){
                                     </button>
 
                                     <button type="button" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="Ver mas">
-                                        <a href="verfilas.php?s=<?php echo base64_encode($id); ?>"><i class="icon-list-alt"></i></a>
+                                        <a href="Filas_<?php echo $id;?>" ><i class="icon-list-alt"></i></a>
                                     </button>
 
                                     <button type="button" class="btn btn-success btn-simple" rel="tooltip" data-placement="bottom"  id="myBtn" title="Editar" onclick="descirp(<?php echo $id; ?>)">

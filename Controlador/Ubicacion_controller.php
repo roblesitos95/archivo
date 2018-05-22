@@ -35,6 +35,8 @@ class Ubicacion_controller
             Ubicacion_controller::ver();
         } elseif ($action == "archivo") {
             Ubicacion_controller::archivo();
+        } elseif ($action == "archivo") {
+            Ubicacion_controller::table();
         }
     }
 
@@ -573,15 +575,37 @@ class Ubicacion_controller
         while ($row = mysqli_fetch_array($result)) {
             $class = "";
             if ($row["estado"] == "prestado") {
-                $class = "danger";
+                $class = "warning";
             }
             $table .= "<tr class='".$class."'>
                  <td>".$row["Tipo_Documento"]."</td>
-                 <td><a target='_blank' href='".$row["archivo"]."'>".$row["Sede"]."-".$row["Area"]."-".$row["Consecutivo"]."</a></td>";
+                 <td><a target='_blank' href='".$row["archivo"]."'>".$row["Sede"]."-".$row["Area"]."-".$row["Consecutivo"]."</a></td>
+                 <td>   </td>";
             $table .= "</tr>";
         }
 
         $arr = [$table, $boton];
         echo json_encode($arr);
+    }
+
+    public static function table()
+    {
+        $las = " <link href='../assets/popover/css/bootstrap-popover-x.css' media='all' rel='stylesheet' type='text/css'/>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='../assets/popover/js/bootstrap-popover-x.js' type='text/javascript'></script>
+        
+                 <button TYPE='' class='btn btn-primary' style='margin-right:15px' data-toggle='popover-x' data-target='#myPopover1a' data-placement='bottom'>
+                 Primary
+                 </button>
+                 
+                 <div id='myPopover1a' class='popover popover-x popover-primary'>
+                 <div class='arrow'></div>
+                 <h3 class='popover-header popover-title'>
+                 <span class='close pull-right' data-dismiss='popover-x'>&times;</span>Title</h3>
+                 <div class='popover-body popover-content'>
+                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
+                   massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                 </div>
+                 </div>";
     }
 }

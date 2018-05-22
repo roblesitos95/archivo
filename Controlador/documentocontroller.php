@@ -1,15 +1,12 @@
 <?php
 
-require_once('../modelo/archivo_class.php');
-
-require_once("../modelo/areaclass.php");
 
 //recibir una accion y enviarla al menu
 if (! empty($_GET['action'])) {
-
+    require_once("../modelo/archivo_class.php");
     documentocontroller::main($_GET['action'], $_GET['table']);
 } else {
-    echo "NO hay accion";
+    echo "lol";
 }
 
 class documentocontroller
@@ -58,8 +55,11 @@ class documentocontroller
                       VALUES ('".$tipodocumento."','".$Fecha."','".$Descripcion."',
                       '".$Numero."','".$Documento."','".$Placa."','".$Clase."',".$area.",".$balda.",'".$estado."')";
 
-                //   $num = archivo_class::insertar($sql);
-                echo $num;
+                $num = archivo_class::insertar($sql);
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+
+                echo json_encode($arr);
 
                 break;
 
@@ -82,7 +82,10 @@ class documentocontroller
 
                 $num = archivo_class::insertar($sql);
 
-                echo $num;
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+
+                echo json_encode($arr);
 
                 break;
 
@@ -103,8 +106,10 @@ class documentocontroller
 
                 $num = archivo_class::insertar($sql);
 
-                echo $num;
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
 
+                echo json_encode($arr);
                 break;
 
 //ESCRITURAS
@@ -124,8 +129,9 @@ class documentocontroller
                 VALUES ('".$tipodocumento."',".$balda.",'".$Numero."','".$Notaria."','".$De."','".$A."','".$Fecha."',".$Area.",'".$Descripcion."')";
 
                 $num = archivo_class::insertar($sql);
-
-                echo $num;
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+                echo json_encode($arr);
 
                 break;
 
@@ -153,7 +159,11 @@ class documentocontroller
                         VALUES ('".$tipodocumento."',".$balda.",'".$Numero."','".$Titular."','".$NIT."','".$Fecha."','".$Descripcion."','".$tipodefactura."',
                         '".$Contable."',".$area.")";
                 $num = archivo_class::insertar($sql);
-                echo $num;
+
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+
+                echo json_encode($arr);
                 break;
 
 //HISTORIAS LABORALES
@@ -173,7 +183,11 @@ class documentocontroller
                   VALUES ("'.$tipodocumento.'","'.$Documento.'","'.$Apellidos.'","'.$Nombres.'","'.$Estado.'","'.$Numero.'","'.$Area.'","'.$Descripcion.'",'.$balda.')';
 
                 $num = archivo_class::insertar($sql);
-                echo $num;
+
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+
+                echo json_encode($arr);
                 break;
 
 //IMPORTACIONES
@@ -193,7 +207,11 @@ class documentocontroller
 
                 $num = archivo_class::insertar($sql);
 
-                echo $num;
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+
+                echo json_encode($arr);
+
                 break;
 
 //IMPUESTOS
@@ -211,7 +229,10 @@ class documentocontroller
 
                 $num = archivo_class::insertar($sql);
 
-                echo $num;
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+
+                echo json_encode($arr);
                 break;
 
 //SEGURIDAD SOSIAL
@@ -231,7 +252,11 @@ class documentocontroller
                 VALUES ('".$tipodocumento."',".$balda.",'".$Fecha."','".$documento."','".$empresalaboral."','".$empresadeservicio."',".$Area.",'".$Descripcion."','".$Ciudad."','".$Numero."')";
 
                 $num = archivo_class::insertar($sql);
-                echo $num;
+
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+
+                echo json_encode($arr);
                 break;
 
 //INFORME DE ENTRADA
@@ -249,7 +274,11 @@ class documentocontroller
                 VALUES ('".$tipodocumento."','".$Numero."','".$Sucursa."','".$Proveedor."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
 
                 $num = archivo_class::insertar($sql);
-                echo $num;
+
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+
+                echo json_encode($arr);
                 break;
 
 //NUEVO METODO SOLOCOPI Y PEGAR
@@ -265,7 +294,11 @@ class documentocontroller
 VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
 
                 $num = archivo_class::insertar($sql);
-                echo $num;
+
+                $tabla = archivo_class::table($num);
+                $arr = [$num, $tabla];
+
+                echo json_encode($arr);
                 break;
 
 //NUEVO METODO SOLOCOPI Y PEGAR
@@ -274,4 +307,6 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 break;
         }
     }
+
+
 }

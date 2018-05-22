@@ -176,7 +176,7 @@ return $id;
     // metodo para cambiar el estado de activo a inactivo y vicebersa
     public function acivar()
     {
-        $this->updateRow ("update trasferencia set Estado = ? WHERE Id_trasferencia = ?",array(
+        $this->updateRow ("update trasferencia set Estado = ? WHERE idTrasferencia = ?",array(
         $this->Estado,
         $this->Id_Trasferencia,
         ));

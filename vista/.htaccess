@@ -1,12 +1,22 @@
-
-
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
-RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
 
-RewriteRule ^([^/]+)/([^/]+)/$ /$1/$2.php
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
-RewriteRule (.*)$ /$1/ [R=301,L]
+#redirecionamiento para index
+Rewriterule ^Inicio/Salas$ index/ver_salas.php
+Rewriterule ^Inicio/Filas_(.+)$ index/verfilas.php?fila=$1
+Rewriterule ^Inicio/Login$ index/index.php
+
+
+#redireccionamiento para prestamos
+Rewriterule ^Prestamos/crear$ Prestamos/crear_prestamo.php
+Rewriterule ^Prestamos/devolver_(.+)$ Prestamos/ver_prestamo.php?l=$1
+
+#redireccionamiento para trasferencias
+Rewriterule ^Trasferencia/Crear$ areatrasferencia/creararea.php
+Rewriterule ^Trasferencia/Ver$ areatrasferencia/verarea.php
+
+#redireccionamiento para certificados de desintegracion
+Rewriterule ^Cerificado/Chatarrizacion$ cert_desintegracion/ver_desintegracion.php
+
+

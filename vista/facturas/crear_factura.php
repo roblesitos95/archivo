@@ -180,11 +180,15 @@
             data: data,
             url: "../../Controlador/documentocontroller.php?action=crear&table=Factura",
             type: 'POST',
+            dataType:"JSON",
             success: function (res) {
-                alert("consecutivo numero " + res);
+                alert("consecutivo numero " + res[0]);
+
                 $("#div_chatarra").hide();
                 $('#tipodoc').val("1");
                 $('#myModal').modal('toggle');
+
+                $("#datatable1").append(res[1]);
 
             }
         });

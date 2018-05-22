@@ -159,7 +159,7 @@
 </script>
 
 
-<script src="../assets/lol2/year-select.js"></script>
+<script src="lol2/year-select.js"></script>
 <script type="text/javascript">
     $(document).ready(function(e) {
         $('.yearselect').yearselect();

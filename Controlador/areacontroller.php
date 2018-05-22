@@ -106,7 +106,7 @@ class areacontroller
         try {
             $id = $_GET['id'];
             $arrayarea['Estado'] = 'Inactivo';
-            $arrayarea['Id_Trasferencia'] = $id;
+            $arrayarea['idTrasferencia'] = $id;
             $area = new areaclass($arrayarea);
             $area->acivar();
 
@@ -123,7 +123,7 @@ class areacontroller
         try {
             $id = $_GET['id'];
             $arrayarea['Estado'] = 'Activo';
-            $arrayarea['Id_Trasferencia'] = $id;
+            $arrayarea['idTrasferencia'] = $id;
             $area = new areaclass($arrayarea);
             $area->acivar();
 

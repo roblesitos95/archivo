@@ -818,29 +818,135 @@ demo = {
 
     },
 
-    showSwal: function(type) {
+    showSwal: function(type,lol) {
+
+        var pm = lol.split("-");
+        var pm2 = lol.split("/");
         if (type == 'basic') {
             swal({
-                title: "Here's a message!",
+
+                title:lol,
                 buttonsStyling: false,
-                confirmButtonClass: "btn btn-success"
+                confirmButtonClass: "btn btn-primary"
+            });
+
+        }else if (type == 'basic2') {
+            var text="  <div class=\" col-md-12\">" +
+                "                            <div class=\"card\">" +
+                "                                <div class=\"card-header card-header-text\" data-background-color=\"blue\">" +
+                "                                    <h4 class=\"card-title\">Consecutivos</h4>" +
+                "                                    <p class=\"category\">Consecutivos segun corresponde</p>" +
+                "                                </div>" +
+                "                                <div class=\"card-content table-responsive\">" +
+                "                                    <table class=\"table table-hover\">" +
+                "                                        <thead class=\"text-primary\">" +
+                "                                            <th>Pedido</th>" +
+                "                                            <th>Liquidacion</th>" +
+                "                                        </thead>" +
+                "                                        <tbody>" +
+                "                                            <tr>" +
+                "                                                <td>"+pm2[0]+"</td>" +
+                "                                                <td>"+pm2[1]+"</td>" +
+                "                                            </tr>"+
+                "                                        </tbody>" +
+                "                                    </table>" +
+                "                                </div>" +
+                "                            </div>" +
+                "                        </div> "
+
+            swal({
+
+                title:text,
+                buttonsStyling: false,
+                confirmButtonClass: "btn btn-primary"
             });
 
         } else if (type == 'title-and-text') {
+
             swal({
-                title: "Here's a message!",
-                text: "It's pretty, isn't it?",
+
+
+                text: "<div class=\"row\">" +
+                "                        <div >" +
+                "                            <div class=\"card\">" +
+                "                                <div class=\"card-header card-header-icon\" data-background-color=\"blue\">" +
+                "                                    <span style='font-size: 35px'><i class=\"icon-location2\"></i></span>" +
+                "                                </div>\n" +
+                "                                <div class=\"card-content\">" +
+                "                                    <h4 class=\"card-title\">Ubiacion topografica</h4>" +
+                "                                    <div >" +
+                "                                        <div >" +
+                "                                            <div>" +
+                "                                                <table class=\"table\">" +
+                "                                                    <tbody>" +
+
+                "                                                        <tr>" +
+                "                                                            <td class=\"text-left\">Sala</td>" +
+                "                                                            <td class=\"text-center text-primary\">" + pm[0] +
+                "                                                            </td>" +
+                "                                                        </tr>" +
+
+                "                                                        <tr>" +
+                "                                                            <td class=\"text-left\">Fila</td>" +
+                "                                                            <td class=\"text-center text-primary\">" + pm[1] +
+                "                                                            </td>" +
+                "                                                        </tr>" +
+
+                "                                                        <tr>" +
+                "                                                            <td class=\"text-left\">Cara</td>" +
+                "                                                            <td class=\"text-center text-primary\">" + pm[2] +
+                "                                                            </td>" +
+                "                                                        </tr>" +
+
+                "                                                        <tr>" +
+                "                                                            <td class=\"text-left\">Estante</td>" +
+                "                                                           <td class=\"text-center text-primary\">" + pm[3] +
+                "                                                            </td>" +
+                "                                                        </tr>" +
+
+                "                                                        <tr>" +
+                "                                                            <td class=\"text-left\">Balda</td>" +
+                "                                                            <td class=\"text-center text-primary\">" + pm[4] +
+                "                                                            </td>" +
+                "                                                        </tr>" +
+
+                "                                                        <tr>" +
+                "                                                            <td class=\"text-left\">Archivo Modular</td>" +
+                "                                                            <td class=\"text-center text-primary\">" + pm[5] +
+                "                                                            </td>" +
+                "                                                        </tr>" +
+
+
+
+                "                                                    </tbody>" +
+                "                                                </table>" +
+                "                                            </div>" +
+                "                                        </div>" +
+                "                                    </div>" +
+                "                                </div>" +
+                "                            </div>" +
+                "                        </div>" +
+                "                    </div>",
                 buttonsStyling: false,
-                confirmButtonClass: "btn btn-info"
+                confirmButtonClass: "btn btn-primary"
             });
 
         } else if (type == 'success-message') {
             swal({
-                title: "Good job!",
-                text: "You clicked the button!",
+                title: "Exito!",
+                text: lol,
                 buttonsStyling: false,
-                confirmButtonClass: "btn btn-success",
+                confirmButtonClass: "btn btn-primary",
                 type: "success"
+            });
+
+        }else if (type == 'error-message') {
+            swal({
+                title: "Error",
+                text: lol,
+                buttonsStyling: false,
+                confirmButtonClass: "btn btn-primary",
+                type: "error"
             });
 
         } else if (type == 'warning-message-and-confirmation') {
@@ -1360,14 +1466,13 @@ demo = {
         });
     },
 
-    showNotification: function(from, align) {
+    showNotification: function(from, align,mensaje,color) {
         type = ['', 'info', 'success', 'warning', 'danger', 'rose', 'primary'];
 
-        color = Math.floor((Math.random() * 6) + 1);
 
         $.notify({
-            icon: "notifications",
-            message: "Welcome to <b>Material Dashboard</b> - a beautiful freebie for every web developer."
+            icon: "icon-thumb-tack",
+            message: mensaje,
 
         }, {
             type: type[color],

@@ -649,8 +649,8 @@
             /**
              * Change the pagination - provides the internal logic for pagination in a simple API
              * function. With this function you can have a DataTables table go to the next,
-             * previous, first or last pages.
-             *  @param {string|int} mAction Paging action to take: "first", "previous", "next" or "last"
+             * anterior, first or last pages.
+             *  @param {string|int} mAction Paging action to take: "first", "anterior", "next" or "last"
              *    or page number to jump to (integer), note that page 0 is the first page.
              *  @param {bool} [bRedraw=true] Redraw the table or not
              *  @dtopt API
@@ -833,7 +833,7 @@
             // Extend with old style plug-in API methods
             for (var fn in DataTable.ext.internal) {
                 if (fn) {
-                    this[fn] = _fnExternApiFunc(fn);
+                    this[fn] = _fnexternApiFunc(fn);
                 }
             }
 
@@ -842,7 +842,7 @@
                 // object that can be bashed around
                 var o = {};
                 var oInit = len > 1 ? // optimisation for single table case
-                    _fnExtend(o, options, true) :
+                    _fnextend(o, options, true) :
                     options;
 
                 /*global oInit,_that,emptyInit*/
@@ -894,7 +894,7 @@
                         }
                     }
 
-                    /* If the element we are initialising has the same ID as a table which was previously
+                    /* If the element we are initialising has the same ID as a table which was anteriorly
                      * initialised, but the table nodes don't match (from before) then we destroy the old
                      * instance by simply deleting it. This is under the assumption that the table has been
                      * destroyed by other methods. Anyone using non-id selectors will need to do this manually
@@ -934,7 +934,7 @@
                     _fnLanguageCompat(oInit.oLanguage);
                 }
 
-                // If the length menu is given, but the init display length is not, use the length menu
+                // If the length theme is given, but the init display length is not, use the length theme
                 if (oInit.aLengthMenu && !oInit.iDisplayLength) {
                     oInit.iDisplayLength = $.isArray(oInit.aLengthMenu[0]) ?
                         oInit.aLengthMenu[0][0] : oInit.aLengthMenu[0];
@@ -942,7 +942,7 @@
 
                 // Apply the defaults and init options to make a single init object will all
                 // options defined from defaults and instance options.
-                oInit = _fnExtend($.extend(true, {}, defaults), oInit);
+                oInit = _fnextend($.extend(true, {}, defaults), oInit);
 
 
                 // Map the initialisation options onto the settings object
@@ -980,7 +980,7 @@
                     "renderer",
                     "searchDelay",
                     "rowId", ["iCookieDuration", "iStateDuration"], // backwards compat
-                    ["oSearch", "oPreviousSearch"],
+                    ["oSearch", "oanteriorSearch"],
                     ["aoSearchCols", "aoPreSearchCols"],
                     ["iDisplayLength", "_iDisplayLength"],
                     ["bJQueryUI", "bJUI"]
@@ -3281,7 +3281,7 @@
             }
 
             if (filter) {
-                _fnFilterComplete(settings, settings.oPreviousSearch);
+                _fnFilterComplete(settings, settings.oanteriorSearch);
             } else {
                 // No filtering, so we want to just use the display master
                 settings.aiDisplay = settings.aiDisplayMaster.slice();
@@ -3324,7 +3324,7 @@
 
             /* Loop over the user set positioning and place the elements as needed */
             var aDom = oSettings.sDom.split('');
-            var featureNode, cOption, nNewNode, cNext, sAttr, j;
+            var featureNode, cOption, nNewNode, cnext, sAttr, j;
             for (var i = 0; i < aDom.length; i++) {
                 featureNode = null;
                 cOption = aDom[i];
@@ -3334,11 +3334,11 @@
                     nNewNode = $('<div/>')[0];
 
                     /* Check to see if we should append an id and/or a class name to the container */
-                    cNext = aDom[i + 1];
-                    if (cNext == "'" || cNext == '"') {
+                    cnext = aDom[i + 1];
+                    if (cnext == "'" || cnext == '"') {
                         sAttr = "";
                         j = 2;
-                        while (aDom[i + j] != cNext) {
+                        while (aDom[i + j] != cnext) {
                             sAttr += aDom[i + j];
                             j++;
                         }
@@ -3690,7 +3690,7 @@
                 columns = settings.aoColumns,
                 columnCount = columns.length,
                 features = settings.oFeatures,
-                preSearch = settings.oPreviousSearch,
+                preSearch = settings.oanteriorSearch,
                 preColSearch = settings.aoPreSearchCols,
                 i, data = [],
                 dataProp, column, columnSearch,
@@ -3874,7 +3874,7 @@
             var classes = settings.oClasses;
             var tableId = settings.sTableId;
             var language = settings.oLanguage;
-            var previousSearch = settings.oPreviousSearch;
+            var anteriorSearch = settings.oanteriorSearch;
             var features = settings.aanFeatures;
             var input = '<input type="search" class="' + classes.sFilterInput + '"/>';
 
@@ -3895,12 +3895,12 @@
                 var val = !this.value ? "" : this.value; // mental IE8 fix :-(
 
                 /* Now do the filter */
-                if (val != previousSearch.sSearch) {
+                if (val != anteriorSearch.sSearch) {
                     _fnFilterComplete(settings, {
                         "sSearch": val,
-                        "bRegex": previousSearch.bRegex,
-                        "bSmart": previousSearch.bSmart,
-                        "bCaseInsensitive": previousSearch.bCaseInsensitive
+                        "bRegex": anteriorSearch.bRegex,
+                        "bSmart": anteriorSearch.bSmart,
+                        "bCaseInsensitive": anteriorSearch.bCaseInsensitive
                     });
 
                     // Need to redraw, without resorting
@@ -3916,7 +3916,7 @@
                 0;
 
             var jqFilter = $('input', filter)
-                .val(previousSearch.sSearch)
+                .val(anteriorSearch.sSearch)
                 .attr('placeholder', language.sSearchPlaceholder)
                 .bind(
                     'keyup.DT search.DT input.DT paste.DT cut.DT',
@@ -3939,7 +3939,7 @@
                     // inside an iframe or frame...
                     try {
                         if (jqFilter[0] !== document.activeElement) {
-                            jqFilter.val(previousSearch.sSearch);
+                            jqFilter.val(anteriorSearch.sSearch);
                         }
                     } catch (e) {}
                 }
@@ -3957,7 +3957,7 @@
          *  @memberof DataTable#oApi
          */
         function _fnFilterComplete(oSettings, oInput, iForce) {
-            var oPrevSearch = oSettings.oPreviousSearch;
+            var oPrevSearch = oSettings.oanteriorSearch;
             var aoPrevSearch = oSettings.aoPreSearchCols;
             var fnSaveFilter = function(oFilter) {
                 /* Save the filtering values */
@@ -3995,7 +3995,7 @@
 
             /* Tell the draw function we have been filtering */
             oSettings.bFiltered = true;
-            _fnCallbackFire(oSettings, null, 'search', [oSettings]);
+            _fnCallbackFire(oSettings, null, 'buscar', [oSettings]);
         }
 
 
@@ -4071,7 +4071,7 @@
          */
         function _fnFilter(settings, input, force, regex, smart, caseInsensitive) {
             var rpSearch = _fnFilterCreateSearch(input, regex, smart, caseInsensitive);
-            var prevSearch = settings.oPreviousSearch.sSearch;
+            var prevSearch = settings.oanteriorSearch.sSearch;
             var displayMaster = settings.aiDisplayMaster;
             var display, invalidated, i;
 
@@ -4588,7 +4588,7 @@
         /**
          * Alter the display settings to change the page
          *  @param {object} settings DataTables settings object
-         *  @param {string|int} action Paging action to take: "first", "previous",
+         *  @param {string|int} action Paging action to take: "first", "anterior",
          *    "next" or "last" or page number to jump to (integer)
          *  @param [bool] redraw Automatically draw the update or not
          *  @returns {bool} true page has changed, false - no change
@@ -4608,9 +4608,9 @@
                 if (start > records) {
                     start = 0;
                 }
-            } else if (action == "first") {
+                } else if (action == "first") {
                 start = 0;
-            } else if (action == "previous") {
+            } else if (action == "anterior") {
                 start = len >= 0 ?
                     start - len :
                     0;
@@ -5915,7 +5915,7 @@
                 start: settings._iDisplayStart,
                 length: settings._iDisplayLength,
                 order: $.extend(true, [], settings.aaSorting),
-                search: _fnSearchToCamel(settings.oPreviousSearch),
+                search: _fnSearchToCamel(settings.oanteriorSearch),
                 columns: $.map(settings.aoColumns, function(col, i) {
                     return {
                         visible: col.bVisible,
@@ -5994,7 +5994,7 @@
 
             // Search
             if (state.search !== undefined) {
-                $.extend(settings.oPreviousSearch, _fnSearchToHung(state.search));
+                $.extend(settings.oanteriorSearch, _fnSearchToHung(state.search));
             }
 
             // Columns
@@ -6119,7 +6119,7 @@
          *  @memberof DataTable#oApi
          *  @todo This doesn't take account of arrays inside the deep copied objects.
          */
-        function _fnExtend(out, extender, breakRefs) {
+        function _fnextend(out, extender, breakRefs) {
             var val;
 
             for (var prop in extender) {
@@ -6996,7 +6996,7 @@
          *  * `string` - An action to take:
          *    * `first` - Jump to first page.
          *    * `next` - Jump to the next page
-         *    * `previous` - Jump to previous page
+         *    * `anterior` - Jump to anterior page
          *    * `last` - Jump to the last page.
          * @returns {DataTables.Api} this
          */
@@ -8494,7 +8494,7 @@
             if (input === undefined) {
                 // get
                 return ctx.length !== 0 ?
-                    ctx[0].oPreviousSearch.sSearch :
+                    ctx[0].oanteriorSearch.sSearch :
                     undefined;
             }
 
@@ -8504,7 +8504,7 @@
                     return;
                 }
 
-                _fnFilterComplete(settings, $.extend({}, settings.oPreviousSearch, {
+                _fnFilterComplete(settings, $.extend({}, settings.oanteriorSearch, {
                     "sSearch": input + "",
                     "bRegex": regex === null ? false : regex,
                     "bSmart": smart === null ? true : smart,
@@ -8538,7 +8538,7 @@
                         "bCaseInsensitive": caseInsen === null ? true : caseInsen
                     });
 
-                    _fnFilterComplete(settings, settings.oPreviousSearch, 1);
+                    _fnFilterComplete(settings, settings.oanteriorSearch, 1);
                 });
             }
         );
@@ -9628,7 +9628,7 @@
 
             /**
              * This parameter allows you to readily specify the entries in the length drop
-             * down menu that DataTables shows when pagination is enabled. It can be
+             * down theme that DataTables shows when pagination is enabled. It can be
              * either a 1D array of options which will be used for both the displayed
              * option and the value, or a 2D array which will use the array in the first
              * position as the value, and the array in the second position as the
@@ -9873,7 +9873,7 @@
 
             /**
              * Allows the end user to select the size of a formatted page from a select
-             * menu (sizes are 10, 25, 50 and 100). Requires pagination (`paginate`).
+             * theme (sizes are 10, 25, 50 and 100). Requires pagination (`paginate`).
              *  @type boolean
              *  @default true
              *
@@ -10098,7 +10098,7 @@
              * Enable or disable state saving. When enabled HTML5 `localStorage` will be
              * used to save table display information such as pagination information,
              * display length, filtering and sorting. As such when the end user reloads
-             * the page the display display will match what thy had previously set up.
+             * the page the display display will match what thy had anteriorly set up.
              *
              * Due to the use of `localStorage` the default state saving is not supported
              * in IE6 or 7. If state saving is required in those browsers, use
@@ -10664,7 +10664,7 @@
             /**
              * Number of rows to display on a single page when using pagination. If
              * feature enabled (`lengthChange`) then the end user will be able to override
-             * this to a custom setting using a pop-up menu.
+             * this to a custom setting using a pop-up theme.
              *  @type int
              *  @default 10
              *
@@ -10856,7 +10856,7 @@
                      * Text to use for the 'next' pagination button (to take the user to the
                      * next page).
                      *  @type string
-                     *  @default Next
+                     *  @default next
                      *
                      *  @dtopt Language
                      *  @name DataTable.defaults.language.paginate.next
@@ -10866,36 +10866,36 @@
                      *      $('#example').dataTable( {
                      *        "language": {
                      *          "paginate": {
-                     *            "next": "Next page"
+                     *            "next": "next page"
                      *          }
                      *        }
                      *      } );
                      *    } );
                      */
-                    "sNext": "Next",
+                    "snext": "siguiente",
 
 
                     /**
-                     * Text to use for the 'previous' pagination button (to take the user to
-                     * the previous page).
+                     * Text to use for the 'anterior' pagination button (to take the user to
+                     * the anterior page).
                      *  @type string
-                     *  @default Previous
+                     *  @default anterior
                      *
                      *  @dtopt Language
-                     *  @name DataTable.defaults.language.paginate.previous
+                     *  @name DataTable.defaults.language.paginate.anterior
                      *
                      *  @example
                      *    $(document).ready( function() {
                      *      $('#example').dataTable( {
                      *        "language": {
                      *          "paginate": {
-                     *            "previous": "Previous page"
+                     *            "anterior": "anterior page"
                      *          }
                      *        }
                      *      } );
                      *    } );
                      */
-                    "sPrevious": "Previous"
+                    "santerior": "anterior"
                 },
 
                 /**
@@ -10950,7 +10950,7 @@
                  *      } );
                  *    } );
                  */
-                "sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+                "sInfo": "Mostrando _START_ a _END_ de _TOTAL_ entradas",
 
 
                 /**
@@ -11074,7 +11074,7 @@
 
 
                 /**
-                 * Detail the action that will be taken when the drop down menu for the
+                 * Detail the action that will be taken when the drop down theme for the
                  * pagination length option is changed. The '_MENU_' variable is replaced
                  * with a default select list of 10, 25, 50 and 100, and can be replaced
                  * with a custom select box if required.
@@ -11111,7 +11111,7 @@
                  *      } );
                  *    } );
                  */
-                "sLengthMenu": "Show _MENU_ entries",
+                "sLengthMenu": "Mostrar _MENU_ entradas",
 
 
                 /**
@@ -11135,7 +11135,7 @@
                  *      } );
                  *    } );
                  */
-                "sLoadingRecords": "Loading...",
+                "sLoadingRecords": "Cargando...",
 
 
                 /**
@@ -11249,7 +11249,7 @@
                  *      } );
                  *    } );
                  */
-                "sZeroRecords": "No matching records found"
+                "sZeroRecords": "No se encontraron registros coincidentes"
             },
 
 
@@ -11395,10 +11395,10 @@
              * DataTables features four different built-in options for the buttons to
              * display for pagination control:
              *
-             * * `simple` - 'Previous' and 'Next' buttons only
-             * * 'simple_numbers` - 'Previous' and 'Next' buttons, plus page numbers
-             * * `full` - 'First', 'Previous', 'Next' and 'Last' buttons
-             * * `full_numbers` - 'First', 'Previous', 'Next' and 'Last' buttons, plus
+             * * `simple` - 'anterior' and 'next' buttons only
+             * * 'simple_numbers` - 'anterior' and 'next' buttons, plus page numbers
+             * * `full` - 'First', 'anterior', 'next' and 'Last' buttons
+             * * `full_numbers` - 'First', 'anterior', 'next' and 'Last' buttons, plus
              *   page numbers
              *
              * Further methods can be added using {@link DataTable.ext.oPagination}.
@@ -12729,7 +12729,7 @@
              *  @namespace
              *  @extends DataTable.models.oSearch
              */
-            "oPreviousSearch": {},
+            "oanteriorSearch": {},
 
             /**
              * Store the applied search for each column - see
@@ -13089,7 +13089,7 @@
             "fnFormatNumber": null,
 
             /**
-             * List of options that can be used for the user selectable length menu.
+             * List of options that can be used for the user selectable length theme.
              * Note that this parameter will be set by the initialisation routine. To
              * set a default use {@link DataTable.defaults}.
              *  @type array
@@ -13574,7 +13574,7 @@
              *
              * * `first` - Jump to first page when activated
              * * `last` - Jump to last page when activated
-             * * `previous` - Show previous page when activated
+             * * `anterior` - Show anterior page when activated
              * * `next` - Show next page when activated
              * * `{int}` - Show page of the index given
              * * `{array}` - A nested array containing the above elements to add a
@@ -13590,9 +13590,9 @@
              *  @default {}
              *
              *  @example
-             *    // Show previous, next and current page buttons only
+             *    // Show anterior, next and current page buttons only
              *    $.fn.dataTableExt.oPagination.current = function ( page, pages ) {
-             *      return [ 'previous', page, 'next' ];
+             *      return [ 'anterior', page, 'next' ];
              *    };
              */
             pager: {},
@@ -14027,11 +14027,11 @@
 
         $.extend(extPagination, {
             simple: function(page, pages) {
-                return ['previous', 'next'];
+                return ['anterior', 'next'];
             },
 
             full: function(page, pages) {
-                return ['first', 'previous', 'next', 'last'];
+                return ['first', 'anterior', 'next', 'last'];
             },
 
             numbers: function(page, pages) {
@@ -14039,11 +14039,11 @@
             },
 
             simple_numbers: function(page, pages) {
-                return ['previous', _numbers(page, pages), 'next'];
+                return ['anterior', _numbers(page, pages), 'next'];
             },
 
             full_numbers: function(page, pages) {
-                return ['first', 'previous', _numbers(page, pages), 'next', 'last'];
+                return ['Principio', 'anterior', _numbers(page, pages), 'next', 'Ultima'];
             },
 
             // For testing and plug-ins to use
@@ -14090,14 +14090,14 @@
                                             '' : ' ' + classes.sPageButtonDisabled);
                                         break;
 
-                                    case 'previous':
-                                        btnDisplay = lang.sPrevious;
+                                    case 'anterior':
+                                        btnDisplay = lang.santerior;
                                         btnClass = button + (page > 0 ?
                                             '' : ' ' + classes.sPageButtonDisabled);
                                         break;
 
                                     case 'next':
-                                        btnDisplay = lang.sNext;
+                                        btnDisplay = lang.snext;
                                         btnClass = button + (page < pages - 1 ?
                                             '' : ' ' + classes.sPageButtonDisabled);
                                         break;
@@ -14519,7 +14519,7 @@
          *  @returns {function} wrapped function
          *  @memberof DataTable#internal
          */
-        function _fnExternApiFunc(fn) {
+        function _fnexternApiFunc(fn) {
             return function() {
                 var args = [_fnSettingsFromNode(this[DataTable.ext.iApiIndex])].concat(
                     Array.prototype.slice.call(arguments)
@@ -14537,7 +14537,7 @@
          *  @namespace
          */
         $.extend(DataTable.ext.internal, {
-            _fnExternApiFunc: _fnExternApiFunc,
+            _fnexternApiFunc: _fnexternApiFunc,
             _fnBuildAjax: _fnBuildAjax,
             _fnAjaxUpdate: _fnAjaxUpdate,
             _fnAjaxParameters: _fnAjaxParameters,
@@ -14919,14 +14919,14 @@
                                 '' : ' disabled');
                             break;
 
-                        case 'previous':
-                            btnDisplay = lang.sPrevious;
+                        case 'anterior':
+                            btnDisplay = lang.santerior;
                             btnClass = button + (page > 0 ?
                                 '' : ' disabled');
                             break;
 
                         case 'next':
-                            btnDisplay = lang.sNext;
+                            btnDisplay = lang.snext;
                             btnClass = button + (page < pages - 1 ?
                                 '' : ' disabled');
                             break;

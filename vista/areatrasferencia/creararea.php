@@ -219,7 +219,6 @@ if(isset($_SESSION['sesion'])){
         </div>
     </div>
 </div>
-<a class="btn btn-primary" href="../../upload/0bc742210a0eea9f2038ec175f46ed41.pdf" target="_blank"></a>
 
 
 
