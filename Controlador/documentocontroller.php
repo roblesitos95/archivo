@@ -224,7 +224,7 @@ class documentocontroller
                 $Area = $_POST["area"];
                 $Descripcion = $_POST["Descripcion"];
 
-                $sql = "INSERT INTO archivos(Tipo_Documento,Documento,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
+                $sql = "INSERT INTO archivos(Tipo_Documento,Numero,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
                 VALUES ('".$tipodocumento."','".$Documento."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
 
                 $num = archivo_class::insertar($sql);

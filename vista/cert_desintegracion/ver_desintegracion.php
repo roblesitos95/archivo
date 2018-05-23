@@ -66,62 +66,7 @@ if(isset($_SESSION['sesion'])){
                             <?php
                             $arrimportacion = archivo_class::getAll("Cert_Desintegracion");
                                     ?>
-                                <div class="card-header card-header-icon" data-background-color="blue">
-                                    <span style="font-size: 30px"><i class=" icon-truck"></i></span>
-                                </div>
-                                <div class="card-content">
-                                <h4 class="card-title">Certificados de desintegracion </h4>
-                                <div class="toolbar">
-                                    <!--        Here you can write extra buttons/actions for the toolbar              -->
-                                </div>
-                                <div class="material-datatables">
-                                <table id="datatables" class="table table-striped table-no-bordered table-hover"
-                                       cellspacing="0" width="100%" style="width:100%">
-                                <thead>
-                                <tr>
-                                    <th>Documento-Numero</th>
-                                    <th>Placa</th>
-                                    <th>Clase</th>
-                                    <th>Fecha</th>
-                                    <th>Más</th>
-                                </tr>
-                                </thead>
 
-                                <tbody>
-
-
-
-                                    <tr>
-                                        <td>ca,m</td>
-                                        <td>hjghj</td>
-                                        <td>fdgfdfgdg</td>
-                                        <td>fgh</td>
-
-                                        <td>
-                                            <button type="button"
-                                                    onclick="demo.showSwal('basic','1')"
-                                                    rel="tooltip" title="Ver Descripcion"
-                                                    class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
-                                                <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
-                                            </button>
-                                            <button type="button"
-                                                    onclick="demo.showSwal('title-and-text','2')"
-                                                    rel="tooltip" title="Ver Ubicacion"
-                                                    class="btn btn-primary btn-xs btn-simple hvr-bounce-in hvr-radial-out " >
-                                                <span style="font-size: 15px"><i class="icon-location2"></i></span>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Editar"
-                                                    class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
-                                                <a href="../../Controlador/desintegracioncontroller.php?action=editar&id=k">
-                                                    <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
-                                            </button>
-                                        </td>
-
-                                    </tr>
-                                </tbody>
-                                </table>
-                                </div>
-                                </div>
 
 
                             <!-- end content-->
@@ -134,6 +79,47 @@ if(isset($_SESSION['sesion'])){
             </div>
         </div>
 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#datatables').DataTable({
+                "pagingType": "full_numbers",
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "Todos"]
+                ],
+                responsive: true,
+                language: {
+                    sProcessing:     "Procesando...",
+                    sLengthMenu:     "Mostrar _MENU_ registros",
+                    sZeroRecords:    "No se encontraron resultados",
+                    sEmptyTable:     "Ningún dato disponible en esta tabla",
+                    sInfo:           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    sInfoEmpty:      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    sInfoFiltered:   "(filtrado de un total de _MAX_ registros)",
+                    sInfoPostFix:    "",
+                    sSearch:         "Buscar:",
+                    sUrl:            "",
+                    sInfoThousands:  ",",
+                    sLoadingRecords: "Cargando...",
+                    oPaginate: {
+                        sFirst:    "Primero",
+                        sLast:     "Último",
+                        sNext:     "Siguiente",
+                        sPrevious: "Anterior"
+                    },
+                    oAria: {
+                        sSortAscending:  ": Activar para ordenar la columna de manera ascendente",
+                        sSortDescending: ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
+
+            });
+
+            $('.card .material-datatables label').addClass('form-group');
+        });
+
+
+    </script>
 
 
 

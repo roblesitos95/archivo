@@ -32,25 +32,35 @@ class prestamoscontroller extends mysqli
     private static function crear()
     {
         try {
-            $arrayprestamo = array();
-            $arrayprestamo['Solicitante'] = $_POST['Solicitante'];
-            $arrayprestamo['Documento'] = $_POST['Documento'];
-            $arrayprestamo['Fecha_Envio'] = $_POST['Fecha_Envio'];
-            $arrayprestamo['Area'] = $_POST['Area'];
-            $arrayprestamo['Destinatario'] = $_POST['Destinatario'];
-            $arrayprestamo['Numero_Guia'] = $_POST['N_Guia'];
-            $arrayprestamo['Observaciones'] = $_POST['Observaciones'];
-            $arrayprestamo['Estado'] = "Prestado";
-            $arrayprestamo ['Ubicacion'] = $_POST['Sala'] . "-" . $_POST['Fila'] . "-" . $_POST['Cara'] . "-" . $_POST['Estante'] . "-" . $_POST['Balda'] . "-" . $_POST['Arcivo_Modular'];
+            $Solicitante = $_POST['Solicitante'];
+            $Archivos_id_Archivos = $_POST['carpeta'];
+            $Fecha_Envio = $_POST['Fechaenvio'];
+            $Destinatario = $_POST['Destinatario'];
+            $Numero_Guia = $_POST['N_Guia'];
+            $Observaciones = $_POST['Observaciones'];
+            $Estado = $_POST["estado"];
 
-            $area = new prestamosclass($arrayprestamo);
-            $area->insertar();
+            $sql="INSERT INTO prestamos   (Archivos_id_Archivos,Solicitante,Fecha_Envio,Destinatario,Numero_Guia,Observaciones)
+  values (".$Archivos_id_Archivos.",'".$Solicitante."','".$Fecha_Envio."','".$Destinatario."','".$Numero_Guia."','".$Observaciones."')";
+            $conexion= new mysqli("localhost","root","","bd_documentacion","3306");
 
-            header('Location:../vista/Prestamos/crear_prestamo.php?respuesta=correcto');
+
+            if ($conexion->query($sql) === true) {
+
+                $sql="UPDATE archivos SET estado = '". $Estado."' WHERE id_Archivos =".$Archivos_id_Archivos;
+                $conexion->query($sql);
+
+                header("location:Location:../vista/Inicio/Salas");
+            } else {
+
+                echo "Error  N: ".$sql."<br>".$conexion->error;
+
+            }
+
         } catch (Exception $e) {
             echo $e->getMessage();
 
-            // header('Location:../vista/Prestamos/crear_prestamo.php?respuesta=error');
+            header('Location:../vista/Prestamos/devolver_'.base64_encode("todos"));
 
         }
     }
@@ -71,11 +81,11 @@ class prestamoscontroller extends mysqli
                 $area->devolver();
 
 
-                header('Location:../vista/Prestamos/ver_prestamo.php?l=' . base64_encode("todos") . '&respuesta=correcto');
+                header('Location:../vista/Prestamos/devolver_' . base64_encode("todos"));
             } catch (Exception $e) {
                 echo $e->getMessage();
 
-                // header('Location:../vista/Prestamos/ver_prestamo.php?l='.base64_encode("todos").'&respuesta=error');
+                header('Location:../vista/Prestamos/devolver_'.base64_encode("todos"));
 
             }
         }
@@ -184,6 +194,7 @@ class prestamoscontroller extends mysqli
         //metodo auxiliar para pruebas
     }
 
+
     private static function select()
     {
         $tipo = $_POST["tipo"];
@@ -197,10 +208,11 @@ class prestamoscontroller extends mysqli
         $sql = "SELECT * FROM archivos WHERE  Tipo_Documento=\"" . $tipo . "\"";
         $con->set_charset("utf8");
         $result = mysqli_query($con, $sql);
-        $option = "<select class=\"form-control\" required  id=\"tipo\">
-                                                <option selected disabled value=\"\" >Seleccione...</option>";
+        $option = "<select class=\"form-control\" required  id=\"carpeta\" name='carpeta' lang=\"es\">
+        <optgroup label=\"busque por numero o por consecutivo \">
+        <option selected disabled value=\"\" >Seleccione...</option>";
         while ($row = mysqli_fetch_array($result)) {
-            $option .= "<option value='" . $row["id_Archivos"] . "'>" . $row["Numero"] . "</option>";
+            $option .= "<option value='" . $row["id_Archivos"] . "'>"."(".$row["id_Archivos"] .")-" . $row["Numero"] . "</option>";
         }
         $option .= "</select>";
 

@@ -91,9 +91,9 @@ require("../theme/head.php");
             <div class="cd-form">
 
                 <div class="cd-more-info">
-                    <h1 style="font-size:30px ">Necesitas ayuda</h1>
+                    <h1 style="font-size:25px ">Necesitas ayuda</h1>
                     <br>
-                    <h4>Seleccione una de las dos cara para ver sus respectivos Estantes</h4>
+                    <h6>Seleccione una de las dos cara para ver sus respectivos Estantes</h6>
                 </div>
 
                 <form action="">
@@ -145,9 +145,9 @@ require("../theme/head.php");
                             </div>
                         </div>
 
-                        <div class="card">
+                        <div class="card" style="background-color: rgba(241,241,241,0.6)">
                             <div class="col-md-12">
-                                <div class="card">
+
                                     <div class="card-header">
 
                                     </div>
@@ -193,7 +193,7 @@ require("../theme/head.php");
 
                                         </div>
                                     </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

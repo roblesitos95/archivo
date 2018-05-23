@@ -87,7 +87,7 @@ if(isset($_SESSION['sesion'])){
                                         <div class="col-sm-7">
                                             <div class="form-group label-floating">
                                                 <label class="control-label"></label>
-                                                <input type="text" name="Fecha" id="Fecha" class="form-control" data-provide="datepicker" data-date-format="yyyy-mm-dd" value="<?php echo date("Y-m-d"); ?> " />
+                                                <input type="text" name="Fechaenvio" id="Fechaenvio" class="form-control" data-provide="datepicker" data-date-format="yyyy-mm-dd" value="<?php echo date("Y-m-d"); ?> " />
                                             </div>
                                         </div>
                                     </div>
@@ -102,15 +102,15 @@ if(isset($_SESSION['sesion'])){
                                                 <option selected disabled value="" >Seleccione...</option>
                                                 <option value="Cert_Desintegracion">Certificado de desintegracion</option>
                                                 <option value="Contratos">Contratos</option>
-                                                <option value="Documento_Contable">Documento contable</option>
-                                                <option value="Escrituras">Escrituras</option>
-                                                <option value="Facturas">Facturas</option>
-                                                <option value="Historias_Laborales">Historias Laborales</option>
-                                                <option value="Importaciones">Importaciones</option>
+                                                <option value="Doc_Contable">Documento contable</option>
+                                                <option value="Escritura">Escrituras</option>
+                                                <option value="Factura">Facturas</option>
+                                                <option value="Historia_laboral">Historias Laborales</option>
+                                                <option value="Importacion">Importaciones</option>
                                                 <option value="Impuestos">Impuestos</option>
                                                 <option value="Seguridad_Social">Seguridad Social</option>
-                                                <option value="Informes_de_Entrada">Informes de Entrada</option>
-                                                <option value="Libros_Oficiales">Libros Oficiales</option>
+                                                <option value="Informe_Entrada">Informes de Entrada</option>
+                                                <option value="Libro_oficial">Libros Oficiales</option>
                                             </select>
                                             </div>
                                         </div>
@@ -119,23 +119,31 @@ if(isset($_SESSION['sesion'])){
 
                                     <!----------------------------- Consecutivo de liquidacion de la importacion------------------------------>
 
-                                    <div class="row">
-                                        <label class="col-sm-2 label-on-left">Transferencia</label>
+                                    <div class="row" id="he" style="display: none">
+                                        <label class="col-sm-2 label-on-left">Expediente</label>
                                         <div class="col-sm-7">
                                             <div class="form-group label-floating"  id="documento">
-                                                <label class="control-label"></label>
 
-                                                <select class="form-control" required onchange="select()" id="tipo">
-                                                    <option selected disabled value="" >Seleccione...</option>
-
-
-                                                </select>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!--------------------------------- fecha de la importacion------------------------------>
 
+
+                                    <div class="row">
+                                        <label class="col-sm-2 label-on-left">Soporte</label>
+                                        <div class="col-sm-7">
+                                            <div class="form-group label-floating">
+                                                <label class="control-label"></label>
+                                                <select class="form-control" id="estado" name="estado">
+                                                    <option value="" selected disabled>Seleccione...</option>
+                                                    <option value="toda">Expediente</option>
+                                                    <option value="unidad">Folio</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
                                     <!----------------------------- Consecutivo de pedido de la importacion------------------------------>
@@ -172,62 +180,9 @@ if(isset($_SESSION['sesion'])){
                                         </div>
                                     </div>
 
-                                    <!----------------------------- Ubicacion topografica de la importacion------------------------------>
+                                    <!----------------------------- Consecutivo de pedido de la importacion------------------------------>
 
 
-                                    <div class="row">
-                                        <label class="col-sm-2 label-on-left">Ubicacion Topografica</label>
-                                        <div class="col-sm-10">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label"></label>
-                                                        <input type="text" class="form-control" placeholder="Sala" name="Sala" id="Sala" >
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-3">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label"></label>
-                                                        <input type="text" name="Fila" id="Fila" class="form-control" placeholder="Fila">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-3">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label"></label>
-                                                        <input type="text" class="form-control" name="Cara" id="Cara" placeholder="Cara">
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="col-sm-10">
-                                            <div class="row">
-                                                <div class="col-md-3">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label"></label>
-                                                        <input type="text" class="form-control" placeholder="Estante" name="Estante" id="Estante">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-3">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label"></label>
-                                                        <input type="text" class="form-control" placeholder="Balda" name="Balda" id="Balda">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-md-3">
-                                                    <div class="form-group label-floating is-empty">
-                                                        <label class="control-label"></label>
-                                                        <input type="text" class="form-control" placeholder="Archivo modular" name="Arcivo_Modular" id="Arcivo_Modular">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 <div class="card-footer text-center">
@@ -250,7 +205,9 @@ if(isset($_SESSION['sesion'])){
 <a href=""></a>
             </div>
 
+    <script href=""></script>
 <script>
+
     function select(){
         document.getElementById("documento").innerHTML="";
         var tipo = $("#tipo").val();
@@ -263,10 +220,16 @@ if(isset($_SESSION['sesion'])){
             type:"POST",
             dataType:"JSON",
             success:function (respuesta) {
+                $("#he").show();
               $("#documento").append(respuesta);
+                $('#carpeta').select2({
+                    lenguage:'es',
+                });
             }
         });
     }
+
+
 
 </script>
 

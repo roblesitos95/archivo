@@ -33,8 +33,8 @@
     <!--  estyle animate -->
     <link rel="stylesheet" href="../assets/css/animate.css">
 
-
     <link rel="stylesheet" href="../assets/select2/dist/css/select2.min.css">
+    <link rel="stylesheet" href="../assets/select2/dist/js/i18n/es.js">
 <!-- Finally you need to add one of the following classes:
 
 Class Name {bounce,   flash,   pulse,   rubberBand,   shake,   headShake,   swing,   tada,   wobble,   jello,   bounceIn,   bounceInDown,   bounceInLeft
@@ -50,9 +50,6 @@ slideOutRight,   slideOutUp }
     <link rel="stylesheet" href="../assets/css/css/bootstrap-datepicker3.css">
 
 
-    <link href="../assets/chat-master/style.css" rel="stylesheet">
-
-    <script src="../assets/chat-master/script.js"></script>
 
 
 

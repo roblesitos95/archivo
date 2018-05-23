@@ -39,6 +39,7 @@
 
 
 
+<script type="text/javascript" charset="utf8" src="../assets/datatables/datatables.js"></script>
 
 <!-- select de años por combobox-->
 <script src="../assets/lol2/year-select.js"></script>
@@ -75,8 +76,7 @@
 <script src="../assets/js/nouislider.min.js"></script>
 <!--  Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
 <script src="../assets/js/jquery.select-bootstrap.js"></script>
-<!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
-<script src="../assets/js/jquery.datatables.js"></script>
+
 <!-- Sweet Alrt 2 plugin, full documentation here: https://limonte.github.io/sweetalert2/ -->
 <script src="../assets/js/sweetalert2.js"></script>
 <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
@@ -113,53 +113,8 @@
     });
 </script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#datatables').DataTable({
-            "pagingType": "full_numbers",
-            "lengthMenu": [
-                [10, 25, 50, -1],
-                [10, 25, 50, "All"]
-            ],
-            responsive: true,
-            language: {
-                search: "_INPUT_",
-                searchPlaceholder: "Search records",
-            }
 
-        });
-
-
-        var table = $('#datatables').DataTable();
-
-        // Edit record
-        table.on('click', '.edit', function() {
-            $tr = $(this).closest('tr');
-
-            var data = table.row($tr).data();
-            alert('You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.');
-        });
-
-        // Delete a record
-        table.on('click', '.remove', function(e) {
-            $tr = $(this).closest('tr');
-            table.row($tr).remove().draw();
-            e.preventDefault();
-        });
-
-        //Like record
-        table.on('click', '.like', function() {
-            alert('You clicked on Like button');
-        });
-
-        $('.card .material-datatables label').addClass('form-group');
-    });
-
-
-</script>
-
-
-<script src="lol2/year-select.js"></script>
+<script src="../assets/lol2/year-select.js"></script>
 <script type="text/javascript">
     $(document).ready(function(e) {
         $('.yearselect').yearselect();

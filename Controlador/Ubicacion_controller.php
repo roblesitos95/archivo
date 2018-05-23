@@ -40,7 +40,7 @@ class Ubicacion_controller
         }
     }
 
-    //motodo para crear una nueva fila
+    // metodo para mostrar los estantes
     private static function Estante()
     {
         //Obtenemos los valores por metodo post
@@ -91,11 +91,13 @@ class Ubicacion_controller
                             <div class="col-lg-3 col-md-6 col-sm-6 animated fadeIn">
                             <div class="card card-stats">
                                 <div class="card-header" data-background-color="blue">
-                                    <span style="font-size: 12px"><i class="icon-tags"></i></span>
+                                    <span style="font-size: 8px"><i class="icon-tags"></i></span>
                                 </div>
+                                <br>
+                                <br>
                                 <div class="card-content">
                                     <p class="category"></p>
-                                    <h3 class="card-title">'.$Nombre.'</h3>
+                                    <h6 class="card-title">'.$Nombre.'</h6>
                                 </div>
                                 <div class="card-footer">
                                     <button type="button"
@@ -122,18 +124,20 @@ class Ubicacion_controller
             if ($Nombre == "") {
 
             } else {
-                $b .= '<div class="col-lg-3 col-md-6 col-sm-6 animated fadeIn">
+                $b .= '
+                            <div class="col-lg-3 col-md-6 col-sm-6 animated fadeIn">
                             <div class="card card-stats">
                                 <div class="card-header" data-background-color="blue">
-                                    <span style="font-size: 12px"><i class="icon-tags"></i></span>
+                                    <span style="font-size: 8px"><i class="icon-tags"></i></span>
                                 </div>
+                                <br>
+                                <br>
                                 <div class="card-content">
                                     <p class="category"></p>
-                                    <h3 class="card-title">'.$Nombre.'</h3>
+                                    <h6 class="card-title">'.$Nombre.'</h6>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="stats">
-                                       <button type="button"
+                                    <button type="button"
                                     onclick="showbaldas('.$fila_estante.')"
                                                                     rel="tooltip" title="Ver Baldas"
                                                                     class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
@@ -155,7 +159,7 @@ class Ubicacion_controller
         echo json_encode($arr);
     }
 
-    // metodo para mostrar los estantes
+    //motodo para crear una nueva fila
     private static function newe()
     {
         //optenemos la Sala en done se va a agregar la fila
@@ -207,7 +211,7 @@ class Ubicacion_controller
             $L = "<div id=\"".$id."\"  class=\"col-md-4 animated zoomInUp\">
                 <li class=\"fil\">
                     <header class=\"cd-pricing-header\">
-                        <h2>".$Nombre."</h2>
+                            <h2>".$Nombre."</h2>
                     </header>
                     <br>
                     <footer class=\"cd-pricing-footer\"> 
@@ -265,23 +269,25 @@ class Ubicacion_controller
             $fila_estante = $row['idfila_estante'];
 
             //Creamos la vista para enviar como respuesta
-            $L = '<div class="col-lg-3 col-md-6 col-sm-6 animated fadeIn">
+            $L = '
+                            <div class="col-lg-3 col-md-6 col-sm-6 animated fadeIn">
                             <div class="card card-stats">
                                 <div class="card-header" data-background-color="blue">
-                                    <span style="font-size: 12px"><i class="icon-tags"></i></span>
+                                    <span style="font-size: 8px"><i class="icon-tags"></i></span>
                                 </div>
+                                <br>
+                                <br>
                                 <div class="card-content">
                                     <p class="category"></p>
-                                    <h3 class="card-title">'.$Nombre.'</h3>
+                                    <h6 class="card-title">'.$Nombre.'</h6>
                                 </div>
                                 <div class="card-footer">
-                                    <div class="stats">
-                                     <button type="button"
-                                      onclick="showbaldas('.$fila_estante.')"
-                                      rel="tooltip" title="Ver Baldas"
-                                      class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
-                                      <span style="font-size: 10px"><i class="icon-table"></i> ver Baldas</span>
-                                     </button>
+                                    <button type="button"
+                                    onclick="showbaldas('.$fila_estante.')"
+                                                                    rel="tooltip" title="Ver Baldas"
+                                                                    class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                                                <span style="font-size: 10px"><i class="icon-table"></i> ver Baldas</span>
+                                                            </button>
                                     </div>
                                 </div>
                             </div>
@@ -315,24 +321,26 @@ class Ubicacion_controller
             $idestante = $row["fila_estante_idfila_estante"];
             $idestantebalda = $row["idestante_balda"];
 
-            $res .= '<div class="col-lg-3 col-md-6 col-sm-6 animated flipInX"  >
-                        <div class="card card-stats">
+            $res .= '<div class="col-lg-4  col-sm-6 animated flipInX"  >
+                        <div class="card card-stats" >
 
-                        <a  href="#pill2" data-toggle="tab" onclick="showam('.$idestantebalda.')" class="btn btn-xs btn-primary">
-                        <div class="card-content"  >
+                         <div class="card-content text-center" >
+                         <a  style="height: 50px; width: 100px;"  href="#pill2" data-toggle="tab" onclick="showam('.$idestantebalda.')" class="btn btn-xs btn-primary">
+                       
                             <p class="category"></p>
-                            <h3 class="text-center">'.$nombre.'</h3>
-                        </div></a>
+                            <h6 class="text-center">'.$nombre.'</h6>
+                            </a>
+                        </div>
 
                     </div>
                 </div>  ';
         }
-        $res .= ' <div class="col-lg-3 col-md-6 col-sm-6 animated fadeIn"  id="addbalda" >
+        $res .= ' <div class="col-lg-4 col-md-6 col-sm-6 animated fadeIn"  id="addbalda" >
                         <div class="card card-stats">
 
                         <div class="card-content" >
                             <a  onclick="addbalda('.$balda.')">
-                                <span class="btn btn-primary" ><i class="icon-plus"> Agregar balda </i></span>
+                                <span style="height: 50px; width: 100px;" class="btn btn-primary" ><i class="icon-plus"> Agregar</i></span>
                             </a>
                         </div>
 
@@ -384,12 +392,13 @@ class Ubicacion_controller
             $idestantebalda = $row["idestante_balda"];
 
             //Creamos la vista para enviar como respuesta
-            $L = "<div class=\"col-lg-3 col-md-6 col-sm-6 animated fadeIn\"  >
+            $L = "<div class=\"col-lg-4 col-md-6 col-sm-6 animated fadeIn\"  >
                         <div class=\"card card-stats\">
-
-                               <a  href=\"#pill2\" data-toggle=\"tab\" onclick=\"showam(".$idestantebalda.")\" class=\"btn btn-xs btn-primary\"><div class=\"card-content\"  >
+                            <div class=\"card-content text-center \"  >
+                            <a  style=\"height: 50px; width: 100px;\"  href=\"#pill2\" data-toggle=\"tab\" onclick=\"showam('.$idestantebalda.')\" class=\"btn btn-xs btn-primary\">
                             <p class=\"category\"></p>
-                            <h3 class=\"text-center\">".$nombre."</h3>
+                            <h6 class=\"text-center\">$nombre</h6>
+                            </a>
                         </div></a>
 
                     </div>
@@ -426,25 +435,27 @@ class Ubicacion_controller
             $res .= '<div class="col-lg-3 col-md-6 col-sm-6 animated flipInX"  >
                         <div class="card card-stats">
 
-                     <a  href="#pill3" onclick="showarchivos('.$idestante.')" data-toggle="tab" class="btn btn-xs btn-primary">
                         <div class="card-content"  >
+                        
+                     <a  href="#pill3" onclick="showarchivos('.$idestante.')" data-toggle="tab" class="btn btn-xs btn-primary" style="height: 50px; width: 80px;">
                             <p class="category"></p>
-                            <h3 class="text-center">  '.$nombre.'</h3>
+                            <h5 class="text-center">  '.$nombre.'</h5>
+                             </a>
                         </div>
-                        </a>
+                       
 
                     </div>
                 </div>';
         }
-        $res .= '<div class="col-lg-3 col-md-6 col-sm-6 animated flipInX" id="btnadd">
-                        <div class="card card-stats">
-
-                        <a onclick="addam('.$balda.');" class="btn btn-xs btn-primary">
-                        <div class="card-content"  >
+        $res .= '<div class="col-lg-4 col-md-6 col-sm-6  animated flipInX" id="btnadd">
+                        <div class="card">
+                        <div class="card-content" >
+                          <a onclick="addam('.$balda.');" class="btn btn-xs btn-primary"  style="height: 50px; width: 112px;">
                             <p class="category"></p>
-                            <h3 class="text-center"><i class="icon-plus"> Agregar</i></h3>
+                            <h5 class="text-center"><i class="icon-plus"> Agregar</i></h5>
+                             </a>
                         </div>
-                        </a>
+                       
                     
                     </div>
                 </div>';
@@ -574,7 +585,9 @@ class Ubicacion_controller
 
         while ($row = mysqli_fetch_array($result)) {
             $class = "";
-            if ($row["estado"] == "prestado") {
+            if ($row["estado"] == "toda") {
+                $class = "info";
+            } else if ($row["estado"] == "unidad") {
                 $class = "warning";
             }
             $table .= "<tr class='".$class."'>
@@ -588,24 +601,5 @@ class Ubicacion_controller
         echo json_encode($arr);
     }
 
-    public static function table()
-    {
-        $las = " <link href='../assets/popover/css/bootstrap-popover-x.css' media='all' rel='stylesheet' type='text/css'/>
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
-<script src='../assets/popover/js/bootstrap-popover-x.js' type='text/javascript'></script>
-        
-                 <button TYPE='' class='btn btn-primary' style='margin-right:15px' data-toggle='popover-x' data-target='#myPopover1a' data-placement='bottom'>
-                 Primary
-                 </button>
-                 
-                 <div id='myPopover1a' class='popover popover-x popover-primary'>
-                 <div class='arrow'></div>
-                 <h3 class='popover-header popover-title'>
-                 <span class='close pull-right' data-dismiss='popover-x'>&times;</span>Title</h3>
-                 <div class='popover-body popover-content'>
-                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
-                   massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                 </div>
-                 </div>";
-    }
+
 }

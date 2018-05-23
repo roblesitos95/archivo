@@ -8,7 +8,7 @@
 
 require_once ('db_abstract_class.php');
 
-class prestamosclass extends db_abstract_class
+class prestamosclass extends mysqli
 {
     private $idPrestamos;
     private $Solicitante;
@@ -22,6 +22,7 @@ class prestamosclass extends db_abstract_class
     private $Observaciones;
     private $Ubicacion;
     private $Estado;
+    private $Archivos_id_Archivos;
 
 
 
@@ -47,6 +48,7 @@ class prestamosclass extends db_abstract_class
             $this->Observaciones = "";
             $this->Ubicacion = "";
             $this->Estado= "";
+            $this->Archivos_id_Archivos= "";
         }
     }
 
@@ -92,7 +94,7 @@ class prestamosclass extends db_abstract_class
 
     public function insertar()
     {
-        $this->insertRow("insert into Prestamos (Solicitante, Documento, Fecha_Envio, Area, Destinatario, Numero_Guia, Estado, Ubicacion, Observaciones)VALUE (?, ?, ?, ?, ?, ?, ? , ? ,? )",array(
+        $this->insertRow("insert into Prestamos (Solicitante, Archivos_id_Archivos, Fecha_Envio, Area, Destinatario, Numero_Guia, Observaciones)VALUE (?, ?, ?, ?, ?, ?, ? ,? )",array(
                 $this->Solicitante,
                 $this->Documento,
                 $this->Fecha_Envio,
@@ -134,6 +136,22 @@ class prestamosclass extends db_abstract_class
             $this->idPrestamos,
         ));
         $this->Disconnect();}
+
+    /**
+     * @return string
+     */
+    public function getArchivosIdArchivos()
+    {
+        return $this->Archivos_id_Archivos;
+    }
+
+    /**
+     * @param string $Archivos_id_Archivos
+     */
+    public function setArchivosIdArchivos($Archivos_id_Archivos)
+    {
+        $this->Archivos_id_Archivos = $Archivos_id_Archivos;
+    }
 
     protected function eliminar($id)
     {
