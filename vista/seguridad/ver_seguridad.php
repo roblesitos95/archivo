@@ -7,7 +7,7 @@ if(isset($_SESSION['sesion'])){
 
     <?php require("../theme/head.php");?>
 <?php require("../theme/menuizquierdo.php");?>
-<?php require_once('../../modelo/seguridadclass.php');?>
+<?php require_once('../../modelo/archivo_class.php');?>
 
 
 
@@ -36,40 +36,6 @@ if(isset($_SESSION['sesion'])){
                 <div class="col-md-12">
                     <div class="card">
 
-                        <?php
-                        $arrayfactura = seguridadclass::getAll();
-                        if (count($arrayfactura)>=1){
-                            ?>
-                            <div class="card-header card-header-icon" data-background-color="blue">
-                                <span style="font-size: 35px"><i class="icon-universal-access"></i></span>
-                            </div>
-
-                        <?php if(!empty($_GET['respuesta'])){ ?>
-                        <?php if ($_GET['respuesta'] == "correcto"){ ?>
-
-                            <script>
-                                window.onload=function() {
-                                    var mensaje = "La seguridad social se a editado exitosamente";
-                                    demo.showSwal('success-message',mensaje)
-                                    var color = 2;
-                                    //demo.showNotification('top','center',mensaje,color);
-                                }
-                            </script>
-
-                        <?php }else {?>
-
-                            <script>
-                                window.onload=function() {
-                                    var mensaje = "La escritura no se a editado por favor intente de nuevo";
-                                    demo.showSwal('error-message',mensaje)
-                                    var color = 2;
-                                    //demo.showNotification('top','center',mensaje,color);
-                                }
-                            </script>
-
-                        <?php } ?>
-                        <?php } ?>
-
                             <div class="card-content">
                                 <h4 class="card-title">Documentacion Seguridad Social </h4>
                                 <div class="toolbar">
@@ -92,75 +58,13 @@ if(isset($_SESSION['sesion'])){
 
                                         </tfoot>
                                         <tbody>
-
-
                                         <?php
-                                        foreach ($arrayfactura as $factura) {
-                                            ?>
-                                            <tr>
-                                                <td><?php echo $factura->getDocumento(); ?></td>
-                                                <td><?php echo $factura->getEmpresadeservicio(); ?></td>
-                                                <td><?php echo $factura->getEmpresalaboral(); ?></td>
-                                                <td><?php echo $factura->getCiudad(); ?></td>
-                                                <td><?php echo $factura->getFecha(); ?></td>
-
-                                                <td>
-                                                    <button type="button"
-                                                            onclick="demo.showSwal('basic','<?php echo $factura->getDescripcion(); ?>')"
-                                                            rel="tooltip" title="Ver Descripcion"
-                                                            class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
-                                                        <span style="font-size: 15px"><i class="icon-list-ul"></i></span>
-                                                    </button>
-
-                                                    <button type="button"
-                                                            onclick="demo.showSwal('title-and-text','<?php echo $factura->getUbicacion(); ?>')"
-                                                            rel="tooltip" title="Ver Ubicacion"
-                                                            class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
-                                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
-                                                    </button>
-
-                                                    <button type="button"
-                                                            onclick="demo.showSwal('basic','<?php echo $factura->getNumeropatronal(); ?>')"
-                                                            rel="tooltip" title="Ver Numero patronal"
-                                                            class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
-                                                        <span style="font-size: 15px"><i class="icon-slack"></i></span>
-                                                    </button>
-
-                                                    <button type="button" rel="tooltip" title="Editar"
-                                                                     class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
-                                                        <a href="../../Controlador/seguridadcontroller.php?action=editar&id=<?php echo $factura->getIdSeguridad(); ?>"><i
-                                                            <span style="font-size: 15px"><i class="icon-pencil2"></i></span>
-                                                    </button>
-
-                                                </td>
-
-                                            </tr>
-
-                                            <?php
-                                        }?>
-
+                                        $arrimportacion = archivo_class::getAll("Seguridad_social");
+                                        ?>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                        <?php }
-                        else{ ?>
-
-                            <div class="card-header card-header-icon" data-background-color="blue">
-                                <i class="material-icons">priority_high</i>
-                            </div>
-                            <div class="card-content"  >
-                                <h4 class="card-title"></h4>
-                                <div class="card-content col-md-6">
-                                    <div class="alert alert-primary" >
-                                        <span > En el momento no se encuentran documentos en estado de prestamo </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <?php
-                        }
-                        ?>
 
                         <!-- end content-->
                     </div>
@@ -171,7 +75,47 @@ if(isset($_SESSION['sesion'])){
             <!-- end row -->
         </div>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#datatables').DataTable({
+                "pagingType": "full_numbers",
+                "lengthMenu": [
+                    [10, 25, 50, -1],
+                    [10, 25, 50, "Todos"]
+                ],
+                responsive: true,
+                language: {
+                    sProcessing:     "Procesando...",
+                    sLengthMenu:     "Mostrar _MENU_ registros",
+                    sZeroRecords:    "No se encontraron resultados",
+                    sEmptyTable:     "Ningún dato disponible en esta tabla",
+                    sInfo:           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    sInfoEmpty:      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    sInfoFiltered:   "(filtrado de un total de _MAX_ registros)",
+                    sInfoPostFix:    "",
+                    sSearch:         "Buscar:",
+                    sUrl:            "",
+                    sInfoThousands:  ",",
+                    sLoadingRecords: "Cargando...",
+                    oPaginate: {
+                        sFirst:    "Primero",
+                        sLast:     "Último",
+                        sNext:     "Siguiente",
+                        sPrevious: "Anterior"
+                    },
+                    oAria: {
+                        sSortAscending:  ": Activar para ordenar la columna de manera ascendente",
+                        sSortDescending: ": Activar para ordenar la columna de manera descendente"
+                    }
+                }
 
+            });
+
+            $('.card .material-datatables label').addClass('form-group');
+        });
+
+
+    </script>
 <?php require("../theme/pie.php");?>
     <?php
 }

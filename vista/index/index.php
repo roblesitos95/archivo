@@ -40,13 +40,22 @@
     slideOutRight,   slideOutUp }
 
     -->
-
-
+    <style>
+    #imagenfondo{
+        width: 100% ; /* en porcentaje (el highlight del foro lo trasforma) */
+        height: 100%;
+        top:0;
+        left:0;
+        position:fixed;
+        z-index: -1;   ;
+    }
+    </style>
 </head>
 
 <body>
+<img src="../index/assets/img/diaco.JPG" id="imagenfondo">
 <div class="wrapper wrapper-full-page">
-    <div class=" login-page" filter-color="black" data-image="../index/assets/img/diaco.JPG">
+    <div class=" login-page" filter-color="black" >
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="content">
             <div class="container">

@@ -182,6 +182,6 @@ if(isset($_SESSION['sesion'])){
 }
 else{
 
-    header('Location: ../index/index');
+    header('Location:../Inicio/Login');
 
 } ?>

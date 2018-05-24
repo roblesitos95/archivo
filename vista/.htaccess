@@ -1,11 +1,13 @@
 RewriteEngine On
 RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-
+
 
 #redirecionamiento para index
 Rewriterule ^Inicio/Salas$ index/ver_salas.php
 Rewriterule ^Inicio/Filas_(.+)$ index/verfilas.php?fila=$1
 Rewriterule ^Inicio/Login$ index/index.php
+Rewriterule ^Inicio/registrer$ index/registrer.php
 
 
 #redireccionamiento para prestamos
@@ -17,6 +19,34 @@ Rewriterule ^Trasferencia/Crear$ areatrasferencia/creararea.php
 Rewriterule ^Trasferencia/Ver$ areatrasferencia/verarea.php
 
 #redireccionamiento para certificados de desintegracion
-Rewriterule ^Cerificado/Chatarrizacion$ cert_desintegracion/ver_desintegracion.php
+Rewriterule ^Documentos/Chatarrizacion$ cert_desintegracion/ver_desintegracion.php
 
+#redireccionamiento para Contratos
+Rewriterule ^Documentos/Contratos$ Contratos/ver_contratos.php
+
+
+#redireccionamiento para docuemtnos contables
+Rewriterule ^Documentos/Contables$ contables/ver_contable.php
+
+#redireccionamiento para Escrituras
+Rewriterule ^Documentos/Escrituras$ Escrituras/ver_escrituras.php
+
+#redireccionamiento para Facturas
+Rewriterule ^Documentos/Facturas$ facturas/ver_factura.php
+
+#redireccionamiento para Historias Laborales
+Rewriterule ^Documentos/HHLL$ histlaborales/ver_historias_laborales.php
+
+#redireccionamiento para Importaciones
+Rewriterule ^Documentos/Importaciones$ importaciones/ver.php
+
+#redireccionamiento para impuestos
+Rewriterule ^Documentos/Impuestos$ Impuestos/ver_impuestos.php
+
+#redireccionamiento para impuestos
+Rewriterule ^Documentos/Seguridadsocial seguridad/ver_seguridad.php
+
+
+Options -Indexes
+ErrorDocument 404 /archivo/vista/error/404/index.html
 

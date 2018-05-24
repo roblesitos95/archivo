@@ -122,7 +122,7 @@
                     <div class="collapse" id="certidesen">
                         <ul class="nav">
                             <li id="vercerticha">
-                                <a href="../Cerificado/Chatarrizacion">
+                                <a href="../Documentos/Chatarrizacion">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver listado</span>
                                 </a>
@@ -143,14 +143,8 @@
 
                     <div class="collapse" id="contratos">
                         <ul class="nav">
-                            <li id="crearcontratos">
-                                <a href="../Contratos/crear_contratos">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Contratos</span>
-                                </a>
-                            </li>
                             <li id="vercontratos">
-                                <a href="../Contratos/ver_contratos">
+                                <a href="../Documentos/Contratos">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Contratos</span>
                                 </a>
@@ -171,14 +165,8 @@
 
                     <div class="collapse" id="contable">
                         <ul class="nav">
-                            <li id="crearcontable">
-                                <a href="../contables/crear_contable">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Doc. contable</span>
-                                </a>
-                            </li>
                             <li id="vercontable">
-                                <a href="../contables/ver_contable">
+                                <a href="../Documentos/Contables">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Doc. contables</span>
                                 </a>
@@ -199,14 +187,8 @@
 
                     <div class="collapse" id="escrituras">
                         <ul class="nav">
-                            <li id="cse">
-                                <a href="../Escrituras/crear_escrituras">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Escrituras</span>
-                                </a>
-                            </li>
                             <li id="verescrituras">
-                                <a href="../Escrituras/ver_escrituras">
+                                <a href="../Documentos/Escrituras">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Escrituras</span>
                                 </a>
@@ -227,14 +209,9 @@
 
                     <div class="collapse" id="Facturas">
                         <ul class="nav">
-                            <li id="crearfactura">
-                                <a href="../facturas/crear_factura">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Facturas</span>
-                                </a>
-                            </li>
+                        <ul class="nav">
                             <li id="verfactura">
-                                <a href="../facturas/ver_factura">
+                                <a href="../Documentos/Facturas">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Facturas</span>
                                 </a>
@@ -252,17 +229,10 @@
                             <b class="caret"></b>
                         </p>
                     </a>
-
                     <div class="collapse" id="laborales">
                         <ul class="nav">
-                            <li id="crearlaborales">
-                                <a href="../Contratos/crear_contratos">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Historias Laborales</span>
-                                </a>
-                            </li>
                             <li id="verlaborales">
-                                <a href="../Contratos/ver_contratos">
+                                <a href="../Documentos/HHLL">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Historias Laborales</span>
                                 </a>
@@ -282,14 +252,8 @@
                     </a>
                     <div class="collapse" id="comercioexterior">
                         <ul class="nav">
-                            <li id="crearimport">
-                                <a href="../importaciones/cuerpo">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Importacion</span>
-                                </a>
-                            </li>
                             <li id="verimport">
-                                <a href="../importaciones/ver">
+                                <a href="../Documentos/Importaciones">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Importacioes</span>
                                 </a>
@@ -310,14 +274,8 @@
                     </a>
                     <div class="collapse" id="impuestos">
                         <ul class="nav">
-                            <li id="crearimpuestos">
-                                <a href="../Impuestos/crear_impuesto">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Impuestos</span>
-                                </a>
-                            </li>
                             <li id="verimpuestos">
-                                <a href="../Impuestos/ver_impuestos">
+                                <a href="../Documentos/Impuestos">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Impuestos</span>
                                 </a>
@@ -338,14 +296,8 @@
                     </a>
                     <div class="collapse" id="seguridad">
                         <ul class="nav">
-                            <li id="craesocial">
-                                <a href="../seguridad/crearseguridadsocial">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Seguridad Social</span>
-                                </a>
-                            </li>
                             <li id="versocial">
-                                <a href="../seguridad/ver_seguridad">
+                                <a href="../Documentos/Seguridadsocial">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Seguridad Social</span>
                                 </a>

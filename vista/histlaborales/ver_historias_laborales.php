@@ -1,26 +1,28 @@
 <?php
 
 session_start();
-if (isset($_SESSION['sesion'])) {
+if(isset($_SESSION['sesion'])){
 
     ?>
 
-    <?php require("../theme/head.php"); ?>
-    <?php require("../theme/menuizquierdo.php"); ?>
-    <?php require_once('../../modelo/archivo_class.php'); ?>
+    <?php require("../theme/head.php");?>
+    <?php require("../theme/menuizquierdo.php");?>
+    <?php require_once('../../modelo/archivo_class.php');?>
     <script>
-        window.onload = function () {
-            var element = document.getElementById("verimport");
+        window.onload=function() {
+            var element = document.getElementById("verlaborales");
             element.classList.add("active");
         }
     </script>
+
+
 
     <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container-fluid">
 
             <div class="navbar-header">
 
-                <a class="navbar-brand" href="#"> Lista de Importaciones </a>
+                <a class="navbar-brand" href="#"> Lista de Historias laborales </a>
             </div>
 
         </div>
@@ -32,13 +34,11 @@ if (isset($_SESSION['sesion'])) {
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-
-
                         <div class="card-header card-header-icon" data-background-color="blue">
-                            <span style="font-size: 30px"><i class="icon-coin-dollar"></i></span>
+                            <span style="font-size: 30px"><i class="icon-shopping-cart"></i></span>
                         </div>
                         <div class="card-content">
-                            <h4 class="card-title">Importaciones </h4>
+                            <h4 class="card-title"> Historias Laborales </h4>
                             <div class="toolbar">
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                             </div>
@@ -48,19 +48,20 @@ if (isset($_SESSION['sesion'])) {
                                     <thead>
                                     <tr>
                                         <th>Consecutivo</th>
+                                        <th>Cedula</th>
+                                        <th>Apellido</th>
                                         <th>Nombre</th>
-                                        <th>Fecha</th>
-                                        <th>Liquidacion</th>
-                                        <th>Pedido</th>
+                                        <th>Estado</th>
+                                        <th>Numero de Historia</th>
                                         <th>Descripcion</th>
-                                        <th>Acciones</th>
+                                        <th>Mas</th>
                                     </tr>
                                     </thead>
+
                                     <tbody>
                                     <?php
-                                    $arrimportacion = archivo_class::getAll("Importacion");
+                                    $arrimportacion = archivo_class::getAll("Historia_laboral");
                                     ?>
-
                                     </tbody>
                                 </table>
                             </div>
@@ -76,6 +77,7 @@ if (isset($_SESSION['sesion'])) {
             <!-- end row -->
         </div>
     </div>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#datatables').DataTable({
@@ -120,10 +122,10 @@ if (isset($_SESSION['sesion'])) {
 
     </script>
 
-    <?php require("../theme/pie.php"); ?>
-
+    <?php require("../theme/pie.php");?>
     <?php
-} else {
+}
+else{
 
     header('Location: ../index/index.php');
 

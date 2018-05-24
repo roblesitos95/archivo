@@ -17,8 +17,8 @@ class documentocontroller
             documentocontroller::crear($table);
         } elseif ($action == "editar") {
             documentocontroller::editar();
-        } elseif ($action == "saludo") {
-            documentocontroller::saludo();
+        } elseif ($action == "ver") {
+            documentocontroller::ver();
         } elseif ($action == "inactivo") {
             documentocontroller::inactivo();
         } elseif ($action == "activo") {
@@ -306,6 +306,18 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
 
                 break;
         }
+    }
+
+    public static function ver(){
+       $prueba= array(
+           "data1"=>"vista",
+           "data2"=>"controller",
+       );
+
+        $url=serialize($prueba);
+
+        header('Location:../vista/Cerificado/Chatarrizacion');
+
     }
 
 

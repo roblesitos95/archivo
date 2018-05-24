@@ -54,37 +54,49 @@ class archivo_class extends mysqli
         // TODO: Implement buscar() method.
     }
 
-    public static function getAll()
+    /**
+     * @param $tipo
+     */
+    public static function getAll($tipodocu)
     {
-    $table=' <div class="card-header card-header-icon" data-background-color="blue">
-                  <span style="font-size: 30px"><i class=" icon-truck"></i></span>
-             </div>
-              
-             <div class="card-content">
-                 <h4 class="card-title">Certificados de desintegracion </h4>
-             <div class="toolbar">
-             <div class="card-content">
-             <div class="material-datatables">
-                 <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Documento-Numero</th>
-                                    <th>Placa</th>
-                                    <th>Clase</th>
-                                    <th>Fecha</th>
-                                    <th>Más</th>
-                            </tr>
-                        </thead>
+        $con = mysqli_connect('localhost', 'root', '', 'bd_documentacion');
+        if (! $con) {
+            die('Error no se pudo conectar : '.mysqli_error($con));
+        }
+        mysqli_select_db($con, "ajax_demo");
 
-                        <tbody>
-                             <tr>
-                                <td>numero</td>
-                                <td>Placa</td>
-                                <td>Clase</td>
-                                <td>Fecha</td>
+
+
+        $sql = "SELECT * FROM archivos WHERE Tipo_Documento='".$tipodocu."'";
+        $con->set_charset("utf8");
+        $result = mysqli_query($con, $sql);
+        $table = "";
+
+        switch ($tipodocu) {
+            //certificado de desintegracion
+            case "Cert_Desintegracion":
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Documento"].'</td>
+                                <td>'.$row["Numero"].'</td>
+                                <td>'.$row["Placa"].'</td>
+                                <td>'.$row["Clase"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
                                 <td>
                                    <button type="button"
-                                   onclick="demo.showSwal("basic","getDescripcion()")"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
                                    rel="tooltip" title="Ver Descripcion"
                                    class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
                                    <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
@@ -92,20 +104,344 @@ class archivo_class extends mysqli
                                              
                                    <button type="button" rel="tooltip" title="Editar"
                                    class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
-                                   <a href="../../Controlador/desintegracioncontroller.php?action=editar&id=<?php echo $ipmort->getIdCertificado(); ?>">
                                    <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
                                    </button>
                                             
                                 </td>
                              </tr>
-                        </tbody>
-                 </table>
-             </div>
-                                </div>';
+                 ';
+                }
+                break;
+
+            //Contratos
+            case "Contratos":
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["Empresa"].'</td>
+                                <td>'.$row["Numero"].'</td>
+                                <td>'.$row["Contratista"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
+                break;
+
+
+            //documentos contables
+            case "Doc_Contable":
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["Documento"].'</td>
+                                <td>'.$row["Numero"].'</td>
+                                <td>'.$row["Contratista"].'</td>
+                                <td>'.$row["NIT"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["factura"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
+                break;
+
+
+            //Escrituras
+            case "Escritura":
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Numero"].'</td>
+                                <td>'.$row["Notaria"].'</td>
+                                <td>'.$row["De"].'</td>
+                                <td>'.$row["A"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
+                break;
+
+
+            //Facturas
+            case "Factura":
+
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Numero"].'</td>
+                                <td>'.$row["Contratista"].'</td>
+                                <td>'.$row["NIT"].'</td>
+                                <td>'.$row["Tipo"].'</td>
+                                <td>'.$row["Documento"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
+
+                break;
+
+
+            //historias laborales
+            case "Historia_laboral":
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Documento"].'</td>
+                                <td>'.$row["Apellidos"].'</td>
+                                <td>'.$row["Nombres"].'</td>
+                                <td>'.$row["Tipo"].'</td>
+                                <td>'.$row["Numero"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                           
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
+
+                break;
+
+
+            //importaciones
+            case"Importacion":
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Documento"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["Liquidacion"].'</td>
+                                <td>'.$row["Pedido"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                           
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
+                break;
+
+
+            //impuestos
+            case"Impuestos":
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Numero"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                           
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
+                break;
+
+             //seguridad social
+            case "Seguridad_social";
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Numero"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                           
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
+                break;
+            case "info_entrada";
+                echo "../info_entrada/crear_info_entrada.php?balda=".$balda;
+                break;
+            case "Libros_Oficiales";
+                echo "../Libros_Oficiales/crear_libro.php?balda=".$balda;
+                break;
+        }
+
+
 
     echo $table;
-
     }
+
 
     Public function insertar($sql)
     {
