@@ -13,7 +13,7 @@ if(isset($_SESSION['sesion'])){
 
     <script>
         window.onload=function() {
-            var element = document.getElementById("creardevolucion");
+            var element = document.getElementById("versocial");
             element.classList.add("active");
         }
     </script>
@@ -46,11 +46,13 @@ if(isset($_SESSION['sesion'])){
                                            cellspacing="0" width="100%" style="width:100%">
                                         <thead>
                                         <tr>
+                                            <th>Consecutivo</th>
                                             <th>Documento</th>
+                                            <th>Numero patronal</th>
                                             <th>Prestadora de Servicio</th>
                                             <th>Empresa Laboral</th>
-                                            <th>Ciudad</th>
                                             <th>Fecha</th>
+                                            <th>Descripcion</th>
                                             <th>Mas</th>
                                         </tr>
                                         </thead>

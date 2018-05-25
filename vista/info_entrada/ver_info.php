@@ -6,34 +6,34 @@ if(isset($_SESSION['sesion'])){
     ?>
 
     <?php require("../theme/head.php");?>
-<?php require("../theme/menuizquierdo.php");?>
-<?php require_once('../../modelo/archivo_class.php');?>
+    <?php require("../theme/menuizquierdo.php");?>
+    <?php require_once('../../modelo/archivo_class.php');?>
 
-<script>
-    window.onload=function() {
-        var element = document.getElementById("verimpuestos");
-        element.classList.add("active");
-    }
-</script>
+    <script>
+        window.onload=function() {
+            var element = document.getElementById("verinforme");
+            element.classList.add("active");
+        }
+    </script>
 
 
-<nav class="navbar navbar-transparent navbar-absolute">
-    <div class="container-fluid">
+    <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container-fluid">
 
-        <div class="navbar-header">
+            <div class="navbar-header">
 
-            <a class="navbar-brand" href="#"> Lista de Impuestos </a>
+                <a class="navbar-brand" href="#"> Informe de Entrada</a>
+            </div>
+
         </div>
-
-    </div>
-</nav>
+    </nav>
 
 
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
 
 
 
@@ -41,7 +41,7 @@ if(isset($_SESSION['sesion'])){
                             <span style="font-size: 30px"><i class="icon-money">  </i></span>
                         </div>
                         <div class="card-content">
-                            <h4 class="card-title">Impuestos</h4>
+                            <h4 class="card-title">Informe de Entrada</h4>
                             <div class="toolbar">
                                 <!--        Here you can write extra buttons/actions for the toolbar              -->
                             </div>
@@ -51,15 +51,17 @@ if(isset($_SESSION['sesion'])){
                                     <thead>
                                     <tr>
                                         <th>Consecutivo</th>
-                                        <th>Documento</th>
+                                        <th>Numero</th>
+                                        <th>Sucursal</th>
+                                        <th>Proveedor</th>
                                         <th>Fecha</th>
-                                        <th>Descripcion</th>
+                                        <th>Descrpcion</th>
                                         <th>Mas</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
-                                    $arrimportacion = archivo_class::getAll("Impuestos");
+                                    $arrimportacion = archivo_class::getAll("Informe_Entrada");
                                     ?>
                                     </tbody>
                                 </table>
@@ -67,15 +69,15 @@ if(isset($_SESSION['sesion'])){
                         </div>
 
 
-                    <!-- end content-->
+                        <!-- end content-->
+                    </div>
+                    <!--  end card  -->
                 </div>
-                <!--  end card  -->
+                <!-- end col-md-12 -->
             </div>
-            <!-- end col-md-12 -->
+            <!-- end row -->
         </div>
-        <!-- end row -->
     </div>
-</div>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#datatables').DataTable({
@@ -122,7 +124,7 @@ if(isset($_SESSION['sesion'])){
 
 
 
-<?php require("../theme/pie.php");?>
+    <?php require("../theme/pie.php");?>
     <?php
 }
 else{

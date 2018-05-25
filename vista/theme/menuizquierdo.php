@@ -317,14 +317,8 @@
                     </a>
                     <div class="collapse" id="infoentrada">
                         <ul class="nav">
-                            <li id="craesocial">
-                                <a href="../seguridad/crearseguridadsocial">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Info. Entrada</span>
-                                </a>
-                            </li>
-                            <li id="versocial">
-                                <a href="ver">
+                            <li id="verinforme">
+                                <a href="../Documentos/InformeEntrada">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Info. Entrada</span>
                                 </a>
@@ -344,14 +338,8 @@
                     </a>
                     <div class="collapse" id="libroentrada">
                         <ul class="nav">
-                            <li id="crearlibro">
-                                <a href="../seguridad/crearseguridadsocial">
-                                    <span class="sidebar-mini"><i class="icon-save"></i></span>
-                                    <span class="sidebar-normal">Crear Libro Oficial</span>
-                                </a>
-                            </li>
-                            <li id="crearlibro">
-                                <a href="ver">
+                            <li id="verlibro">
+                                <a href="../Documentos/libroOficiales">
 
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Libro Oficial</span>

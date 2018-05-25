@@ -43,8 +43,15 @@ Rewriterule ^Documentos/Importaciones$ importaciones/ver.php
 #redireccionamiento para impuestos
 Rewriterule ^Documentos/Impuestos$ Impuestos/ver_impuestos.php
 
-#redireccionamiento para impuestos
-Rewriterule ^Documentos/Seguridadsocial seguridad/ver_seguridad.php
+#redireccionamiento para Seguridad social
+Rewriterule ^Documentos/Seguridadsocial$ seguridad/ver_seguridad.php
+
+#redireccionamiento para informe entrada
+Rewriterule ^Documentos/InformeEntrada$ info_entrada/ver_info.php
+
+
+#redireccionamiento para informe entrada
+Rewriterule ^Documentos/libroOficiales$ Libros_Oficiales/ver_libros.php
 
 
 Options -Indexes

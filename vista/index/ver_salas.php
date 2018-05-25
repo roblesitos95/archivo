@@ -79,7 +79,6 @@ if(isset($_SESSION['sesion'])){
                     <?php
                 }?>
             </div>
-<a href="../../Controlador/documentocontroller.php?action=ver" type="button" class="btn btn-primary">HOLa</a>
 
             <script>
                 function descirp(id) {

@@ -394,7 +394,7 @@ class archivo_class extends mysqli
                 break;
 
              //seguridad social
-            case "Seguridad_social";
+            case "Seguridad_social":
                 while ($row = mysqli_fetch_array($result)) {
 
                     $class ="";
@@ -407,10 +407,13 @@ class archivo_class extends mysqli
                     $table.='   
                              <tr class="'.$class.'">
                                 <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Documento"].'</td>
                                 <td>'.$row["Numero"].'</td>
+                                <td>'.$row["Contratista"].'</td>
+                                <td>'.$row["Empresa"].'</td>
                                 <td>'.$row["fecha"].'</td>
                                 <td>'.$row["Descripcion"].'</td>
-                           
+                                
                                 <td>
                                    <button type="button"
                                    onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
@@ -429,11 +432,81 @@ class archivo_class extends mysqli
                  ';
                 }
                 break;
-            case "info_entrada";
-                echo "../info_entrada/crear_info_entrada.php?balda=".$balda;
+
+             //Informe_Entrada
+            case "Informe_Entrada":
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Numero"].'</td>
+                                <td>'.$row["Ciudad"].'</td>
+                                <td>'.$row["Contratista"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                                
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
                 break;
-            case "Libros_Oficiales";
-                echo "../Libros_Oficiales/crear_libro.php?balda=".$balda;
+
+            //Libro_oficial
+            case "Libro_oficial":
+                while ($row = mysqli_fetch_array($result)) {
+
+                    $class ="";
+                    if ($row["estado"] == "toda") {
+                        $class = "danger";
+                    } else if ($row["estado"] == "unidad") {
+                        $class = "warning";
+                    }
+
+                    $table.='   
+                             <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
+                                <td>'.$row["Empresa"].'</td>
+                                <td>'.$row["fecha"].'</td>
+                                <td>'.$row["Descripcion"].'</td>
+                                
+                                <td>
+                                   <button type="button"
+                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   rel="tooltip" title="Ver Descripcion"
+                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
+                                   </button>
+                                             
+                                   <button type="button" rel="tooltip" title="Editar"
+                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
+                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
+                                   </button>
+                                            
+                                </td>
+                             </tr>
+                 ';
+                }
                 break;
         }
 
