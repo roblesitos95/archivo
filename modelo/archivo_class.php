@@ -67,7 +67,7 @@ class archivo_class extends mysqli
 
 
 
-        $sql = "SELECT * FROM archivos WHERE Tipo_Documento='".$tipodocu."'";
+        $sql = "select archivos.id_Archivos, archivos.Documento,archivos.Numero, archivos.Placa, archivos.Clase, archivos.fecha, trasferencia.archivo, archivos.Descripcion, archivos.estado FROM archivos INNER JOIN trasferencia on archivos.Trasferencia = trasferencia.idTrasferencia where Tipo_Documento='".$tipodocu."'";
         $con->set_charset("utf8");
         $result = mysqli_query($con, $sql);
         $table = "";
@@ -92,21 +92,20 @@ class archivo_class extends mysqli
                                 <td>'.$row["Placa"].'</td>
                                 <td>'.$row["Clase"].'</td>
                                 <td>'.$row["fecha"].'</td>
-                                <td>'.$row["fecha"].'</td>
                                 <td>'.$row["Descripcion"].'</td>
                                 <td>
-                                   <button type="button"
-                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
-                                   rel="tooltip" title="Ver Descripcion"
-                                   class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
-                                   <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>
-                                   </button>
-                                             
-                                   <button type="button" rel="tooltip" title="Editar"
-                                   class="btn btn-warning btn-simple btn-xs  hvr-bounce-in hvr-radial-out ">
-                                   <span style="font-size: 15px"><i class="icon-pencil2"></i></span></a>
-                                   </button>
-                                            
+                                     <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        <a href="'.$row["archivo"].'" target="_blank">
+                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        </a>
+                                     </button> 
+                                 
+                                     <button type="button" onclick="ver(\''.$tipodocu.'\',\''.$row["id_Archivos"].'\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-pencil2"></i></span>
+                                        
+                                     </button> 
+                                     
                                 </td>
                              </tr>
                  ';
@@ -134,7 +133,7 @@ class archivo_class extends mysqli
                                 <td>'.$row["Descripcion"].'</td>
                                 <td>
                                    <button type="button"
-                                   onclick="demo.showSwal("basic",'.$row["Descripcion"].')"
+                                   onclick="ver()"
                                    rel="tooltip" title="Ver Descripcion"
                                    class="btn btn-primary btn-simple btn-xs hvr-bounce-in hvr-radial-out ">
                                    <span style="font-size: 15px"><i class="icon-list-ul    "></i></span>

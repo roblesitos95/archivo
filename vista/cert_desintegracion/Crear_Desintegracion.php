@@ -1,6 +1,40 @@
 <?php require_once('../../modelo/areaclass.php'); ?>
 
+<?php
+if (isset($_GET["archivo"])){
 
+    //iniciamos la conexion
+    $con = mysqli_connect('localhost', 'root', '', 'bd_documentacion');
+    if (! $con) {
+        die('Error no se pudo conectar : '.mysqli_error($con));
+    }
+    mysqli_select_db($con, "ajax_demo");
+
+    //creamos y ejecutamos la query
+    $sql = "SELECT Archivos.Documento , archivos.Numero, archivos.Placa, Archivos.Clase, Archivos.fecha, Archivos.descripcion
+ FROM archivos where id_Archivos=".$_GET["archivo"];
+        $con->set_charset("utf8");
+    $result = mysqli_query($con, $sql);
+
+    //recorremos el result de la query
+    while ($row = mysqli_fetch_array($result)) {
+        //Obtenemos la maxima fil en la sala
+    }
+
+    $documento;
+    $Numero;
+    $Placa;
+    $Clase;
+    $Fecha;
+    $Area;
+    $descrpcion;
+
+
+    require_once ('../../Controlador/documentocontroller.php');
+
+
+}
+?>
 <div class="card">
     <form id="TypeValidation" class="form-horizontal" method="post">
         <div class="card-header card-header-text" data-background-color="blue">

@@ -82,7 +82,6 @@ if (isset($_SESSION['sesion'])){
                                             <th>Placa</th>
                                             <th>Clase</th>
                                             <th>Fecha</th>
-                                            <th>Trasferncia</th>
                                             <th>Descripcion</th>
                                             <th>Más</th>
                                         </tr>
@@ -107,6 +106,33 @@ if (isset($_SESSION['sesion'])){
                 <!-- end row -->
             </div>
         </div>
+        </div>
+        </div>
+
+
+
+        <div class="container">
+            <h2>Modal Login Example</h2>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="div-cont">
+                        <div id="form"> </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
         <script type="text/javascript">
             $(document).ready(function () {
@@ -149,6 +175,33 @@ if (isset($_SESSION['sesion'])){
                 $('.card .material-datatables label').addClass('form-group');
             });
 
+function ver(tipo,id) {
+
+    var data2 = {
+        "Tipo": tipo,
+        "id": id,
+    };
+    $.ajax({
+        data: data2,
+        url: '../../Controlador/documentocontroller.php?action=editar', //archivo que recibe la peticion
+        type: 'POST',
+
+        success: function (respuesta) {
+
+            $("#form").load(respuesta);
+            $("#myModal").modal();
+
+        }
+    });
+
+}
+
+
+            $(document).ready(function(){
+                $("#myBtn").click(function(){
+
+                });
+            });
 
         </script>
 

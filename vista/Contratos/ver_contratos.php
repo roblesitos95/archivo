@@ -51,6 +51,7 @@ if (isset($_SESSION['sesion'])) {
                                        cellspacing="0" width="100%" style="width:100%">
                                     <thead>
                                     <tr>
+                                        <th>Consecitivo</th>
                                         <th>Nombre Empresa</th>
                                         <th>Numero</th>
                                         <th>Contratista</th>

@@ -4,17 +4,18 @@
 //recibir una accion y enviarla al menu
 if (! empty($_GET['action'])) {
     require_once("../modelo/archivo_class.php");
-    documentocontroller::main($_GET['action'], $_GET['table']);
+    documentocontroller::main($_GET['action']);
 } else {
     echo "lol";
 }
 
 class documentocontroller
 {
-    public static function main($action, $table)
+    public static function main($action)
+
     {
         if ($action == "crear") {
-            documentocontroller::crear($table);
+            documentocontroller::crear($_GET["table"]);
         } elseif ($action == "editar") {
             documentocontroller::editar();
         } elseif ($action == "ver") {
@@ -318,6 +319,56 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
 
         header('Location:../vista/Cerificado/Chatarrizacion');
 
+    }
+
+    function editar()
+    {
+        $tipo=$_POST["Tipo"];
+        $id=$_POST["id"];
+
+        switch ($tipo) {
+            //certificado de desintegracion
+            case "Cert_Desintegracion":
+                echo '../cert_desintegracion/Crear_Desintegracion.php?archivo='.$id;
+                break;
+            //Contratos
+            case "Contratos":
+                echo '../Contratos/crear_contratos.php?archivo='.$id;
+                break;
+            //documentos contables
+            case "Documento_Contable":
+                echo '../contables/crear_contable.php?archivo='.$id;
+                break;
+            //Escrituras
+            case "Escrituras":
+                echo '../Escrituras/crear_escrituras.php?archivo='.$id;
+                break;
+            //Facturas
+            case "Facturas":
+                echo '../facturas/crear_factura.php?archivo='.$id;
+                break;
+            //historias laborales
+            case "Historias_Laborales":
+                echo '../histlaborales/crear.php?archivo='.$id;
+                break;
+            //importaciones
+            case"Importaciones":
+                echo '../importaciones/cuerpo.php?archivo='.$id;
+                break;
+            //impuestos
+            case"Impuestos":
+                echo '../Impuestos/crear_impuesto.php?balda=archivo='.$id;
+                break;
+            case "Seguridad_Social";
+                echo '../seguridad/crearseguridadsocial.php?archivo='.$id;
+                break;
+            case "info_entrada";
+                echo '../info_entrada/crear_info_entrada.php?archivo='.$id;
+                break;
+            case "Libros_Oficiales";
+                echo '../Libros_Oficiales/crear_libro.php?archivo='.$id;
+                break;
+        }
     }
 
 
