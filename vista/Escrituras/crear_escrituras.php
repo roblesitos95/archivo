@@ -101,17 +101,17 @@
 
         </div>
 
-<div class="card-footer text-center">
-    <a onclick="enviar()" class="btn btn-primary hvr-float">
-        <i class="icon-save"> </i> enviar
-    </a>
-</div>
-</form>
+        <div class="card-footer text-center">
+            <a onclick="enviar()" class="btn btn-primary hvr-float">
+                <i class="icon-save"> </i> enviar
+            </a>
+        </div>
+    </form>
 </div>
 
 <script>
     function enviar() {
-        var am= $("#am").val();
+        var am = $("#am").val();
         var Numero = $("#Numero").val();
         var Notaria = $("#Notaria").val();
         var De = $("#De").val();
@@ -135,7 +135,7 @@
             data: data,
             url: "../../Controlador/documentocontroller.php?action=crear&table=Escritura",
             type: 'POST',
-            dataType:"JSON",
+            dataType: "JSON",
             success: function (res) {
                 alert("consecutivo numero " + res[0]);
 
@@ -146,5 +146,5 @@
                 $("#datatable1").append(res[1]);
             }
         });
-}
+    }
 </script>

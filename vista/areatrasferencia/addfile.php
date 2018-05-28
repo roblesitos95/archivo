@@ -1,19 +1,19 @@
 <?php
 
 session_start();
-if(isset($_SESSION['sesion'])){
+if (isset($_SESSION['sesion'])) {
 
     ?>
 
 
-    <?php require("../theme/head.php");?>
+    <?php require("../theme/head.php"); ?>
 
     <!-- top navigation -->
 
 
-    <?php require("../theme/menuizquierdo.php");?>
+    <?php require("../theme/menuizquierdo.php"); ?>
 
-    <?php require_once('../../modelo/areaclass.php');?>
+    <?php require_once('../../modelo/areaclass.php'); ?>
 
     <script>
         function text() {
@@ -29,61 +29,64 @@ if(isset($_SESSION['sesion'])){
                 cancelButtonClass: 'btn btn-danger',
                 buttonsStyling: false
 
-            }).then(function(result) {
+            }).then(function (result) {
 
             }).catch(swal.noop)
 
         }
 
 
-        window.onload=function() {
+        window.onload = function () {
             var element = document.getElementById("creararea");
             element.classList.add("active");
         }
     </script>
 
     <script type="text/javascript">
-        $(document).ready(function(e) {
+        $(document).ready(function (e) {
             $('.yearselect').yearselect();
 
-            $('.yrselectdesc').yearselect({step:1, order: 'desc'});
+            $('.yrselectdesc').yearselect({step: 1, order: 'desc'});
             $('.yrselectasc').yearselect({order: 'asc'});
         });
-    </script><script type="text/javascript">
+    </script>
+    <script type="text/javascript">
 
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-36251023-1']);
         _gaq.push(['_setDomainName', 'jqueryscript.net']);
         _gaq.push(['_trackPageview']);
 
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
         })();
 
     </script>
 
 
-
-    <?php if(!empty($_GET['respuesta'])){ ?>
-        <?php if ($_GET['respuesta'] == "correcto"){ ?>
+    <?php if (!empty($_GET['respuesta'])) { ?>
+        <?php if ($_GET['respuesta'] == "correcto") { ?>
 
             <script>
-                window.onload=function() {
+                window.onload = function () {
                     var mensaje = "La Transferencia se a Creado exitosamente";
-                    demo.showSwal('success-message',mensaje)
+                    demo.showSwal('success-message', mensaje)
                     var color = 2;
                     //demo.showNotification('top','center',mensaje,color);
                 }
             </script>
 
-        <?php }else {?>
+        <?php } else { ?>
 
             <script>
-                window.onload=function() {
+                window.onload = function () {
                     var mensaje = "La Transferencia no se a Creado por favor intente de nuevo";
-                    demo.showSwal('error-message',mensaje)
+                    demo.showSwal('error-message', mensaje)
                     var color = 2;
                     //demo.showNotification('top','center',mensaje,color);
                 }
@@ -100,7 +103,8 @@ if(isset($_SESSION['sesion'])){
     <script src="../assets/fileupload/js/locales/es.js" type="text/javascript"></script>
     <script src="../assets/fileupload/themes/explorer-fa/theme.js" type="text/javascript"></script>
     <script src="../assets/fileupload/themes/fa/theme.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+            type="text/javascript"></script>
 
 
     <nav class="navbar navbar-transparent navbar-absolute">
@@ -122,7 +126,8 @@ if(isset($_SESSION['sesion'])){
                     <div class="card">
 
 
-                        <form id="TypeValidation" class="form-horizontal" action="../../Controlador/areacontroller.php?action=crear" method="post">
+                        <form id="TypeValidation" class="form-horizontal"
+                              action="../../Controlador/areacontroller.php?action=crear" method="post">
                             <div class="card-header card-header-text" data-background-color="blue">
                                 <h4 class="card-title">Adjuntara archivo </h4>
                             </div>
@@ -137,8 +142,6 @@ if(isset($_SESSION['sesion'])){
 
                                     </div>
                                 </div>
-
-
 
 
                         </form>
@@ -156,7 +159,7 @@ if(isset($_SESSION['sesion'])){
             theme: 'fa',
             showUpload: false,
             showCaption: false,
-            uploadUrl: '../../Controlador/areacontroller.php?action=upload&id=<?php echo$_GET["id"]  ?>',
+            uploadUrl: '../../Controlador/areacontroller.php?action=upload&id=<?php echo $_GET["id"]  ?>',
             browseClass: "btn btn-primary btn-lg",
             fileType: "any",
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
@@ -169,7 +172,7 @@ if(isset($_SESSION['sesion'])){
     </html>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('.js-example-basic-multiple').select2({
                 language: "es"
             });
@@ -177,10 +180,9 @@ if(isset($_SESSION['sesion'])){
 
     </script>
 
-    <?php require("../theme/pie.php");?>
+    <?php require("../theme/pie.php"); ?>
     <?php
-}
-else{
+} else {
 
     header('Location:../Inicio/Login');
 

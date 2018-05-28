@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-        <input type="hidden" name="am" id="am" value="<?php echo $_GET["balda"]?>">
+            <input type="hidden" name="am" id="am" value="<?php echo $_GET["balda"] ?>">
             <!----------------------------- Ubicacion topografica de la importacion------------------------------>
 
             <div class="card-footer text-center">
@@ -140,7 +140,7 @@
             data: data,
             url: "../../Controlador/documentocontroller.php?action=crear&table=Cert_Desintegracion",
             type: 'POST',
-            dataType:"JSON",
+            dataType: "JSON",
             success: function (res) {
                 alert("consecutivo numero " + res[0]);
 

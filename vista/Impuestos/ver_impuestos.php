@@ -1,40 +1,39 @@
 <?php
 
 session_start();
-if(isset($_SESSION['sesion'])){
+if (isset($_SESSION['sesion'])) {
 
     ?>
 
-    <?php require("../theme/head.php");?>
-<?php require("../theme/menuizquierdo.php");?>
-<?php require_once('../../modelo/archivo_class.php');?>
+    <?php require("../theme/head.php"); ?>
+    <?php require("../theme/menuizquierdo.php"); ?>
+    <?php require_once('../../modelo/archivo_class.php'); ?>
 
-<script>
-    window.onload=function() {
-        var element = document.getElementById("verimpuestos");
-        element.classList.add("active");
-    }
-</script>
+    <script>
+        window.onload = function () {
+            var element = document.getElementById("verimpuestos");
+            element.classList.add("active");
+        }
+    </script>
 
 
-<nav class="navbar navbar-transparent navbar-absolute">
-    <div class="container-fluid">
+    <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container-fluid">
 
-        <div class="navbar-header">
+            <div class="navbar-header">
 
-            <a class="navbar-brand" href="#"> Lista de Impuestos </a>
+                <a class="navbar-brand" href="#"> Lista de Impuestos </a>
+            </div>
+
         </div>
-
-    </div>
-</nav>
+    </nav>
 
 
-<div class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
 
 
                         <div class="card-header card-header-icon" data-background-color="blue">
@@ -67,15 +66,15 @@ if(isset($_SESSION['sesion'])){
                         </div>
 
 
-                    <!-- end content-->
+                        <!-- end content-->
+                    </div>
+                    <!--  end card  -->
                 </div>
-                <!--  end card  -->
+                <!-- end col-md-12 -->
             </div>
-            <!-- end col-md-12 -->
+            <!-- end row -->
         </div>
-        <!-- end row -->
     </div>
-</div>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#datatables').DataTable({
@@ -121,11 +120,9 @@ if(isset($_SESSION['sesion'])){
     </script>
 
 
-
-<?php require("../theme/pie.php");?>
+    <?php require("../theme/pie.php"); ?>
     <?php
-}
-else{
+} else {
 
     header('Location: ../index/index.php');
 

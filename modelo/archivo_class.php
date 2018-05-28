@@ -126,6 +126,7 @@ class archivo_class extends mysqli
 
                     $table.='   
                              <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
                                 <td>'.$row["Empresa"].'</td>
                                 <td>'.$row["Numero"].'</td>
                                 <td>'.$row["Contratista"].'</td>
@@ -164,6 +165,7 @@ class archivo_class extends mysqli
 
                     $table.='   
                              <tr class="'.$class.'">
+                                <td>'.$row["id_Archivos"].'</td>
                                 <td>'.$row["Documento"].'</td>
                                 <td>'.$row["Numero"].'</td>
                                 <td>'.$row["Contratista"].'</td>

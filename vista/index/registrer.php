@@ -4,46 +4,52 @@
 
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/forms/wizard.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2017 01:16:44 GMT -->
 <head>
-    <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/ICONO.ico" />
-    <link rel="icon" type="image/png" href="../assets/img/ICONO.ico" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta charset="utf-8"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/ICONO.ico"/>
+    <link rel="icon" type="image/png" href="../assets/img/ICONO.ico"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title>Archivo General</title>
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
     <!-- Canonical SEO -->
-    <link rel="canonical" href="http://www.creative-tim.com/product/material-dashboard-pro" />
+    <link rel="canonical" href="http://www.creative-tim.com/product/material-dashboard-pro"/>
     <!--  Social tags      -->
-    <meta name="keywords" content="material dashboard, bootstrap material admin, bootstrap material dashboard, material design admin, material design, creative tim, html dashboard, html css dashboard, web dashboard, freebie, free bootstrap dashboard, css3 dashboard, bootstrap admin, bootstrap dashboard, frontend, responsive bootstrap dashboard, premiu material design admin">
-    <meta name="description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta name="keywords"
+          content="material dashboard, bootstrap material admin, bootstrap material dashboard, material design admin, material design, creative tim, html dashboard, html css dashboard, web dashboard, freebie, free bootstrap dashboard, css3 dashboard, bootstrap admin, bootstrap dashboard, frontend, responsive bootstrap dashboard, premiu material design admin">
+    <meta name="description"
+          content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
     <!-- Schema.org markup for Google+ -->
     <meta itemprop="name" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
-    <meta itemprop="description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta itemprop="description"
+          content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
     <meta itemprop="image" content="s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
     <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@creativetim">
     <meta name="twitter:title" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template">
-    <meta name="twitter:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
+    <meta name="twitter:description"
+          content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design.">
     <meta name="twitter:creator" content="@creativetim">
     <meta name="twitter:image" content="s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg">
     <!-- Open Graph data -->
     <meta property="fb:app_id" content="655968634437471">
-    <meta property="og:title" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://www.creative-tim.com/product/material-dashboard-pro" />
-    <meta property="og:image" content="s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg" />
-    <meta property="og:description" content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design." />
-    <meta property="og:site_name" content="Creative Tim" />
+    <meta property="og:title" content="Material Dashboard PRO by Creative Tim | Premium Bootstrap Admin Template"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://www.creative-tim.com/product/material-dashboard-pro"/>
+    <meta property="og:image" content="s3.amazonaws.com/creativetim_bucket/products/51/opt_mdp_thumbnail.jpg"/>
+    <meta property="og:description"
+          content="Material Dashboard PRO is a Premium Material Bootstrap Admin with a fresh, new design inspired by Google's Material Design."/>
+    <meta property="og:site_name" content="Creative Tim"/>
     <!-- Bootstrap core CSS     -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet"/>
     <!--  Material Dashboard CSS    -->
-    <link href="../assets/css/material-dashboard5438.css?v=1.2.0" rel="stylesheet" />
+    <link href="../assets/css/material-dashboard5438.css?v=1.2.0" rel="stylesheet"/>
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="../assets/css/demo.css" rel="stylesheet" />
+    <link href="../assets/css/demo.css" rel="stylesheet"/>
     <!--     Fonts and icons     -->
     <link href="maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
@@ -57,7 +63,8 @@
                 <!--      Wizard container        -->
                 <div class="wizard-container">
                     <div class="card wizard-card" data-color="blue" id="wizardProfile">
-                        <form action="../../Controlador/sesioncontroller.php?accion=registrar" method="post" enctype="multipart/form-data">
+                        <form action="../../Controlador/sesioncontroller.php?accion=registrar" method="post"
+                              enctype="multipart/form-data">
                             <!--        You can switch " data-color="purple" "  with one of the next bright colors: "green", "orange", "red", "blue"       -->
                             <div class="wizard-header">
                                 <h3 class="wizard-title">
@@ -81,13 +88,16 @@
                             <div class="tab-content">
                                 <div class="tab-pane" id="about">
                                     <div class="row">
-                                        <h4 class="info-text"> empecemos con infomacion basica (contiene validacion)</h4>
+                                        <h4 class="info-text"> empecemos con infomacion basica (contiene
+                                            validacion)</h4>
                                         <div class="col-sm-4 col-sm-offset-1">
 
                                             <div class="picture-container">
                                                 <div class="picture">
-                                                    <img src="../assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title="" />
-                                                    <input type="file" id="wizard-picture" name="Foto" accept="image/jpeg, image/png" required>
+                                                    <img src="../assets/img/default-avatar.png" class="picture-src"
+                                                         id="wizardPicturePreview" title=""/>
+                                                    <input type="file" id="wizard-picture" name="Foto"
+                                                           accept="image/jpeg, image/png" required>
                                                 </div>
                                                 <h6>Selecciona tu foto</h6>
                                             </div>
@@ -102,7 +112,8 @@
                                                     <label class="control-label">Nombres
                                                         <small>(requerido)</small>
                                                     </label>
-                                                    <input name="firstname" id="firstname" type="text" class="form-control">
+                                                    <input name="firstname" id="firstname" type="text"
+                                                           class="form-control">
                                                 </div>
                                             </div>
 
@@ -145,7 +156,8 @@
                                                     <div class=row">
                                                         <div class="col-sm-12">
                                                             <h4 class="info-text">
-                                                                Tu SEGURIDAD es muy importante por favor ingresa los siguientes datos
+                                                                Tu SEGURIDAD es muy importante por favor ingresa los
+                                                                siguientes datos
                                                             </h4>
                                                         </div>
 
@@ -159,11 +171,17 @@
                                                                 <label class="control-label">
                                                                     Contraseña
                                                                 </label>
-                                                                <input class="form-control" name="min" id="registerPassword">
+                                                                <input class="form-control" name="min"
+                                                                       id="registerPassword">
 
                                                                 <div class="form-group label-floating">
-                                                                    <label class="control-label">Confirmar Contraseña</label>
-                                                                    <input class="form-control" name="password_confirmation" id="registerPasswordConfirmation" type="password" required="true" equalTo="#registerPassword" />
+                                                                    <label class="control-label">Confirmar
+                                                                        Contraseña</label>
+                                                                    <input class="form-control"
+                                                                           name="password_confirmation"
+                                                                           id="registerPasswordConfirmation"
+                                                                           type="password" required="true"
+                                                                           equalTo="#registerPassword"/>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -172,15 +190,17 @@
                                                     <div class="tab-pane" id="address">
                                                         <div class="row">
                                                             <div class="col-sm-12">
-                                                                <h4 class="info-text">para mayor seguridad escriba una pregunta y su respectiva respuesta</h4>
+                                                                <h4 class="info-text">para mayor seguridad escriba una
+                                                                    pregunta y su respectiva respuesta</h4>
                                                             </div>
 
 
-                                                            <div class="col-sm-10 col-sm-offset-1" >
+                                                            <div class="col-sm-10 col-sm-offset-1">
                                                                 <br>
                                                                 <div class="form-group label-floating">
                                                                     <label class="control-label">Pregunta</label>
-                                                                    <input type="text" class="form-control" name="pregunta" onblur="mayus(this);">
+                                                                    <input type="text" class="form-control"
+                                                                           name="pregunta" onblur="mayus(this);">
                                                                     <span class="help-block">Omita los signos de interrogacion :D</span>
                                                                 </div>
                                                             </div>
@@ -188,7 +208,8 @@
                                                             <div class="col-sm-10 col-sm-offset-1 ">
                                                                 <div class="form-group label-floating">
                                                                     <label class="control-label">Respuesta</label>
-                                                                    <input type="text" class="form-control"  name="respuesta" onblur="mayus(this);">
+                                                                    <input type="text" class="form-control"
+                                                                           name="respuesta" onblur="mayus(this);">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -197,12 +218,21 @@
 
                                                 <div class="wizard-footer">
                                                     <div class="pull-right">
-                                                        <button type='button' class='btn btn-next btn-fill btn-primary btn-wd' name='next'  ><i class="material-icons">navigate_next</i>Siguente</button>
-                                                        <button type='submit' class='btn btn-finish btn-fill btn-primary btn-wd' name='finish'><i class="material-icons">save</i>Finalizar</button>
+                                                        <button type='button'
+                                                                class='btn btn-next btn-fill btn-primary btn-wd'
+                                                                name='next'><i class="material-icons">navigate_next</i>Siguente
+                                                        </button>
+                                                        <button type='submit'
+                                                                class='btn btn-finish btn-fill btn-primary btn-wd'
+                                                                name='finish'><i class="material-icons">save</i>Finalizar
+                                                        </button>
                                                     </div>
 
                                                     <div class="pull-left">
-                                                        <button type='button' class='btn btn-previous btn-fill btn-default btn-wd' name='previous'><i class="material-icons">navigate_before</i>Anterior</button>
+                                                        <button type='button'
+                                                                class='btn btn-previous btn-fill btn-default btn-wd'
+                                                                name='previous'><i class="material-icons">navigate_before</i>Anterior
+                                                        </button>
                                                     </div>
 
                                                     <div class="clearfix"></div>
@@ -212,7 +242,7 @@
                     </div>
 
                 </div>
-                    <!-- wizard container -->
+                <!-- wizard container -->
             </div>
         </div>
     </div>
@@ -274,9 +304,9 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="../assets/js/demo.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         demo.initMaterialWizard();
-        setTimeout(function() {
+        setTimeout(function () {
             $('.card.wizard-card').addClass('active');
         }, 600);
     });

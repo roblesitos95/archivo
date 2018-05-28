@@ -1,4 +1,3 @@
-
 <?php
 
 session_start();
@@ -17,14 +16,12 @@ require("../theme/head.php");
 <head>
 
 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" href="../assets/bonito/animated-sign-up-flow-master/css/reset.css"> <!-- CSS reset -->
-<link rel="stylesheet" href="../assets/bonito/animated-sign-up-flow-master/css/style.css"> <!-- Resource style -->
-<script src="../assets/bonito/animated-sign-up-flow-master/js/modernizr.js"></script> <!-- Modernizr -->
+    <link rel="stylesheet" href="../assets/bonito/animated-sign-up-flow-master/css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="../assets/bonito/animated-sign-up-flow-master/css/style.css"> <!-- Resource style -->
+    <script src="../assets/bonito/animated-sign-up-flow-master/js/modernizr.js"></script> <!-- Modernizr -->
 
 </head>
 
@@ -56,12 +53,12 @@ require("../theme/head.php");
                     $lol = ["Sala" => $f];
                     $_SESSION["ubi"] = $lol;
                     $con = mysqli_connect('localhost', 'root', '', 'bd_documentacion');
-                    if (! $con) {
-                        die('Error no se pudo conectar : '.mysqli_error($con));
+                    if (!$con) {
+                        die('Error no se pudo conectar : ' . mysqli_error($con));
                     }
                     mysqli_select_db($con, "ajax_demo");
 
-                    $sql = "SELECT sala_fila.idsala_fila, filas.idFilas, filas.Nombre FROM sala_fila LEFT JOIN filas ON sala_fila.Filas_idFilas = filas.idFilas WHERE sala_fila.Salas_idSalas=".$f." GROUP BY sala_fila.Filas_idFilas";
+                    $sql = "SELECT sala_fila.idsala_fila, filas.idFilas, filas.Nombre FROM sala_fila LEFT JOIN filas ON sala_fila.Filas_idFilas = filas.idFilas WHERE sala_fila.Salas_idSalas=" . $f . " GROUP BY sala_fila.Filas_idFilas";
                     $con->set_charset("utf8");
                     $result = mysqli_query($con, $sql);
 
@@ -148,51 +145,51 @@ require("../theme/head.php");
                         <div class="card" style="background-color: rgba(241,241,241,0.6)">
                             <div class="col-md-12">
 
-                                    <div class="card-header">
+                                <div class="card-header">
 
-                                    </div>
-                                    <div class="card-content">
-                                        <div class="tab-content">
-                                            <div class="tab-pane" id="pill1">
+                                </div>
+                                <div class="card-content">
+                                    <div class="tab-content">
+                                        <div class="tab-pane" id="pill1">
 
-                                            </div>
-                                            <div class="tab-pane" id="pill2">
+                                        </div>
+                                        <div class="tab-pane" id="pill2">
 
-                                            </div>
+                                        </div>
 
-                                            <div class="tab-pane" id="pill3">
-                                                <div class="col-md-12">
-                                                    <div class="card">
-                                                        <div class="card-header card-header-icon"
-                                                             data-background-color="blue">
-                                                            <i class="icon-list"></i>
-                                                        </div>
-                                                        <div class="card-content">
-                                                            <h4 class="card-title">Carpetas</h4>
-                                                            <div class="table-responsive">
-                                                                <table class="table" id="tablearchivos">
-                                                                    <thead class="text-primary">
-                                                                    <th>Documeny </th>
-                                                                    <th>trasfernecia</th>
-                                                                    </thead>
+                                        <div class="tab-pane" id="pill3">
+                                            <div class="col-md-12">
+                                                <div class="card">
+                                                    <div class="card-header card-header-icon"
+                                                         data-background-color="blue">
+                                                        <i class="icon-list"></i>
+                                                    </div>
+                                                    <div class="card-content">
+                                                        <h4 class="card-title">Carpetas</h4>
+                                                        <div class="table-responsive">
+                                                            <table class="table" id="tablearchivos">
+                                                                <thead class="text-primary">
+                                                                <th>Documeny</th>
+                                                                <th>trasfernecia</th>
+                                                                </thead>
 
-                                                                    <tbody id="datatable1">
+                                                                <tbody id="datatable1">
 
-                                                                    </tbody>
-                                                                </table>
-
-                                                            </div>
-                                                        </div>
-                                                        <div id="addboton">
+                                                                </tbody>
+                                                            </table>
 
                                                         </div>
                                                     </div>
+                                                    <div id="addboton">
+
+                                                    </div>
                                                 </div>
                                             </div>
-
-
                                         </div>
+
+
                                     </div>
+                                </div>
 
                             </div>
                         </div>
@@ -268,14 +265,12 @@ require("../theme/head.php");
         </div>
 
 
-
-
         <script>
 
             $('#myModal').on('show.bs.modal', function (event) {
                 var button = $(event.relatedTarget) // Button that triggered the modal
                 var recipient = button.data('balda')
-// Extrae información de los atributos data- *
+                // Extrae información de los atributos data- *
                 // Si es necesario, puede iniciar una solicitud AJAX aquí (y luego hacer la actualización en una devolución de llamada).
                 // Actualiza el contenido modal. Utilizaremos jQuery aquí, pero en su lugar podría usar una biblioteca de enlace de datos u otros métodos
                 var modal = $(this)

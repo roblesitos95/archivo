@@ -1,83 +1,83 @@
 <?php
 
 session_start();
-if(isset($_SESSION['sesion'])){
+if (isset($_SESSION['sesion'])) {
 
     ?>
 
 
-    <?php require("../theme/head.php");?>
-<?php require("../theme/menuizquierdo.php");?>
-<?php require_once('../../modelo/archivo_class.php');?>
-<script>
-    window.onload=function() {
-        var element = document.getElementById("vercontable");
-        element.classList.add("active");
-    }
-</script>
+    <?php require("../theme/head.php"); ?>
+    <?php require("../theme/menuizquierdo.php"); ?>
+    <?php require_once('../../modelo/archivo_class.php'); ?>
+    <script>
+        window.onload = function () {
+            var element = document.getElementById("vercontable");
+            element.classList.add("active");
+        }
+    </script>
 
 
-        <nav class="navbar navbar-transparent navbar-absolute">
-            <div class="container-fluid">
+    <nav class="navbar navbar-transparent navbar-absolute">
+        <div class="container-fluid">
 
-                <div class="navbar-header">
+            <div class="navbar-header">
 
-                    <a class="navbar-brand" href="#"> Lista de Documento contables </a>
-                </div>
-
+                <a class="navbar-brand" href="#"> Lista de Documento contables </a>
             </div>
-        </nav>
+
+        </div>
+    </nav>
 
 
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
 
 
-                                <div class="card-header card-header-icon" data-background-color="blue">
-                                    <span style="font-size: 30px"><i class="icon-credit-card"></i></span>
-                                </div>
-                                <div class="card-content">
-                                <h4 class="card-title">Documentos Contables </h4>
-                                <div class="toolbar">
-                                    <!--        Here you can write extra buttons/actions for the toolbar              -->
-                                </div>
-                                <div class="material-datatables">
+                        <div class="card-header card-header-icon" data-background-color="blue">
+                            <span style="font-size: 30px"><i class="icon-credit-card"></i></span>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">Documentos Contables </h4>
+                            <div class="toolbar">
+                                <!--        Here you can write extra buttons/actions for the toolbar              -->
+                            </div>
+                            <div class="material-datatables">
                                 <table id="datatables" class="table table-striped table-no-bordered table-hover"
                                        cellspacing="0" width="100%" style="width:100%">
-                                <thead>
-                                <tr>
-                                    <th>Documento</th>
-                                    <th>Numero</th>
-                                    <th>Proveedor</th>
-                                    <th>NIT</th>
-                                    <th>Fecha</th>
-                                    <th>N° Factura</th>
-                                    <th>Descripcion</th>
-                                    <th class="text-right">Mas</th>
-                                </tr>
-                                </thead>
+                                    <thead>
+                                    <tr>
+                                        <th>Consecutivo</th>
+                                        <th>Documento</th>
+                                        <th>Numero</th>
+                                        <th>Proveedor</th>
+                                        <th>NIT</th>
+                                        <th>Fecha</th>
+                                        <th>N° Factura</th>
+                                        <th>Descripcion</th>
+                                        <th class="text-right">Mas</th>
+                                    </tr>
+                                    </thead>
 
-                                <tbody>
-                                <?php archivo_class::getAll("Doc_Contable") ?>
-                                </tbody>
-                                    </table>
-                                    </div>
-                                    </div>
-
-
-
-                            <!-- end content-->
+                                    <tbody>
+                                    <?php archivo_class::getAll("Doc_Contable") ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <!--  end card  -->
+
+
+                        <!-- end content-->
                     </div>
-                    <!-- end col-md-12 -->
+                    <!--  end card  -->
                 </div>
-                <!-- end row -->
+                <!-- end col-md-12 -->
             </div>
+            <!-- end row -->
         </div>
+    </div>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -123,10 +123,9 @@ if(isset($_SESSION['sesion'])){
 
     </script>
 
-<?php require("../theme/pie.php");?>
+    <?php require("../theme/pie.php"); ?>
     <?php
-}
-else{
+} else {
 
     header('Location: ../index/index.php');
 

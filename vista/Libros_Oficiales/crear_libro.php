@@ -95,7 +95,7 @@
             data: data,
             url: "../../Controlador/documentocontroller.php?action=crear&table=Libro_oficial",
             type: 'POST',
-            dataType:"JSON",
+            dataType: "JSON",
             success: function (res) {
                 alert("consecutivo numero " + res[0]);
 

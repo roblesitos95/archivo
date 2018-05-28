@@ -581,14 +581,14 @@ class Ubicacion_controller
         $result = mysqli_query($con, $sql);
         $table = "";
 
-        $boton = '<button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-balda="'.$balda.'">ADD archivo</button>';
+        $boton = '<button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-balda="'.$balda.'">Agregar Archivo</button>';
 
         while ($row = mysqli_fetch_array($result)) {
             $class = "";
             if ($row["estado"] == "toda") {
-                $class = "info";
-            } else if ($row["estado"] == "unidad") {
                 $class = "warning";
+            } else if ($row["estado"] == "unidad") {
+                $class = "info";
             }
             $table .= "<tr class='".$class."'>
                  <td>".$row["Tipo_Documento"]."</td>

@@ -28,15 +28,15 @@
             </ul>
         </nav>
         <p class="copyright pull-right">
-           Creado por Andres Camilo Escobar Robles
-            <br><small>Aprendiz SENA 2017</small>
+            Creado por Andres Camilo Escobar Robles
+            <br>
+            <small>Aprendiz SENA 2017</small>
         </p>
     </div>
 </footer>
 
 </div>
 </div>
-
 
 
 <script type="text/javascript" charset="utf8" src="../assets/datatables/datatables.js"></script>
@@ -93,19 +93,20 @@
 
 
 <script type="text/javascript">
-    $(document).ready(function() {
+    $(document).ready(function () {
         md.initSliders()
         demo.initFormExtendedDatetimepickers();
     });
+
     function setFormValidation(id) {
         $(id).validate({
-            errorPlacement: function(error, element) {
+            errorPlacement: function (error, element) {
                 $(element).closest('div').addClass('has-error');
             }
         });
     }
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         setFormValidation('#RegisterValidation');
         setFormValidation('#TypeValidation');
         setFormValidation('#LoginValidation');
@@ -116,15 +117,13 @@
 
 <script src="../assets/lol2/year-select.js"></script>
 <script type="text/javascript">
-    $(document).ready(function(e) {
+    $(document).ready(function (e) {
         $('.yearselect').yearselect();
         var ano = (new Date).getFullYear();
         $('.yrselectdesc').yearselect({start: 2000, end: ano, order: 'desc'});
         $('.yrselectasc').yearselect({order: 'asc'});
     });
 </script>
-
-
 
 
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/forms/validation.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2017 01:16:44 GMT -->

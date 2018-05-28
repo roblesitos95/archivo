@@ -2,29 +2,30 @@
 <html lang="es">
 
 <!-- Mirrored from demos.creative-tim.com/material-dashboard-pro/examples/pages/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Nov 2017 01:15:02 GMT -->
-<head> <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../index/assets/img/apple-icon.png" />
-    <link rel="icon" type="image/png" href="../index/assets//img/ICONO.ico" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,  chrome=1" />
+<head>
+    <meta charset="utf-8"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="../index/assets/img/apple-icon.png"/>
+    <link rel="icon" type="image/png" href="../index/assets//img/ICONO.ico"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,  chrome=1"/>
     <title>Archivo Permanente</title>
-    <meta content='width=device-width,   initial-scale=1.0,   maximum-scale=1.0,   user-scalable=0' name='viewport' />
-    <meta name="viewport" content="width=device-width" />
+    <meta content='width=device-width,   initial-scale=1.0,   maximum-scale=1.0,   user-scalable=0' name='viewport'/>
+    <meta name="viewport" content="width=device-width"/>
     <!-- Twitter Card data -->
 
     <!-- Bootstrap core CSS     -->
-    <link href="../index/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../index/assets/css/bootstrap.min.css" rel="stylesheet"/>
     <!--  Material Dashboard CSS    -->
-    <link href="../index/assets/css/material-dashboard5438.css?v=1.2.0" rel="stylesheet" />
+    <link href="../index/assets/css/material-dashboard5438.css?v=1.2.0" rel="stylesheet"/>
 
     <!--     Fonts and icons     -->
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <link  href="../assets/lol2/demo-files/demo.css">
-    <link rel="stylesheet"  href="../index/assets/lol2/fonts/style.css">
+    <link href="../assets/lol2/demo-files/demo.css">
+    <link rel="stylesheet" href="../index/assets/lol2/fonts/style.css">
 
-    <link rel="stylesheet"  href="../index/assets/css/stylebutton.css">
-    <link rel="stylesheet"  href="../index/assets/css/hoverbutton.css">
+    <link rel="stylesheet" href="../index/assets/css/stylebutton.css">
+    <link rel="stylesheet" href="../index/assets/css/hoverbutton.css">
 
     <!--  estyle animate -->
     <link rel="stylesheet" href="../index/assets/css/animate.css">
@@ -41,21 +42,21 @@
 
     -->
     <style>
-    #imagenfondo{
-        width: 100% ; /* en porcentaje (el highlight del foro lo trasforma) */
-        height: 100%;
-        top:0;
-        left:0;
-        position:fixed;
-        z-index: -1;   ;
-    }
+        #imagenfondo {
+            width: 100%; /* en porcentaje (el highlight del foro lo trasforma) */
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            z-index: -1;;
+        }
     </style>
 </head>
 
 <body>
 <img src="../index/assets/img/diaco.JPG" id="imagenfondo">
 <div class="wrapper wrapper-full-page">
-    <div class=" login-page" filter-color="black" >
+    <div class=" login-page" filter-color="black">
         <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
         <div class="content">
             <div class="container">
@@ -69,7 +70,7 @@
                                 </div>
 
                                 <p class="category text-center">
-                                   Ingresa usuario y contraseña
+                                    Ingresa usuario y contraseña
                                 </p>
 
                                 <div class="card-content">
@@ -96,11 +97,13 @@
                                 </div>
 
                                 <div class="footer text-center">
-                                    <button type="submit" class="btn btn-primary btn-simple btn-wd btn-lg">Iniciar sesion</button>
+                                    <button type="submit" class="btn btn-primary btn-simple btn-wd btn-lg">Iniciar
+                                        sesion
+                                    </button>
                                 </div>
 
                             </div>
-                            <a href="registrer"><p class="text-info text-right" >Registro Usuario</p></a>
+                            <a href="registrer"><p class="text-info text-right">Registro Usuario</p></a>
                         </form>
                     </div>
                 </div>
@@ -156,9 +159,9 @@
 <script src="../index/assets/js/demo.js"></script>
 
 <script type="text/javascript">
-    $().ready(function() {
+    $().ready(function () {
         demo.checkFullPageBackgroundImage();
-        setTimeout(function() {
+        setTimeout(function () {
             // after 1000 ms we add the class animated to the login/register card
             $('.card').removeClass('card-hidden');
         }, 700)

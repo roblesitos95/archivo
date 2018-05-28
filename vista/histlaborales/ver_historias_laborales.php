@@ -1,20 +1,19 @@
 <?php
 
 session_start();
-if(isset($_SESSION['sesion'])){
+if (isset($_SESSION['sesion'])) {
 
     ?>
 
-    <?php require("../theme/head.php");?>
-    <?php require("../theme/menuizquierdo.php");?>
-    <?php require_once('../../modelo/archivo_class.php');?>
+    <?php require("../theme/head.php"); ?>
+    <?php require("../theme/menuizquierdo.php"); ?>
+    <?php require_once('../../modelo/archivo_class.php'); ?>
     <script>
-        window.onload=function() {
+        window.onload = function () {
             var element = document.getElementById("verlaborales");
             element.classList.add("active");
         }
     </script>
-
 
 
     <nav class="navbar navbar-transparent navbar-absolute">
@@ -122,10 +121,9 @@ if(isset($_SESSION['sesion'])){
 
     </script>
 
-    <?php require("../theme/pie.php");?>
+    <?php require("../theme/pie.php"); ?>
     <?php
-}
-else{
+} else {
 
     header('Location: ../index/index.php');
 

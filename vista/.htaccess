@@ -12,7 +12,8 @@ Rewriterule ^Inicio/registrer$ index/registrer.php
 
 #redireccionamiento para prestamos
 Rewriterule ^Prestamos/crear$ Prestamos/crear_prestamo.php
-Rewriterule ^Prestamos/devolver_(.+)$ Prestamos/ver_prestamo.php?l=$1
+Rewriterule ^Prestamos/devolver$ Prestamos/crear_devolucion.php
+Rewriterule ^Prestamos/ver$ Prestamos/ver_prestamo.php
 
 #redireccionamiento para trasferencias
 Rewriterule ^Trasferencia/Crear$ areatrasferencia/creararea.php

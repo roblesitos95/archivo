@@ -40,7 +40,7 @@
                 <div class="col-sm-1"></div>
                 <div class="col-sm-10">
                     <div class="form-group label-floating">
-                            <label class="control-label">Proveedor</label>
+                        <label class="control-label">Proveedor</label>
                         <input class="form-control" type="text" name="Proveedor" id="Proveedor" required/>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
             data: data,
             url: "../../Controlador/documentocontroller.php?action=crear&table=Informe_Entrada",
             type: 'POST',
-            dataType:"JSON",
+            dataType: "JSON",
             success: function (res) {
                 alert("consecutivo numero " + res[0]);
 

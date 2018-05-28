@@ -11,9 +11,6 @@ if (isset($_SESSION['sesion'])){
 <?php require_once('../../modelo/archivo_class.php'); ?>
 
 
-
-
-
 <script>
     window.onload = function () {
         var element = document.getElementById("vercerticha");
@@ -74,7 +71,8 @@ if (isset($_SESSION['sesion'])){
                         <div class="toolbar">
                             <div class="card-content">
                                 <div class="material-datatables">
-                                    <table id="datatables" class="table table-striped table-no-bordered table-hover nowrap"
+                                    <table id="datatables"
+                                           class="table table-striped table-no-bordered table-hover nowrap"
                                            cellspacing="0" width="100%" style="width:100%">
                                         <thead>
                                         <tr>

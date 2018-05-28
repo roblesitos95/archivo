@@ -26,6 +26,8 @@ class prestamoscontroller extends mysqli
             prestamoscontroller::devolver();
         } elseif ($action == "select") {
             prestamoscontroller::select();
+        } elseif ($action == "info") {
+            prestamoscontroller::info();
         }
     }
 
@@ -40,8 +42,8 @@ class prestamoscontroller extends mysqli
             $Observaciones = $_POST['Observaciones'];
             $Estado = $_POST["estado"];
 
-            $sql="INSERT INTO prestamos   (Archivos_id_Archivos,Solicitante,Fecha_Envio,Destinatario,Numero_Guia,Observaciones)
-  values (".$Archivos_id_Archivos.",'".$Solicitante."','".$Fecha_Envio."','".$Destinatario."','".$Numero_Guia."','".$Observaciones."')";
+            $sql="INSERT INTO prestamos   (Archivos_id_Archivos,Solicitante,Fecha_Envio,Destinatario,Numero_Guia,Observaciones ,Estado)
+  values (".$Archivos_id_Archivos.",'".$Solicitante."','".$Fecha_Envio."','".$Destinatario."','".$Numero_Guia."','".$Observaciones."','activo')";
             $conexion= new mysqli("localhost","root","","bd_documentacion","3306");
 
 
@@ -51,6 +53,7 @@ class prestamoscontroller extends mysqli
                 $conexion->query($sql);
 
                 header("location:Location:../vista/Inicio/Salas");
+
             } else {
 
                 echo "Error  N: ".$sql."<br>".$conexion->error;
@@ -191,9 +194,29 @@ class prestamoscontroller extends mysqli
 
     private static function devolver()
     {
-        //metodo auxiliar para pruebas
-    }
 
+       $idprestamo=$_POST["prestamos"];
+       $Recibido_por=$_POST["Recibido_por"];
+       $Fecha=$_POST["Fecha"];
+       $Observaciones=$_POST["Observaciones"];
+       $Archivo=$_POST["Archivo"];
+
+        $con = mysqli_connect('localhost', 'root', '', 'bd_documentacion');
+        if (!$con) {
+            die('Error no se pudo conectar : ' . mysqli_error($con));
+        }
+        $sql='UPDATE prestamos SET Observaciones="'.$Observaciones.'", Fecha_Reibido = "'.$Fecha.'", Recibido_Por = "'.$Recibido_por.'", Estado = "inactivo" WHERE prestamos.idPrestamos ='.$idprestamo;
+       if( mysqli_query($con, $sql)===TRUE){
+           $sql2='UPDATE archivos SET estado = NULL WHERE archivos.id_Archivos ='.$Archivo;
+           if( mysqli_query($con, $sql2)===TRUE){
+           echo "devuelto con exito";}
+           else{
+               echo $sql;
+           }
+       }
+
+
+    }
 
     private static function select()
     {
@@ -217,6 +240,31 @@ class prestamoscontroller extends mysqli
         $option .= "</select>";
 
         echo json_encode($option);
+    }
+
+    private static function info()
+    {
+        $q=$_GET["id"];
+        $con = mysqli_connect('localhost', 'root', '', 'bd_documentacion');
+        if (!$con) {
+            die('Error no se pudo conectar : ' . mysqli_error($con));
+        }
+
+        mysqli_select_db($con, "ajax_demo");
+
+
+        $sql = "SELECT * FROM prestamos WHERE idPrestamos = '" . $q . "'";
+        $con->set_charset("utf8");
+        $result = mysqli_query($con, $sql);
+        $arr=array();
+        while ($row = mysqli_fetch_array($result)) {
+            $arr["idPrestamos"]=$row["idPrestamos"];
+            $arr["Archivos_id_Archivos"]=$row["Archivos_id_Archivos"];
+            $arr["Observaciones"]=$row["Observaciones"];
+
+        }
+
+        echo json_encode($arr);
     }
 
 
