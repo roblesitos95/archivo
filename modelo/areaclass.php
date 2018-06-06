@@ -55,7 +55,7 @@ class areaclass extends db_abstract_class
 
         if (count($arrmaterias) > 0) {//verificamos que earray o este nulo
 
-            $htmlSelect.='<select name="'.$name.'" id="'.$id.'" class="'.$class.'" required >';
+            $htmlSelect.='<select disabled name="'.$name.'" id="'.$id.'" class="'.$class.'" required >';
 
             foreach ($arrmaterias as $materia) {
 
@@ -93,7 +93,7 @@ class areaclass extends db_abstract_class
             $htmlSelect.='<select  name="'.$name.'" id="'.$id.'" class="'.$class.'" required >';
 
 
-            $htmlSelect.='<option  disabled selected value=""> </option>';
+            $htmlSelect.='<option  disabled selected value=""></option>';
             foreach ($arrmaterias as $materia) {
 
                 $htmlSelect.='<option value="'.$materia->getIdTrasferencia().'">'.$materia->getSede()."-".$materia->getArea()."-".$materia->getConsecutivo().'</option>';

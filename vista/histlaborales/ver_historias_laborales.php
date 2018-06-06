@@ -77,6 +77,21 @@ if (isset($_SESSION['sesion'])) {
         </div>
     </div>
 
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="modalform" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="div-cont">
+                    <div id="form"> </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#datatables').DataTable({
@@ -118,7 +133,25 @@ if (isset($_SESSION['sesion'])) {
             $('.card .material-datatables label').addClass('form-group');
         });
 
+        function ver(tipo,id) {
 
+            var data2 = {
+                "Tipo": tipo,
+                "id": id,
+            };
+            $.ajax({
+                data: data2,
+                url: '../../Controlador/documentocontroller.php?action=ver', //archivo que recibe la peticion
+                type: 'POST',
+
+                success: function (respuesta) {
+
+                    $("#form").load(respuesta);
+                    $("#modalform").modal();
+
+                }
+            });
+        }
     </script>
 
     <?php require("../theme/pie.php"); ?>

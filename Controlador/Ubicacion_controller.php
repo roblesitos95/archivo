@@ -520,47 +520,48 @@ class Ubicacion_controller
         $tipo = $_POST["doc"];
         $balda = $_POST["balda"];
 
+
         switch ($tipo) {
             //certificado de desintegracion
             case "Cert_Desintegracion":
-                echo '../cert_desintegracion/Crear_Desintegracion.php?balda='.$balda;
+                echo '../cert_desintegracion/Crear_Desintegracion.php?btn=Guardar&balda='.$balda;
                 break;
             //Contratos
             case "Contratos":
-                echo '../Contratos/crear_contratos.php?balda='.$balda;
+                echo '../Contratos/crear_contratos.php?btn=Guardar&balda='.$balda;
                 break;
             //documentos contables
             case "Documento_Contable":
-                echo '../contables/crear_contable.php?balda='.$balda;
+                echo '../contables/crear_contable.php?btn=Guardar&balda='.$balda;
                 break;
             //Escrituras
             case "Escrituras":
-                echo '../Escrituras/crear_escrituras.php?balda='.$balda;
+                echo '../Escrituras/crear_escrituras.php?btn=Guardar&balda='.$balda;
                 break;
             //Facturas
             case "Facturas":
-                echo '../facturas/crear_factura.php?balda='.$balda;
+                echo '../facturas/crear_factura.php?btn=Guardar&balda='.$balda;
                 break;
             //historias laborales
             case "Historias_Laborales":
-                echo "../histlaborales/crear.php?balda=".$balda;
+                echo "../histlaborales/crear.php?btn=Guardar&balda=".$balda;
                 break;
             //importaciones
             case"Importaciones":
-                echo "../importaciones/cuerpo.php?balda=".$balda;
+                echo "../importaciones/cuerpo.php?btn=Guardar&balda=".$balda;
                 break;
             //impuestos
             case"Impuestos":
-                echo "../Impuestos/crear_impuesto.php?balda=".$balda;
+                echo "../Impuestos/crear_impuesto.php?btn=Guardar&balda=".$balda;
                 break;
             case "Seguridad_Social";
-                echo "../seguridad/crearseguridadsocial.php?balda=".$balda;
+                echo "../seguridad/crearseguridadsocial.php?btn=Guardar&balda=".$balda;
                 break;
             case "info_entrada";
-                echo "../info_entrada/crear_info_entrada.php?balda=".$balda;
+                echo "../info_entrada/crear_info_entrada.php?btn=Guardar&balda=".$balda;
                 break;
             case "Libros_Oficiales";
-                echo "../Libros_Oficiales/crear_libro.php?balda=".$balda;
+                echo "../Libros_Oficiales/crear_libro.php?btn=Guardar&balda=".$balda;
                 break;
         }
     }
@@ -593,7 +594,11 @@ class Ubicacion_controller
             $table .= "<tr class='".$class."'>
                  <td>".$row["Tipo_Documento"]."</td>
                  <td><a target='_blank' href='".$row["archivo"]."'>".$row["Sede"]."-".$row["Area"]."-".$row["Consecutivo"]."</a></td>
-                 <td>   </td>";
+                 <td> <button type=\"button\" onclick=\"ver('".$row["Tipo_Documento"]."','".$row["id_Archivos"]."')\" class=\"btn btn-primary btn-simple btn-xs hvr-bounce-in\">
+                                        
+                                        <span style=\"font-size: 15px\"><i class=\"icon-eye\"></i></span>
+                                        
+                                     </button>   </td>";
             $table .= "</tr>";
         }
 

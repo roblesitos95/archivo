@@ -66,7 +66,7 @@ if (isset($_SESSION['sesion'])) {
                                 </table>
                             </div>
                         </div>
-
+<button onclick="swale()">hola</button>
                         <!-- end content-->
                     </div>
                     <!--  end card  -->
@@ -76,6 +76,21 @@ if (isset($_SESSION['sesion'])) {
             <!-- end row -->
         </div>
     </div>
+
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="modalform" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="div-cont">
+                    <div id="form"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#datatables').DataTable({
@@ -115,7 +130,117 @@ if (isset($_SESSION['sesion'])) {
             $('.card .material-datatables label').addClass('form-group');
         });
 
+        function ver(tipo, id) {
 
+            var data2 = {
+                "Tipo": tipo,
+                "id": id,
+            };
+            $.ajax({
+                data: data2,
+                url: '../../Controlador/documentocontroller.php?action=ver', //archivo que recibe la peticion
+                type: 'POST',
+
+                success: function (respuesta) {
+
+                    $("#form").load(respuesta);
+                    $("#modalform").modal();
+
+                }
+            });
+
+        }
+
+
+        $(document).ready(function () {
+            $("#myBtnclose").click(function () {
+                $("#modalform").modal("toggle");
+            });
+        });
+
+        function swale(id) {
+            var data2 = {
+                "id": id,
+            };
+            $.ajax({
+                data:data2,
+                url: '../../Controlador/documentocontroller.php?action=topo', //archivo que recibe la peticion
+                type: 'POST',
+                dataType: 'JSON',//tipo de datos
+                success: function (respuesta) {
+                    var  pm  = respuesta;
+
+                   swal({
+
+                        text: "<div class=\"row\">" +
+                        "                        <div >" +
+                        "                            <div class=\"card\">" +
+                        "                                <div class=\"card-header card-header-icon\" data-background-color=\"blue\">" +
+                        "                                    <span style='font-size: 35px'><i class=\"icon-location2\"></i></span>" +
+                        "                                </div>\n" +
+                        "                                <div class=\"card-content\">" +
+                        "                                    <h4 class=\"card-title\">Ubiacion topografica</h4>" +
+                        "                                    <div >" +
+                        "                                        <div >" +
+                        "                                            <div>" +
+                        "                                                <table class=\"table\">" +
+                        "                                                    <tbody>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Sala</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["0"] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Fila</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm[1] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Cara</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm[2] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Estante</td>" +
+                        "                                                           <td class=\"text-center text-primary\">" + pm[3] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Balda</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm[4] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Archivo Modular</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm[5] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+                        "                                                    </tbody>" +
+                        "                                                </table>" +
+                        "                                            </div>" +
+                        "                                        </div>" +
+                        "                                    </div>" +
+                        "                                </div>" +
+                        "                            </div>" +
+                        "                        </div>" +
+                        "                    </div>",
+                        buttonsStyling: false,
+                        confirmButtonClass: "btn btn-primary"
+                    });
+                }
+            });
+
+
+
+
+        }
+        
     </script>
     <?php require("../theme/pie.php"); ?>
     <?php

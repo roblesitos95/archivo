@@ -62,7 +62,7 @@
                             </a>
                         </li>
                         <li id="creardevolucion">
-                            <a href="../Prestamos/devolver">
+                            <a href="../Prestamos/devolver_all">
                                 <span class="sidebar-mini"><i class="icon-download2"></i></span>
                                 <span class="sidebar-normal">Crear Devoluciones</span>
                             </a>
@@ -123,12 +123,37 @@
 
                 <div class="collapse" id="certidesen">
                     <ul class="nav">
-                        <li id="vercerticha">
-                            <a href="../Documentos/Chatarrizacion">
+                        <li id="<?php echo base64_encode("certidesen") ?>">
+                            <a href="../Documentos/Chatarrizacion_<?php echo base64_encode("certidesen") ?>">
                                 <span class="sidebar-mini"><i class="icon-list"></i></span>
                                 <span class="sidebar-normal">Ver listado</span>
                             </a>
                         </li>
+                        <?php $con = mysqli_connect('localhost', 'root', '', 'bd_documentacion');
+
+                        if (!$con) {
+                            die('Error no se pudo conectar : ' . mysqli_error($con));
+                        }
+
+                        mysqli_select_db($con, "ajax_demo");
+                            $sql = "SELECT Documento FROM archivos WHERE Tipo_Documento='Cert_Desintegracion' GROUP BY Documento ORDER BY Documento ASC";
+                        $con->set_charset("utf8");
+                        $result = mysqli_query($con, $sql);
+
+                        while ($row = mysqli_fetch_array($result)) {
+                        $Nombre = $row['Documento'];
+
+                        ?>
+                        <li id="<?php echo base64_encode($Nombre) ?>">
+                            <a href="../Documentos/Chatarrizacion_<?php echo base64_encode($Nombre) ?>">
+                                <span class="sidebar-mini"><i class="icon-search"></i></span>
+                                <span class="sidebar-normal"><?php echo $Nombre ?></span>
+                            </a>
+                        </li>
+                        <?php }
+                        $con->close();
+                        ?>
+
                     </ul>
                 </div>
             </li>
@@ -210,14 +235,38 @@
                 </a>
 
                 <div class="collapse" id="Facturas">
-                    <ul class="nav">
                         <ul class="nav">
-                            <li id="verfactura">
-                                <a href="../Documentos/Facturas">
+                            <li id="<?php echo base64_encode("todo") ?>" >
+                                <a href="../Documentos/Facturas_<?php echo base64_encode("todo") ?>">
                                     <span class="sidebar-mini"><i class="icon-list"></i></span>
                                     <span class="sidebar-normal">Ver Facturas</span>
                                 </a>
                             </li>
+                            <?php $con = mysqli_connect('localhost', 'root', '', 'bd_documentacion');
+
+                            if (!$con) {
+                                die('Error no se pudo conectar : ' . mysqli_error($con));
+                            }
+
+                            mysqli_select_db($con, "ajax_demo");
+                            $sql = "SELECT Tipo FROM archivos WHERE Tipo_Documento='Factura' GROUP BY Tipo ORDER BY Tipo ASC";
+                            $con->set_charset("utf8");
+                            $result = mysqli_query($con, $sql);
+
+                            while ($row = mysqli_fetch_array($result)) {
+                                $Nombre = $row['Tipo'];
+
+                                ?>
+                                <li id="<?php echo base64_encode($Nombre) ?>">
+                                    <a href="../Documentos/Facturas_<?php echo base64_encode($Nombre) ?>">
+                                        <span class="sidebar-mini"><i class="icon-list"></i></span>
+                                        <span class="sidebar-normal"><?php echo $Nombre ?></span>
+                                    </a>
+                                </li>
+                            <?php }
+                            $con->close();
+                            ?>
+
                         </ul>
                 </div>
             </li>

@@ -6384,7 +6384,7 @@ h2.title {
 
 .sidebar .nav li:hover>a,
 .sidebar .nav li.active>[data-toggle="collapse"] {
-    background-color: rgba(200, 200, 200, 0.2);
+    background-color: rgba(200, 200, 200, 0.42);
     color: #3C4858;
     box-shadow: none;
 }
@@ -10296,11 +10296,11 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 }
 
 .togglebutton label input[type=checkbox]:checked+.toggle {
-    background-color: rgba(156, 39, 176, 0.7);
+    background-color: rgba(30, 88, 149, 0.7);
 }
 
 .togglebutton label input[type=checkbox]:checked+.toggle:after {
-    border-color: #195493;
+    border-color: #17467f;
 }
 
 .togglebutton label input[type=checkbox]:checked+.toggle:active:after {

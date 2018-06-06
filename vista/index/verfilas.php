@@ -13,7 +13,7 @@ require("../theme/head.php");
 <?php require("../theme/menuizquierdo.php"); ?>
 <?php require_once('../../modelo/filasclass.php'); ?>
 
-<head>
+
 
 
     <meta charset="UTF-8">
@@ -22,8 +22,6 @@ require("../theme/head.php");
     <link rel="stylesheet" href="../assets/bonito/animated-sign-up-flow-master/css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../assets/bonito/animated-sign-up-flow-master/css/style.css"> <!-- Resource style -->
     <script src="../assets/bonito/animated-sign-up-flow-master/js/modernizr.js"></script> <!-- Modernizr -->
-
-</head>
 
 
 <nav class="navbar navbar-transparent navbar-absolute">
@@ -169,8 +167,9 @@ require("../theme/head.php");
                                                         <div class="table-responsive">
                                                             <table class="table" id="tablearchivos">
                                                                 <thead class="text-primary">
-                                                                <th>Documeny</th>
+                                                                <th>Serie</th>
                                                                 <th>trasfernecia</th>
+                                                                <th>Mas</th>
                                                                 </thead>
 
                                                                 <tbody id="datatable1">
@@ -215,8 +214,8 @@ require("../theme/head.php");
             <div class="modal" tabindex="-1" role="dialog" id="myModal">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content" style="background-color: #f5f5f5">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <div class="modal-header text-right" >
+                            <button type="button" class="btn btn-xs btn-primary btn-simple" data-dismiss="modal"><i class="icon-close"></i></button>
                         </div>
 
 
@@ -249,6 +248,7 @@ require("../theme/head.php");
                                                 </select>
                                             </div>
                                             <input type="hidden" id="balda" value="">
+                                            <input type="hidden" id="balda2" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -264,6 +264,22 @@ require("../theme/head.php");
             </div>
         </div>
 
+
+
+        <div class="container">
+
+            <!-- Modal -->
+            <div class="modal fade" id="modalform" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="div-cont">
+                        <div id="form"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <script>
 
@@ -490,7 +506,7 @@ require("../theme/head.php");
 
             function form4() {
                 var doc = $('#tipodoc').val();
-                var balda = $("#balda").val();
+                var balda = $("#balda2").val();
                 var data2 = {
                     "doc": doc,
                     "balda": balda,
@@ -513,6 +529,7 @@ require("../theme/head.php");
             }
 
             function showarchivos(idbalda_am) {
+                $("#balda2").val(idbalda_am);
                 var data2 = {
                     "idbalda_am": idbalda_am,
                 };
@@ -532,6 +549,39 @@ require("../theme/head.php");
                     }
                 });
             }
+
+
+
+            function ver(tipo,id) {
+
+                var data2 = {
+                    "Tipo": tipo,
+                    "id": id,
+                };
+                $.ajax({
+                    data: data2,
+                    url: '../../Controlador/documentocontroller.php?action=ver', //archivo que recibe la peticion
+                    type: 'POST',
+
+                    success: function (respuesta) {
+
+                        $("#form").load(respuesta);
+                        $("#modalform").modal();
+
+                    }
+                });
+
+            }
+
+
+            $(document).ready(function(){
+                $("#myBtnclose").click(function(){
+
+                });
+            });
+
+
+
 
         </script>
 

@@ -45,9 +45,11 @@ if (isset($_SESSION['sesion'])) {
 
                     <div class="col-md-4 animated zoomIn">
                         <div class="card card-product">
-                            <div class="card-image" data-header-animation="true">
-                                <img class="img" src="<?php echo $id2 ?>">
-                            </div>
+                            <a href="Filas_<?php echo $id; ?>">
+                                <div class="card-image" data-header-animation="true">
+                                    <img class="img" src="<?php echo $id2 ?>">
+                                </div>
+                            </a>
 
                             <div class="card-content">
                                 <div class="card-actions">
@@ -70,7 +72,7 @@ if (isset($_SESSION['sesion'])) {
                                 </div>
 
                                 <h4 class="card-title">
-                                    <a href="#pablo"><?php echo $Nombre ?></a>
+                                    <a href="Filas_<?php echo $id; ?>"><?php echo $Nombre ?></a>
                                 </h4>
 
                                 <div class="card-description" id="descr<?php echo $id; ?>">
@@ -88,7 +90,7 @@ if (isset($_SESSION['sesion'])) {
 
 
                     swal({
-                        title: 'Descricion de la sala',
+                        title: 'Descripcion de la sala',
                         html: '<div class="form-group">' +
                         '<input id="input-field" name="Tipo2" type="text" class="form-control"/>' +
                         '</div>',
@@ -103,14 +105,14 @@ if (isset($_SESSION['sesion'])) {
                             "id": id,
                         };
 
-                        var des="descr"+id;
+                        var des = "descr" + id;
                         $.ajax({
                             data: datas,
                             url: '../../Controlador/Ubicacion_controller.php?action=desc',
                             type: 'POST',
 
                             success: function (res) {
-                               $("#"+des).text( $('#input-field').val());
+                                $("#" + des).text($('#input-field').val());
                             }
                         });
                     }).catch(swal.noop)

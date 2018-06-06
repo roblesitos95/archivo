@@ -94,8 +94,12 @@ if (isset($_SESSION['sesion'])) {
                                         die('Error no se pudo conectar : ' . mysqli_error($con));
                                     }
                                     mysqli_select_db($con, "ajax_demo");
-
+                                    $sql=null;
+                                    if ($_GET["prestamo"] != "all"  ){
+                                        $sql = "SELECT prestamos.idPrestamos, prestamos.Solicitante, prestamos.Fecha_Envio, prestamos.Destinatario, prestamos.Numero_Guia, prestamos.Observaciones , archivos.Tipo_Documento, archivos.estado FROM prestamos INNER JOIN archivos ON prestamos.Archivos_id_Archivos=archivos.id_Archivos WHERE (prestamos.Estado='activo') and  prestamos.idPrestamos=".$_GET["prestamo"];
+                                    }else{
                                     $sql = "SELECT prestamos.idPrestamos, prestamos.Solicitante, prestamos.Fecha_Envio, prestamos.Destinatario, prestamos.Numero_Guia, prestamos.Observaciones , archivos.Tipo_Documento, archivos.estado FROM prestamos INNER JOIN archivos ON prestamos.Archivos_id_Archivos=archivos.id_Archivos WHERE (prestamos.Estado='activo') and ( archivos.estado='toda' OR archivos.estado='unidad')";
+                                    }
                                     $con->set_charset("utf8");
                                     $result = mysqli_query($con, $sql);
 
@@ -104,7 +108,7 @@ if (isset($_SESSION['sesion'])) {
                                         if ($row["estado"]=="toda"){
                                             $class="danger";
                                         }else if ($row["estado"]=="unidad"){
-                                            $class="info";
+                                            $class="warning";
                                         }
                                         ?>
 

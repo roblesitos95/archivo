@@ -12,7 +12,7 @@ Rewriterule ^Inicio/registrer$ index/registrer.php
 
 #redireccionamiento para prestamos
 Rewriterule ^Prestamos/crear$ Prestamos/crear_prestamo.php
-Rewriterule ^Prestamos/devolver$ Prestamos/crear_devolucion.php
+Rewriterule ^Prestamos/devolver_(.+)$ Prestamos/crear_devolucion.php?prestamo=$1
 Rewriterule ^Prestamos/ver$ Prestamos/ver_prestamo.php
 
 #redireccionamiento para trasferencias
@@ -20,7 +20,7 @@ Rewriterule ^Trasferencia/Crear$ areatrasferencia/creararea.php
 Rewriterule ^Trasferencia/Ver$ areatrasferencia/verarea.php
 
 #redireccionamiento para certificados de desintegracion
-Rewriterule ^Documentos/Chatarrizacion$ cert_desintegracion/ver_desintegracion.php
+Rewriterule ^Documentos/Chatarrizacion_(.+)$ cert_desintegracion/ver_desintegracion.php?filtro=$1
 
 #redireccionamiento para Contratos
 Rewriterule ^Documentos/Contratos$ Contratos/ver_contratos.php
@@ -33,7 +33,7 @@ Rewriterule ^Documentos/Contables$ contables/ver_contable.php
 Rewriterule ^Documentos/Escrituras$ Escrituras/ver_escrituras.php
 
 #redireccionamiento para Facturas
-Rewriterule ^Documentos/Facturas$ facturas/ver_factura.php
+Rewriterule ^Documentos/Facturas_(.+)$ facturas/ver_factura.php?filtro=$1
 
 #redireccionamiento para Historias Laborales
 Rewriterule ^Documentos/HHLL$ histlaborales/ver_historias_laborales.php

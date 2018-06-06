@@ -10,7 +10,7 @@ if (isset($_SESSION['sesion'])) {
     <?php require_once('../../modelo/archivo_class.php'); ?>
     <script>
         window.onload = function () {
-            var element = document.getElementById("verfactura");
+            var element = document.getElementById("<?php echo $_GET["filtro"]?>");
             element.classList.add("active");
         }
     </script>
@@ -60,7 +60,12 @@ if (isset($_SESSION['sesion'])) {
 
                                     <tbody>
                                     <?php
-                                    $arrimportacion = archivo_class::getAll("Factura");
+                                    if (base64_decode($_GET["filtro"]) == "todo"){
+                                        $arrimportacion = archivo_class::getAll("Factura");
+                                    }
+                                    else{
+                                    $arrimportacion = archivo_class::getfiltro("Factura",base64_decode($_GET["filtro"]));
+                                    }
                                     ?>
                                     </tbody>
                                 </table>
@@ -75,6 +80,20 @@ if (isset($_SESSION['sesion'])) {
                 <!-- end col-md-12 -->
             </div>
             <!-- end row -->
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="modalform" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="div-cont">
+                    <div id="form"> </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -119,7 +138,25 @@ if (isset($_SESSION['sesion'])) {
             $('.card .material-datatables label').addClass('form-group');
         });
 
+        function ver(tipo,id) {
 
+            var data2 = {
+                "Tipo": tipo,
+                "id": id,
+            };
+            $.ajax({
+                data: data2,
+                url: '../../Controlador/documentocontroller.php?action=ver', //archivo que recibe la peticion
+                type: 'POST',
+
+                success: function (respuesta) {
+
+                    $("#form").load(respuesta);
+                    $("#modalform").modal();
+
+                }
+            });
+        }
     </script>
 
     <?php require("../theme/pie.php"); ?>

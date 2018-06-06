@@ -75,6 +75,23 @@ if (isset($_SESSION['sesion'])) {
             <!-- end row -->
         </div>
     </div>
+
+
+    <div class="container">
+        <!-- Modal -->
+        <div class="modal fade" id="modalform" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="div-cont">
+                    <div id="form"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('#datatables').DataTable({
@@ -117,6 +134,33 @@ if (isset($_SESSION['sesion'])) {
         });
 
 
+        function ver(tipo, id) {
+
+            var data2 = {
+                "Tipo": tipo,
+                "id": id,
+            };
+            $.ajax({
+                data: data2,
+                url: '../../Controlador/documentocontroller.php?action=ver', //archivo que recibe la peticion
+                type: 'POST',
+
+                success: function (respuesta) {
+
+                    $("#form").load(respuesta);
+                    $("#modalform").modal();
+
+                }
+            });
+
+        }
+
+
+        $(document).ready(function () {
+            $("#myBtnclose").click(function () {
+                $("#modalform").modal("toggle");
+            });
+        });
     </script>
 
 

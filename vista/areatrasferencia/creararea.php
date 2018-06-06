@@ -156,8 +156,7 @@ if (isset($_SESSION['sesion'])) {
                                                 <option selected value=""> Seleccione...</option>
                                                 <option value="ADMINISTRACION"> Administracion</option>
                                                 <option value="ALMACEN_GENERAL"> Almacen General</option>
-                                                <option value="LOGISTICA">logistica</option>
-                                                <option value="ACERIA"> aceria</option>
+                                                <option value="ACERIA"> Aceria</option>
                                                 <option value="CARTERA"> Cartera</option>
                                                 <option value="COMERCIO_EXTERIOR"> Comercio Exterior</option>
                                                 <option value="CONTABILIDAD"> Contabilidad</option>
