@@ -2,7 +2,7 @@
 
 
 //recibir una accion y enviarla al menu
-if (! empty($_GET['action'])) {
+if (!empty($_GET['action'])) {
     require_once("../modelo/archivo_class.php");
     documentocontroller::main($_GET['action']);
 } else {
@@ -55,10 +55,10 @@ class documentocontroller
                 $Descripcion = $_POST['Descripcion'];
                 $estado = "activo";
 
-                $sql = "INSERT INTO archivos (Tipo_Documento, fecha,Descripcion,
-                      Numero, Documento, Placa, Clase, Trasferencia, balda_am_idbalda_am,estado) 
-                      VALUES ('".$tipodocumento."','".$Fecha."','".$Descripcion."',
-                      '".$Numero."','".$Documento."','".$Placa."','".$Clase."',".$area.",".$balda.",'".$estado."')";
+                $sql = "INSERT INTO archivos (estado, Tipo_Documento, fecha,Descripcion,
+                      Numero, Documento, Placa, Clase, Trasferencia, balda_am_idbalda_am) 
+                      VALUES ('activo','" . $tipodocumento . "','" . $Fecha . "','" . $Descripcion . "',
+                      '" . $Numero . "','" . $Documento . "','" . $Placa . "','" . $Clase . "'," . $area . "," . $balda . ")";
 
                 $num = archivo_class::insertar($sql);
                 $tabla = archivo_class::table($num);
@@ -82,8 +82,8 @@ class documentocontroller
                 $Area = $_POST['Area'];
                 $Descripcion = $_POST['Descripcion'];
 
-                $sql = "INSERT INTO archivos (Tipo_Documento,Documento,Numero,Contratista,NIT,fecha,factura,Trasferencia,Descripcion,balda_am_idbalda_am) 
-                VALUES ('".$tipodocumento."','".$Documento."','".$Numero."','".$Proveedor."','".$NIT."','".$Fecha."','".$Factura."',".$Area.",'".$Descripcion."',".$balda.") ";
+                $sql = "INSERT INTO archivos (estado,Tipo_Documento,Documento,Numero,Contratista,NIT,fecha,factura,Trasferencia,Descripcion,balda_am_idbalda_am) 
+                VALUES ('activo','" . $tipodocumento . "','" . $Documento . "','" . $Numero . "','" . $Proveedor . "','" . $NIT . "','" . $Fecha . "','" . $Factura . "'," . $Area . ",'" . $Descripcion . "'," . $balda . ") ";
 
                 $num = archivo_class::insertar($sql);
 
@@ -106,8 +106,8 @@ class documentocontroller
                 $Area = $_POST['Area'];
                 $Descripcion = $_POST['Descripcion'];
 
-                $sql = "INSERT INTO archivos (Tipo_Documento, balda_am_idbalda_am, Empresa, Numero, Contratista,fecha,Trasferencia,Descripcion) 
-                VALUES ('".$tipodocumento."',".$balda.",'".$Nombre."','".$Numero."','".$Contratista."','".$Fecha."',".$Area.",'".$Descripcion."')";
+                $sql = "INSERT INTO archivos (estado, Tipo_Documento, balda_am_idbalda_am, Empresa, Numero, Contratista,fecha,Trasferencia,Descripcion) 
+                VALUES ('activo','" . $tipodocumento . "'," . $balda . ",'" . $Nombre . "','" . $Numero . "','" . $Contratista . "','" . $Fecha . "'," . $Area . ",'" . $Descripcion . "')";
 
                 $num = archivo_class::insertar($sql);
 
@@ -130,8 +130,8 @@ class documentocontroller
                 $Area = $_POST['Area'];
                 $Descripcion = $_POST['Descripcion'];
 
-                $sql = "INSERT INTO archivos (Tipo_Documento,balda_am_idbalda_am,Numero,Notaria,De,A,fecha,Trasferencia,Descripcion) 
-                VALUES ('".$tipodocumento."',".$balda.",'".$Numero."','".$Notaria."','".$De."','".$A."','".$Fecha."',".$Area.",'".$Descripcion."')";
+                $sql = "INSERT INTO archivos (estado,Tipo_Documento,balda_am_idbalda_am,Numero,Notaria,De,A,fecha,Trasferencia,Descripcion) 
+                VALUES ('activo','" . $tipodocumento . "'," . $balda . ",'" . $Numero . "','" . $Notaria . "','" . $De . "','" . $A . "','" . $Fecha . "'," . $Area . ",'" . $Descripcion . "')";
 
                 $num = archivo_class::insertar($sql);
                 $tabla = archivo_class::table($num);
@@ -160,9 +160,9 @@ class documentocontroller
                 $area = $_POST['area'];
                 $Descripcion = $_POST['Descripcion'];
 
-                $sql = "INSERT INTO archivos (Tipo_Documento,balda_am_idbalda_am,Numero,Contratista,NIT,fecha,Descripcion,Tipo,Documento,Trasferencia)
-                        VALUES ('".$tipodocumento."',".$balda.",'".$Numero."','".$Titular."','".$NIT."','".$Fecha."','".$Descripcion."','".$tipodefactura."',
-                        '".$Contable."',".$area.")";
+                $sql = "INSERT INTO archivos (estado,Tipo_Documento,balda_am_idbalda_am,Numero,Contratista,NIT,fecha,Descripcion,Tipo,Documento,Trasferencia)
+                        VALUES ('activo','" . $tipodocumento . "'," . $balda . ",'" . $Numero . "','" . $Titular . "','" . $NIT . "','" . $Fecha . "','" . $Descripcion . "','" . $tipodefactura . "',
+                        '" . $Contable . "'," . $area . ")";
                 $num = archivo_class::insertar($sql);
 
                 $tabla = archivo_class::table($num);
@@ -183,9 +183,9 @@ class documentocontroller
                 $Area = $_POST["Area"];
                 $Descripcion = $_POST["Descripcion"];
 
-                $sql = 'INSERT INTO archivos (Tipo_Documento,Documento,Apellidos,Nombres,Tipo,Numero, Trasferencia,Descripcion,balda_am_idbalda_am)
+                $sql = 'INSERT INTO archivos (estado,Tipo_Documento,Documento,Apellidos,Nombres,Tipo,Numero, Trasferencia,Descripcion,balda_am_idbalda_am)
    
-                  VALUES ("'.$tipodocumento.'","'.$Documento.'","'.$Apellidos.'","'.$Nombres.'","'.$Estado.'","'.$Numero.'","'.$Area.'","'.$Descripcion.'",'.$balda.')';
+                  VALUES ("activo","' . $tipodocumento . '","' . $Documento . '","' . $Apellidos . '","' . $Nombres . '","' . $Estado . '","' . $Numero . '","' . $Area . '","' . $Descripcion . '",' . $balda . ')';
 
                 $num = archivo_class::insertar($sql);
 
@@ -207,8 +207,8 @@ class documentocontroller
                 $Descripcion = $_POST["Descripcion"];
                 $balda = $_POST["balda"];
 
-                $sql = "INSERT INTO archivos(Tipo_Documento,Documento,fecha,Liquidacion,Pedido,Trasferencia,Descripcion,balda_am_idbalda_am) 
-                VALUES ('".$tipodocumento."','".$Nombre."','".$Fecha."','".$liquidacion."','".$Pedido."',".$Area.",'".$Descripcion."',".$balda.")";
+                $sql = "INSERT INTO archivos(estado,Tipo_Documento,Documento,fecha,Liquidacion,Pedido,Trasferencia,Descripcion,balda_am_idbalda_am) 
+                VALUES ('activo','" . $tipodocumento . "','" . $Nombre . "','" . $Fecha . "','" . $liquidacion . "','" . $Pedido . "'," . $Area . ",'" . $Descripcion . "'," . $balda . ")";
 
                 $num = archivo_class::insertar($sql);
 
@@ -229,8 +229,8 @@ class documentocontroller
                 $Area = $_POST["area"];
                 $Descripcion = $_POST["Descripcion"];
 
-                $sql = "INSERT INTO archivos(Tipo_Documento,Numero,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
-                VALUES ('".$tipodocumento."','".$Documento."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
+                $sql = "INSERT INTO archivos(estado,Tipo_Documento,Numero,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
+                VALUES ('activo','" . $tipodocumento . "','" . $Documento . "','" . $Fecha . "'," . $Area . ",'" . $Descripcion . "'," . $balda . ")";
 
                 $num = archivo_class::insertar($sql);
 
@@ -253,8 +253,8 @@ class documentocontroller
                 $Descripcion = $_POST["Descripcion"];
                 $Numero = $_POST["Numero"];
 
-                $sql = "INSERT INTO archivos (Tipo_Documento,balda_am_idbalda_am,fecha,Documento,Empresa,Contratista,Trasferencia,Descripcion,Ciudad,Numero)
-                VALUES ('".$tipodocumento."',".$balda.",'".$Fecha."','".$documento."','".$empresalaboral."','".$empresadeservicio."',".$Area.",'".$Descripcion."','".$Ciudad."','".$Numero."')";
+                $sql = "INSERT INTO archivos (estado,Tipo_Documento,balda_am_idbalda_am,fecha,Documento,Empresa,Contratista,Trasferencia,Descripcion,Ciudad,Numero)
+                VALUES ('activo','" . $tipodocumento . "'," . $balda . ",'" . $Fecha . "','" . $documento . "','" . $empresalaboral . "','" . $empresadeservicio . "'," . $Area . ",'" . $Descripcion . "','" . $Ciudad . "','" . $Numero . "')";
 
                 $num = archivo_class::insertar($sql);
 
@@ -275,8 +275,8 @@ class documentocontroller
                 $Descripcion = $_POST["Descripcion"];
                 $balda = $_POST["balda"];
 
-                $sql = "INSERT INTO archivos (Tipo_Documento,Numero,Ciudad,Contratista,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
-                VALUES ('".$tipodocumento."','".$Numero."','".$Sucursa."','".$Proveedor."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
+                $sql = "INSERT INTO archivos (estado,Tipo_Documento,Numero,Ciudad,Contratista,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
+                VALUES ('activo','" . $tipodocumento . "','" . $Numero . "','" . $Sucursa . "','" . $Proveedor . "','" . $Fecha . "'," . $Area . ",'" . $Descripcion . "'," . $balda . ")";
 
                 $num = archivo_class::insertar($sql);
 
@@ -295,8 +295,8 @@ class documentocontroller
                 $Descripcion = $_POST["Descripcion"];
                 $balda = $_POST["balda"];
 
-                $sql = "INSERT INTO archivos (Tipo_Documento,Empresa,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
-VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
+                $sql = "INSERT INTO archivos (estado,Tipo_Documento,Empresa,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
+VALUES ('activo','" . $tipodocumento . "','" . $Empresa . "','" . $Fecha . "'," . $Area . ",'" . $Descripcion . "'," . $balda . ")";
 
                 $num = archivo_class::insertar($sql);
 
@@ -309,56 +309,6 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
 //NUEVO METODO SOLOCOPI Y PEGAR
             case "New_metod":
 
-                break;
-        }
-    }
-
-    public static function ver(){
-        $tipo=$_POST["Tipo"];
-        $id=$_POST["id"];
-
-
-        switch ($tipo) {
-            //certificado de desintegracion
-            case "Cert_Desintegracion":
-                echo '../cert_desintegracion/Crear_Desintegracion.php?btn=editar&archivo='.$id;
-                break;
-            //Contratos
-            case "Contratos":
-                echo '../Contratos/crear_contratos.php?btn=editar&archivo='.$id;
-                break;
-            //documentos contables
-            case "Doc_Contable":
-                echo '../contables/crear_contable.php?btn=editar&archivo='.$id;
-                break;
-            //Escrituras
-            case "Escritura":
-                echo '../Escrituras/crear_escrituras.php?btn=editar&archivo='.$id;
-                break;
-            //Facturas
-            case "Factura":
-                echo '../facturas/crear_factura.php?btn=editar&archivo='.$id;
-                break;
-            //historias laborales
-            case "Historia_laboral":
-                echo '../histlaborales/crear.php?btn=editar&archivo='.$id;
-                break;
-            //importaciones
-            case"Importacion":
-                echo '../importaciones/cuerpo.php?btn=editar&archivo='.$id;
-                break;
-            //impuestos
-            case"Impuestos":
-                echo '../Impuestos/crear_impuesto.php?btn=editar&archivo='.$id;
-                break;
-            case "Seguridad_social";
-                echo '../seguridad/crearseguridadsocial.php?btn=editar&archivo='.$id;
-                break;
-            case "Informe_Entrada";
-                echo '../info_entrada/crear_info_entrada.php?btn=editar&archivo='.$id;
-                break;
-            case "Libros_Oficiales";
-                echo '../Libros_Oficiales/crear_libro.php?btn=editar&archivo='.$id;
                 break;
         }
     }
@@ -382,11 +332,11 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $Fecha = $_POST['Fecha'];
                 $Descripcion = $_POST['Descripcion'];
 
-                $sql = "UPDATE archivos SET fecha = '".$Fecha."', Descripcion = '".$Descripcion."', Numero = '".$Numero."', Documento = '".$Documento."', Placa = '".$Placa."', Clase = '".$Clase."' WHERE archivos.id_Archivos = ".$id;
+                $sql = "UPDATE archivos SET fecha = '" . $Fecha . "', Descripcion = '" . $Descripcion . "', Numero = '" . $Numero . "', Documento = '" . $Documento . "', Placa = '" . $Placa . "', Clase = '" . $Clase . "' WHERE archivos.id_Archivos = " . $id;
 
-               $num = archivo_class::editar($sql);
+                $num = archivo_class::editar($sql);
 
-               echo $num;
+                echo $num;
 
                 break;
 
@@ -402,7 +352,7 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $Fecha = $_POST['Fecha'];
                 $Descripcion = $_POST['Descripcion'];
 
-                $sql = "UPDATE archivos SET Documento='".$Documento."', Numero='".$Numero."', Contratista ='".$Proveedor."', NIT='".$NIT."', factura='".$Factura."', fecha='".$Fecha."', Descripcion='".$Descripcion."' WHERE id_Archivos = ".$balda;
+                $sql = "UPDATE archivos SET Documento='" . $Documento . "', Numero='" . $Numero . "', Contratista ='" . $Proveedor . "', NIT='" . $NIT . "', factura='" . $Factura . "', fecha='" . $Fecha . "', Descripcion='" . $Descripcion . "' WHERE id_Archivos = " . $balda;
 
                 $num = archivo_class::editar($sql);
 
@@ -422,7 +372,7 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $Fecha = $_POST['Fecha'];
                 $Descripcion = $_POST['Descripcion'];
 
-                $sql = "UPDATE archivos SET fecha = '".$Fecha."', Descripcion = '".$Descripcion."', Numero = '".$Numero."', Empresa = '".$Nombre."', Contratista = '".$Contratista."' WHERE archivos.id_Archivos =".$id;
+                $sql = "UPDATE archivos SET fecha = '" . $Fecha . "', Descripcion = '" . $Descripcion . "', Numero = '" . $Numero . "', Empresa = '" . $Nombre . "', Contratista = '" . $Contratista . "' WHERE archivos.id_Archivos =" . $id;
 
                 $num = archivo_class::editar($sql);
 
@@ -434,7 +384,7 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
             Case "Escritura":
 
                 $tipodocumento = $table;
-                $id= $_POST['id'];
+                $id = $_POST['id'];
                 $Numero = $_POST['Numero'];
                 $Notaria = $_POST['Notaria'];
                 $De = $_POST['De'];
@@ -443,7 +393,7 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $Area = $_POST['Area'];
                 $Descripcion = $_POST['Descripcion'];
 
-                $sql = "UPDATE archivos SET Numero='".$Numero."', Notaria='".$Notaria."', De='".$De."', A='".$A."',fecha='".$Fecha."', Trasferencia='".$Area."', Descripcion='".$Descripcion."' WHERE archivos.id_Archivos =".$id;
+                $sql = "UPDATE archivos SET Numero='" . $Numero . "', Notaria='" . $Notaria . "', De='" . $De . "', A='" . $A . "',fecha='" . $Fecha . "', Trasferencia='" . $Area . "', Descripcion='" . $Descripcion . "' WHERE archivos.id_Archivos =" . $id;
 
                 $num = archivo_class::editar($sql);
                 echo $num;
@@ -470,7 +420,7 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $area = $_POST['area'];
                 $Descripcion = $_POST['Descripcion'];
 
-                $sql = "UPDATE archivos SET  Tipo= '".$tipodefactura."',Numero='".$Numero."', Contratista='".$Titular."',NIT='".$NIT."',Documento='".$Contable."', fecha='".$Fecha."',Descripcion='".$Descripcion."' where archivos.id_Archivos=".$id;
+                $sql = "UPDATE archivos SET  Tipo= '" . $tipodefactura . "',Numero='" . $Numero . "', Contratista='" . $Titular . "',NIT='" . $NIT . "',Documento='" . $Contable . "', fecha='" . $Fecha . "',Descripcion='" . $Descripcion . "' where archivos.id_Archivos=" . $id;
                 $num = archivo_class::editar($sql);
 
                 echo $num;
@@ -486,7 +436,7 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $Numero = $_POST["Numero"];
                 $Descripcion = $_POST["Descripcion"];
 
-                $sql = "UPDATE archivos SET Documento='".$Documento."',Apellidos='".$Apellidos."',Nombres='".$Nombres."',Tipo='".$Estado."',Numero='".$Numero."',Descripcion='".$Descripcion."' where archivos.id_Archivos=".$id;
+                $sql = "UPDATE archivos SET Documento='" . $Documento . "',Apellidos='" . $Apellidos . "',Nombres='" . $Nombres . "',Tipo='" . $Estado . "',Numero='" . $Numero . "',Descripcion='" . $Descripcion . "' where archivos.id_Archivos=" . $id;
 
                 $num = archivo_class::editar($sql);
 
@@ -505,7 +455,7 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $Descripcion = $_POST["Descripcion"];
                 $id = $_POST["id"];
 
-                $sql = "UPDATE archivos SET Documento='".$Nombre."',Descripcion='".$Descripcion."',fecha='".$Fecha."',Liquidacion='".$liquidacion."',Pedido='".$Pedido."' WHERE archivos.id_Archivos=".$id;
+                $sql = "UPDATE archivos SET Documento='" . $Nombre . "',Descripcion='" . $Descripcion . "',fecha='" . $Fecha . "',Liquidacion='" . $liquidacion . "',Pedido='" . $Pedido . "' WHERE archivos.id_Archivos=" . $id;
 
                 $num = archivo_class::editar($sql);
 
@@ -516,19 +466,18 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
 //IMPUESTOS
             case "Impuestos":
 
-                $id= $_POST["id"];
+                $id = $_POST["id"];
                 $Documento = $_POST["documento"];
                 $Fecha = $_POST["Fecha"];
                 $Area = $_POST["area"];
                 $Descripcion = $_POST["Descripcion"];
 
-                $sql = "UPDATE archivos SET Numero='".$Documento."', fecha='".$Fecha."', Trasferencia='".$Area."', Descripcion='".$Descripcion."' where archivos.id_Archivos=".$id;
+                $sql = "UPDATE archivos SET Numero='" . $Documento . "', fecha='" . $Fecha . "', Trasferencia='" . $Area . "', Descripcion='" . $Descripcion . "' where archivos.id_Archivos=" . $id;
 
                 $num = archivo_class::editar($sql);
 
 
-
-                echo $num   ;
+                echo $num;
                 break;
 
 //SEGURIDAD SOSIAL
@@ -543,10 +492,9 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $Descripcion = $_POST["Descripcion"];
                 $Numero = $_POST["Numero"];
 
-                $sql = "UPDATE archivos SET fecha= '".$Fecha."', Documento='$documento', Contratista='".$empresadeservicio."', Empresa='".$empresalaboral."', Trasferencia='".$Area."',Ciudad='".$Ciudad."',Descripcion='".$Descripcion."', Numero='".$Numero."' where archivos.id_Archivos=".$id;
+                $sql = "UPDATE archivos SET fecha= '" . $Fecha . "', Documento='$documento', Contratista='" . $empresadeservicio . "', Empresa='" . $empresalaboral . "', Trasferencia='" . $Area . "',Ciudad='" . $Ciudad . "',Descripcion='" . $Descripcion . "', Numero='" . $Numero . "' where archivos.id_Archivos=" . $id;
 
                 $num = archivo_class::editar($sql);
-
 
 
                 echo $num;
@@ -564,7 +512,7 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $balda = $_POST["balda"];
 
                 $sql = "INSERT INTO archivos (Tipo_Documento,Numero,Ciudad,Contratista,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
-                VALUES ('".$tipodocumento."','".$Numero."','".$Sucursa."','".$Proveedor."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
+                VALUES ('" . $tipodocumento . "','" . $Numero . "','" . $Sucursa . "','" . $Proveedor . "','" . $Fecha . "'," . $Area . ",'" . $Descripcion . "'," . $balda . ")";
 
                 $num = archivo_class::insertar($sql);
 
@@ -584,7 +532,7 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
                 $balda = $_POST["balda"];
 
                 $sql = "INSERT INTO archivos (Tipo_Documento,Empresa,fecha,Trasferencia,Descripcion,balda_am_idbalda_am)
-VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripcion."',".$balda.")";
+VALUES ('" . $tipodocumento . "','" . $Empresa . "','" . $Fecha . "'," . $Area . ",'" . $Descripcion . "'," . $balda . ")";
 
                 $num = archivo_class::insertar($sql);
 
@@ -601,63 +549,144 @@ VALUES ('".$tipodocumento."','".$Empresa."','".$Fecha."',".$Area.",'".$Descripci
         }
     }
 
+    public static function ver()
+    {
+        $tipo = $_POST["Tipo"];
+        $id = $_POST["id"];
+
+
+        switch ($tipo) {
+            //certificado de desintegracion
+            case "Cert_Desintegracion":
+                echo '../cert_desintegracion/Crear_Desintegracion.php?btn=editar&archivo=' . $id;
+                break;
+            //Contratos
+            case "Contratos":
+                echo '../Contratos/crear_contratos.php?btn=editar&archivo=' . $id;
+                break;
+            //documentos contables
+            case "Doc_Contable":
+                echo '../contables/crear_contable.php?btn=editar&archivo=' . $id;
+                break;
+            //Escrituras
+            case "Escritura":
+                echo '../Escrituras/crear_escrituras.php?btn=editar&archivo=' . $id;
+                break;
+            //Facturas
+            case "Factura":
+                echo '../facturas/crear_factura.php?btn=editar&archivo=' . $id;
+                break;
+            //historias laborales
+            case "Historia_laboral":
+                echo '../histlaborales/crear.php?btn=editar&archivo=' . $id;
+                break;
+            //importaciones
+            case"Importacion":
+                echo '../importaciones/cuerpo.php?btn=editar&archivo=' . $id;
+                break;
+            //impuestos
+            case"Impuestos":
+                echo '../Impuestos/crear_impuesto.php?btn=editar&archivo=' . $id;
+                break;
+            case "Seguridad_social";
+                echo '../seguridad/crearseguridadsocial.php?btn=editar&archivo=' . $id;
+                break;
+            case "Informe_Entrada";
+                echo '../info_entrada/crear_info_entrada.php?btn=editar&archivo=' . $id;
+                break;
+            case "Libros_Oficiales";
+                echo '../Libros_Oficiales/crear_libro.php?btn=editar&archivo=' . $id;
+                break;
+        }
+    }
+
     private static function Documento()
     {
 
         $con = mysqli_connect('localhost', 'root', '', 'bd_documentacion');
-        if (! $con) {
-            die('Error no se pudo conectar : '.mysqli_error($con));
+        if (!$con) {
+            die('Error no se pudo conectar : ' . mysqli_error($con));
         }
         mysqli_select_db($con, "ajax_demo");
-
 
 
         $sql = "select archivos.Documento FROM archivos where Tipo_Documento='Cert_Desintegracion' GROUP BY Documento";
         $con->set_charset("utf8");
         $result = mysqli_query($con, $sql);
-        $data=array();
+        $data = array();
         while ($row = mysqli_fetch_array($result)) {
-           array_push($data,$row["Documento"]);
+            array_push($data, $row["Documento"]);
         }
 
-       echo json_encode($data);
+        echo json_encode($data);
 
     }
 
-    public  static function topo(){
+    public static function topo()
+    {
 
-        $id=$_POST["id"];
+        $id = $_POST["id"];
 
 
-
-        $sala=null;
-        $fila=null;
-        $cara=null;
-        $estante=null;
-        $balda=null;
-        $am=null;
+        $sala = null;
+        $fila = null;
+        $cara = null;
+        $estante = null;
+        $balda = null;
+        $am = null;
 
         $con = mysqli_connect('localhost', 'root', '', 'bd_documentacion');
-        if (! $con) {
-            die('Error no se pudo conectar : '.mysqli_error($con));
+        if (!$con) {
+            die('Error no se pudo conectar : ' . mysqli_error($con));
         }
         mysqli_select_db($con, "ajax_demo");
 
 
-
-        $sql = "select archivos.balda_am_idbalda_am FROM archivos where id_Archivos =".$id;
+        $sqlam = "select archivos.id_Archivos, balda_am.idbalda_am, balda_am.estante_balda_idestante_balda, balda_am.am FROM archivos INNER JOIN balda_am on archivos.balda_am_idbalda_am = balda_am.idbalda_am where archivos.id_Archivos=" . $id;
         $con->set_charset("utf8");
-        $result = mysqli_query($con, $sql);
+        $resultam = mysqli_query($con, $sqlam);
 
-        while ($row = mysqli_fetch_array($result)) {
+
+        while ($rowam = mysqli_fetch_array($resultam)) {
+            $am = $rowam["am"];
+
+            $g2 = $rowam["estante_balda_idestante_balda"];
+
 
         }
+
+        $sqlbalda = "SELECT estante_balda.fila_estante_idfila_estante, balda.Nombre FROM estante_balda INNER JOIN balda ON estante_balda.Balda_idBalda=balda.idBalda WHERE estante_balda.idestante_balda=" . $g2;
+        $con->set_charset("utf8");
+        $resultbalda = mysqli_query($con, $sqlbalda);
+        while ($rowbalda = mysqli_fetch_array($resultbalda)) {
+           $balda=$rowbalda["Nombre"];
+           $eb=$rowbalda["fila_estante_idfila_estante"];
+        }
+
+        $sqlestante = "SELECT fila_estante.sala_fila_idsala_fila, estante.Nombre FROM fila_estante INNER JOIN estante ON fila_estante.Estante_idEstante=estante.idEstante WHERE fila_estante.idfila_estante=" . $eb;
+        $con->set_charset("utf8");
+        $resultestnate = mysqli_query($con, $sqlestante);
+        while ($rowestante = mysqli_fetch_array($resultestnate)) {
+           $estante=$rowestante["Nombre"];
+           $fe=$rowestante["sala_fila_idsala_fila"];
+        }
+
+        $sqlestante = "SELECT filas.Nombre as fila , salas.Nombre as sala, cara.Nombre as cara FROM sala_fila INNER JOIN filas on sala_fila.Filas_idFilas=filas.idFilas INNER JOIN salas on sala_fila.Salas_idSalas=salas.idSalas INNER JOIN cara ON sala_fila.Cara_idCara=cara.idCara WHERE sala_fila.idsala_fila=" . $fe;
+        $con->set_charset("utf8");
+        $resultestnate = mysqli_query($con, $sqlestante);
+        while ($rowestante = mysqli_fetch_array($resultestnate)) {
+            $sala=$rowestante["sala"];
+            $fila=$rowestante["fila"];
+            $cara=$rowestante["cara"];
+        }
+
+
         $con->close();
 
 
-$lol=array($sala,$fila,$cara,$estante,$balda,$am);
+        $lol = array("sala"=>$sala,"fila"=> $fila, "cara"=>$cara,"estante"=> $estante, "balda"=>$balda,"am"=> $am);
+        echo json_encode($lol);
 
-echo json_encode($lol);
     }
 
 

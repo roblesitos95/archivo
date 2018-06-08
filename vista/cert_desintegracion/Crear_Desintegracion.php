@@ -155,12 +155,15 @@ if (isset($_GET["archivo"])) {
                     <div class="form-group label-floating">
                         <label class="control-label">transferencia </label>
 
-                        <?php if (isset($trasferencia)) {
-                            echo areaclass::selectedarea("area", "area", "form-control", $trasferencia);
-                        }
-                        else{
-                            echo areaclass::selectarea("area", "area", "form-control");
-                        }?>
+                        <?php if (isset($trasferencia)) { ?>
+                            <?php echo areaclass::selectedarea("area_cert", "area_cert", "form-control", $trasferencia) ?>
+
+                        <?php } else { ?>
+                            <?php echo areaclass::selectarea("area_cert", "area_cert", "form-control") ?>
+
+                            <?php
+                        } ?>
+
                     </div>
                 </div>
             </div>
@@ -275,7 +278,7 @@ if (isset($_GET["archivo"])) {
         var balda = $("#am").val();
 
         var Fecha = $("#Fechaa").val();
-        var area = $("#area").val();
+        var area = $("#area_cert").val();
         var Documento = $("#myInput").val();
         var Numero = $("#Numero").val();
         var Placa = $("#Placa").val();
@@ -293,13 +296,25 @@ if (isset($_GET["archivo"])) {
             "Descripcion": Descripcion,
         }
 
+        alert($("#area_cert").val());
         $.ajax({
             data: data,
             url: "../../Controlador/documentocontroller.php?action=crear&table=Cert_Desintegracion",
             type: 'POST',
             dataType: "JSON",
             success: function (res) {
-                alert("consecutivo numero " + res[0]);
+                $.notify({
+                    icon: "icon-eye",
+                    message: "consecutivo numero " + res[0],
+
+                }, {
+                    type: "success",
+                    timer: 1000,
+                    placement: {
+                        from: "top",
+                        align: "center",
+                    }
+                });
 
                 $("#div_chatarra").hide();
                 $('#tipodoc').val("1");
@@ -315,7 +330,7 @@ if (isset($_GET["archivo"])) {
 
         var id = $("#id").val();
         var Fecha = $("#Fechaa").val();
-        var area = $("#area").val();
+        var area = $("#area_cert").val();
         var Documento = $("#myInput").val();
         var Numero = $("#Numero").val();
         var Placa = $("#Placa").val();

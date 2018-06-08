@@ -46,7 +46,7 @@
 
             </li>
 
-            <li>
+            <li id="prestamos">
                 <a data-toggle="collapse" href="#Prestamos">
                     <i class="icon-clipboard"></i>
                     <p> Prestamos
@@ -77,10 +77,10 @@
                 </div>
             </li>
 
-            <li>
+            <li id="area">
                 <a data-toggle="collapse" href="#lol">
                     <i class="icon-suitcase"></i>
-                    <p>Trasferencia
+                    <p>transferencia
                         <b class="caret"></b>
                     </p>
                 </a>
@@ -113,7 +113,7 @@
 
             <!--                 menu para Cert Desintregracion              -->
 
-            <li>
+            <li id="cert">
                 <a data-toggle="collapse" href="#certidesen">
                     <i class="icon-truck"></i>
                     <p> Cert. Desintegracion
@@ -160,7 +160,7 @@
 
             <!--                 menu para Contratos              -->
 
-            <li>
+            <li id="contra">
                 <a data-toggle="collapse" href="#contratos">
                     <i class="icon-handshake-o"></i>
                     <p> Contratos
@@ -182,7 +182,7 @@
 
             <!--                 menu para Documento contable------------------>
 
-            <li>
+            <li id="docu">
                 <a data-toggle="collapse" href="#contable">
                     <i class="icon-credit-card-alt"></i>
                     <p> Documento Contable
@@ -204,7 +204,7 @@
 
             <!--                 menu para Escrituras ------------------>
 
-            <li>
+            <li id="escri">
                 <a data-toggle="collapse" href="#escrituras">
                     <i class="icon-industry"></i>
                     <p> Escrituras
@@ -226,7 +226,7 @@
 
             <!--                 menu para Facturas ------------------>
 
-            <li>
+            <li id="facturas">
                 <a data-toggle="collapse" href="#Facturas">
                     <i class="icon-shopping-cart"></i>
                     <p> Facturas
@@ -273,7 +273,7 @@
 
             <!--                 menu para Historias laborales------------------>
 
-            <li>
+            <li id="hhll">
                 <a data-toggle="collapse" href="#laborales">
                     <i class="icon-id-badge"></i>
                     <p> Historial Laborales
@@ -294,7 +294,7 @@
 
             <!--                 menu para Importaciones              -->
 
-            <li>
+            <li id="import">
                 <a data-toggle="collapse" href="#comercioexterior">
                     <i class="icon-coin-dollar"></i>
                     <p> Importaciones
@@ -316,7 +316,7 @@
 
             <!--                 menu para impuestos              -->
 
-            <li>
+            <li id="Impuesto">
                 <a data-toggle="collapse" href="#impuestos">
                     <i class="icon-money"></i>
                     <p> Impuestos
@@ -338,7 +338,7 @@
 
             <!--                 menu para  seguridad social               -->
 
-            <li>
+            <li id="seg">
                 <a data-toggle="collapse" href="#seguridad">
                     <i class="icon-universal-access"></i>
                     <p> Seguridad Social
@@ -359,7 +359,7 @@
 
             <!--                 menu para  informe de entrada -->
 
-            <li>
+            <li id="info">
                 <a data-toggle="collapse" href="#infoentrada">
                     <i class="icon-linode"></i>
                     <p> Info. Entrada
@@ -380,7 +380,7 @@
 
             <!--                 menu para  libros oficiales               -->
 
-            <li>
+            <li id="libros">
                 <a data-toggle="collapse" href="#libroentrada">
                     <i class="icon-book"></i>
                     <p> Libro Oficial

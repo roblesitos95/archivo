@@ -14,6 +14,8 @@ if (isset($_SESSION['sesion'])) {
         window.onload = function () {
             var element = document.getElementById("verarea");
             element.classList.add("active");
+            var parend = document.getElementById("area");
+            parend.classList.add("active");
         }
     </script>
 
@@ -143,8 +145,8 @@ if (isset($_SESSION['sesion'])) {
             $('#datatables').DataTable({
                 "pagingType": "full_numbers",
                 "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "Todos"]
+                    [5,10, 25, 50, -1],
+                    [5,10, 25, 50, "Todos"]
                 ],
                 responsive: true,
                 language: {

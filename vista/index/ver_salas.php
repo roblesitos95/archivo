@@ -16,7 +16,7 @@ if (isset($_SESSION['sesion'])) {
     <nav class="navbar navbar-transparent navbar-absolute">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#"> Crear Documento Contable</a>
+                <a class="navbar-brand" href="#"> Lista de <Salas></Salas></a>
             </div>
         </div>
     </nav>
@@ -95,6 +95,7 @@ if (isset($_SESSION['sesion'])) {
                         '<input id="input-field" name="Tipo2" type="text" class="form-control"/>' +
                         '</div>',
                         showCancelButton: true,
+                        cancelButtonText:"cancelar",
                         confirmButtonClass: 'btn btn-primary',
                         cancelButtonClass: 'btn btn-danger',
                         buttonsStyling: false

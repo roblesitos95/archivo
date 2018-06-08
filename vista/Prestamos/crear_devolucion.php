@@ -44,6 +44,8 @@ if (isset($_SESSION['sesion'])) {
     <script>
         window.onload = function () {
             var element = document.getElementById("creardevolucion");
+            var parend = document.getElementById("prestamos");
+            parend.classList.add("active");
             element.classList.add("active");
         }
     </script>

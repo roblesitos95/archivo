@@ -229,7 +229,19 @@ if (isset($_GET["archivo"])) {
             type: 'POST',
             dataType: "JSON",
             success: function (res) {
-                alert("consecutivo numero " + res[0]);
+                $.notify({
+                    icon: "icon-eye",
+                    message: "consecutivo numero " + res[0],
+
+                }, {
+                    type: "success",
+                    timer: 1000,
+                    placement: {
+                        from: "top",
+                        align: "center",
+                    }
+                });
+
 
                 $("#div_chatarra").hide();
                 $('#tipodoc').val("1");

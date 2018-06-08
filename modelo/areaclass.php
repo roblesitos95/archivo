@@ -93,7 +93,6 @@ class areaclass extends db_abstract_class
             $htmlSelect.='<select  name="'.$name.'" id="'.$id.'" class="'.$class.'" required >';
 
 
-            $htmlSelect.='<option  disabled selected value=""></option>';
             foreach ($arrmaterias as $materia) {
 
                 $htmlSelect.='<option value="'.$materia->getIdTrasferencia().'">'.$materia->getSede()."-".$materia->getArea()."-".$materia->getConsecutivo().'</option>';

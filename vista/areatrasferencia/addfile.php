@@ -39,6 +39,8 @@ if (isset($_SESSION['sesion'])) {
         window.onload = function () {
             var element = document.getElementById("creararea");
             element.classList.add("active");
+            var parend = document.getElementById("prestamos");
+            parend.classList.add("active");
         }
     </script>
 

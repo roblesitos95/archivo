@@ -582,7 +582,7 @@ class Ubicacion_controller
         $result = mysqli_query($con, $sql);
         $table = "";
 
-        $boton = '<button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-balda="'.$balda.'">Agregar Archivo</button>';
+        $boton = '<button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-balda="'.$balda.'">Agregar Carpeta</button>';
 
         while ($row = mysqli_fetch_array($result)) {
             $class = "";

@@ -15,6 +15,8 @@ if (isset($_SESSION['sesion'])) {
         window.onload = function () {
             var element = document.getElementById("<?php echo $_GET["filtro"]?>");
             element.classList.add("active");
+            var parend = document.getElementById("cert");
+            parend.classList.add("active");
         }
     </script>
 
@@ -134,8 +136,8 @@ if (isset($_SESSION['sesion'])) {
             $('#datatables').DataTable({
                 "pagingType": "full_numbers",
                 "lengthMenu": [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "Todos"]
+                    [5, 10, 25, 50, -1],
+                    [5, 10, 25, 50, "Todos"]
                 ],
                 responsive: true,
                 scrollX: true,
@@ -197,6 +199,89 @@ if (isset($_SESSION['sesion'])) {
                 $("#modalform").modal("toggle");
             });
         });
+
+        function swale(id) {
+            var data2 = {
+                "id": id,
+            };
+            $.ajax({
+                data:data2,
+                url: '../../Controlador/documentocontroller.php?action=topo', //archivo que recibe la peticion
+                type: 'POST',
+                dataType: 'JSON',//tipo de datos
+                success: function (respuesta) {
+                    var  pm  = respuesta;
+
+                    swal({
+
+                        text: "<div class=\"row\">" +
+                        "                        <div >" +
+                        "                            <div class=\"card\">" +
+                        "                                <div class=\"card-header card-header-icon\" data-background-color=\"blue\">" +
+                        "                                    <span style='font-size: 35px'><i class=\"icon-location2\"></i></span>" +
+                        "                                </div>\n" +
+                        "                                <div class=\"card-content\">" +
+                        "                                    <h4 class=\"card-title\">Ubiacion topografica</h4>" +
+                        "                                    <div >" +
+                        "                                        <div >" +
+                        "                                            <div>" +
+                        "                                                <table class=\"table\">" +
+                        "                                                    <tbody>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Sala</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["sala"] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Fila</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["fila"] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Cara</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["cara"] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Estante</td>" +
+                        "                                                           <td class=\"text-center text-primary\">" + pm["estante"] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Balda</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["balda"] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+
+                        "                                                        <tr>" +
+                        "                                                            <td class=\"text-left\">Archivo Modular</td>" +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["am"] +
+                        "                                                            </td>" +
+                        "                                                        </tr>" +
+                        "                                                    </tbody>" +
+                        "                                                </table>" +
+                        "                                            </div>" +
+                        "                                        </div>" +
+                        "                                    </div>" +
+                        "                                </div>" +
+                        "                            </div>" +
+                        "                        </div>" +
+                        "                    </div>",
+                        buttonsStyling: false,
+                        confirmButtonClass: "btn btn-primary"
+                    });
+                }
+            });
+
+
+
+
+        }
 
     </script>
 

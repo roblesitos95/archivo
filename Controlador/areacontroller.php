@@ -137,32 +137,32 @@ class areacontroller
     private static function upload()
     {
         // upload.php
-// 'images' refers to your file input name attribute
+       // 'imágenes' se refiere a su atributo de nombre de entrada de archivo
         if (empty($_FILES['file-es'])) {
             echo json_encode(['error' => 'No files found for upload.']);
             // or you can throw an exception
             return; // terminate
         }
 
-// get the files posted
+//  obtener los archivos publicados
         $images = $_FILES['file-es'];
 
-// get user id posted
+//obtener ID de usuario publicado
         $userid = $_GET["id"];
 
-// get user name posted
+//obtener el nombre de usuario publicado
         $username = empty($_POST['username']) ? '' : $_POST['username'];
 
 // a flag to see if everything is ok
         $success = null;
 
-        // file paths to store
+        //una bandera para ver si todo está bien
         $paths = ["../upload"];
 
-// get file names
+//obtener nombres de archivos
         $filenames = $images['name'];
 
-// loop and process files
+// archivos de bucle y proceso
         for ($i = 0; $i < count($filenames); $i++) {
             $ext = explode('.', basename($filenames[$i]));
             $target = "../upload/" . md5(uniqid()) . "." . array_pop($ext);
@@ -175,23 +175,25 @@ class areacontroller
             }
         }
 
-// check and process based on successful status
+//  verificar y procesar según el estado exitoso
         if ($success === true) {
-            // call the function to save all data to database
-            // code for the following function `save_data` is not
-            // mentioned in this example
+
+            // llamar a la función para guardar todos los datos en la base de datos
+            // código para la siguiente función `save_data` no es
+            // mencionado en este ejemplo
 
             areacontroller::save_data($userid, $target);
 
-            // store a successful response (default at least an empty array). You
-            // could return any additional response info you need to the plugin for
-            // advanced implementations.
+            //almacena una respuesta exitosa (por defecto al menos una matriz vacía). Tu
+            // podría devolver cualquier información de respuesta adicional que necesite al complemento para
+            // implementaciones avanzadas.
             $output = [];
-            // for example you can get the list of files uploaded this way
-            // $output = ['uploaded' => $paths];
+            //
+            //por ejemplo, puede obtener la lista de archivos cargados de esta manera
+            // $ output = ['uploaded' => $ paths];
         } elseif ($success === false) {
             $output = ['error' => 'Error while uploading images. Contact the system administrator'];
-            // delete any uploaded files
+            // eliminar cualquier archivo cargado
             foreach ($paths as $file) {
                 unlink($file);
             }

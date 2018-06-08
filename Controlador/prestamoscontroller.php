@@ -46,7 +46,7 @@ class prestamoscontroller extends mysqli
   values (".$Archivos_id_Archivos.",'".$Solicitante."','".$Fecha_Envio."','".$Destinatario."','".$Numero_Guia."','".$Observaciones."','activo')";
             $conexion= new mysqli("localhost","root","","bd_documentacion","3306");
 
-
+            $conexion->set_charset("utf8");
             if ($conexion->query($sql) === true) {
 
                 $sql="UPDATE archivos SET estado = '". $Estado."' WHERE id_Archivos =".$Archivos_id_Archivos;
@@ -228,7 +228,7 @@ class prestamoscontroller extends mysqli
             die('Error no se pudo conectar : ' . mysqli_error($con));
         }
         mysqli_select_db($con, "ajax_demo");
-        $sql = "SELECT * FROM archivos WHERE  Tipo_Documento=\"" . $tipo . "\"";
+        $sql = "SELECT * FROM archivos WHERE Tipo_Documento=\"" . $tipo . "\"";
         $con->set_charset("utf8");
         $result = mysqli_query($con, $sql);
         $option = "<select class=\"form-control\" required  id=\"carpeta\" name='carpeta' lang=\"es\">

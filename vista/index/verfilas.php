@@ -222,7 +222,7 @@ require("../theme/head.php");
                         <div class="modal-body">
                             <div class="card">
                                 <div class="card-header card-header-text" data-background-color="blue">
-                                    <h4 class="card-title">Tipo de Documento</h4>
+                                    <h4 class="card-title">Tipo de Carpeta</h4>
                                 </div>
 
                                 <div class="card-content">
@@ -263,7 +263,6 @@ require("../theme/head.php");
                 </div>
             </div>
         </div>
-
 
 
         <div class="container">
@@ -458,21 +457,37 @@ require("../theme/head.php");
             }
 
 
+
             //agregar Archivos Modulares para la balada seleccionada
             function addam(balda) {
 
                 swal({
-                    title: 'AM Numero',
+                    title: 'Nombre del achivo modular',
                     html: '<div class="form-group">' +
                     '<input id="input-field" name="Tipo2" type="text" required class="form-control"/>' +
-                    '<span class="help-block">Por favor solo digite el numerodel archivo modular</span>' +
+                    '<span class="help-block">Digite el nombre del arhivo modular</span>' +
                     '</div>',
                     showCancelButton: true,
                     confirmButtonClass: 'btn btn-primary',
+                    cancelButtonText: 'cancelar',
                     cancelButtonClass: 'btn btn-danger',
                     buttonsStyling: false
 
                 }).then(function (result) {
+                    if ($('#input-field').val()== ""){
+                        $.notify({
+                            icon: "icon-eye",
+                            message: "Porfavor ingrese el nombre",
+
+                        }, {
+                            type: "info",
+                            timer: 1000,
+                            placement: {
+                                from: "top",
+                                align: "center",
+                            }
+                        });
+                    } else{
                     var data = {
                         "numero": $('#input-field').val(),
                         "balda": balda,
@@ -488,6 +503,7 @@ require("../theme/head.php");
                         }
 
                     });
+                    }
                 }).catch(swal.noop)
 
             }

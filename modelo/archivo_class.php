@@ -44,13 +44,20 @@ class archivo_class
                                 <td>' . $row["fecha"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                     <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
@@ -87,18 +94,25 @@ class archivo_class
                                 <td>' . $row["fecha"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                  
-                                     <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button>    ' .$btn. '
+                                     </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -133,18 +147,27 @@ class archivo_class
                                 <td>' . $row["factura"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                   
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
                                      </button> ' . $btn . '
-                                </td>
+                                     
+                                 </td>
                              </tr>
                  ';
                 }
@@ -177,17 +200,26 @@ class archivo_class
                                 <td>' . $row["fecha"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                 <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
                                      </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -221,18 +253,27 @@ class archivo_class
                                 <td>' . $row["fecha"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                 <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
                                      </button> ' . $btn . '
-                                </td>
+                                     
+                                 </td>
                              </tr>
                  ';
                 }
@@ -267,18 +308,26 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                            
                                 <td>
-                                  <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
                                      </button> ' . $btn . '
-                                </td>
+                                     
+                                  </td>
                              </tr>
                  ';
                 }
@@ -312,17 +361,25 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                            
                                 <td>
-                                 <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
                                      </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -354,18 +411,26 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                            
                                 <td>
-                                  <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button>   ' . $btn . '
-                                </td>
+                                     </button> ' . $btn . '
+                                     
+                                   </td>
                              </tr>
                  ';
                 }
@@ -399,17 +464,25 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                                 
                                 <td>
-                                  <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button>  ' . $btn . '
+                                     </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -442,19 +515,26 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                                 
                                 <td>
-                                   <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button>  ' . $btn . '
+                                     </button> ' . $btn . '
                                      
-                                        
+                                
                                 </td>
                              </tr>
                  ';
@@ -485,17 +565,25 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                                 
                                 <td>
-                                  <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
                                      </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -524,7 +612,7 @@ class archivo_class
 
         while ($row = mysqli_fetch_array($result)) {
 
-            $table .= '<button type="button" title="'.$row["idPrestamos"].'"  class="btn btn-primary btn-simple btn-xs hvr-bounce-in">                               
+            $table .= '<button type="button" title="Ver Prestamo"  class="btn btn-primary btn-simple btn-xs hvr-bounce-in">                               
                            <a href="../Prestamos/devolver_'.$row["idPrestamos"].'" target="_blank">
                                         <span style="font-size: 15px"><i class="icon-info-circle"></i></span>
                                         </a>  
@@ -558,7 +646,10 @@ class archivo_class
             //certificado de desintegracion
             case "Cert_Desintegracion":
                 while ($row = mysqli_fetch_array($result)) {
-
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
                     $class = "";
                     if ($row["estado"] == "toda") {
                         $class = "danger";
@@ -576,17 +667,24 @@ class archivo_class
                                 <td>' . $row["fecha"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                     <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button> 
+                                     </button> ' . $btn . '
                                      
                                 </td>
                              </tr>
@@ -597,6 +695,11 @@ class archivo_class
             //Contratos
             case "Contratos":
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn  = archivo_class::buscar($row["id_Archivos"]);
+                    }
 
                     $class = "";
                     if ($row["estado"] == "toda") {
@@ -614,18 +717,25 @@ class archivo_class
                                 <td>' . $row["fecha"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                  
-                                     <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button>    
+                                     </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -636,6 +746,11 @@ class archivo_class
             //documentos contables
             case "Doc_Contable":
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
 
                     $class = "";
                     if ($row["estado"] == "toda") {
@@ -655,18 +770,27 @@ class archivo_class
                                 <td>' . $row["factura"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                    <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                   
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button> 
-                                </td>
+                                     </button> ' . $btn . '
+                                     
+                                 </td>
                              </tr>
                  ';
                 }
@@ -676,6 +800,11 @@ class archivo_class
             //Escrituras
             case "Escritura":
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
 
                     $class = "";
                     if ($row["estado"] == "toda") {
@@ -694,17 +823,26 @@ class archivo_class
                                 <td>' . $row["fecha"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                 <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button> 
+                                     </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -716,7 +854,10 @@ class archivo_class
             case "Factura":
 
                 while ($row = mysqli_fetch_array($result)) {
-
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
                     $class = "";
                     if ($row["estado"] == "toda") {
                         $class = "danger";
@@ -735,18 +876,27 @@ class archivo_class
                                 <td>' . $row["fecha"] . '</td>
                                 <td>' . $row["Descripcion"] . '</td>
                                 <td>
-                                 <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button> 
-                                </td>
+                                     </button> ' . $btn . '
+                                     
+                                 </td>
                              </tr>
                  ';
                 }
@@ -757,6 +907,11 @@ class archivo_class
             //historias laborales
             case "Historia_laboral":
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
 
                     $class = "";
                     if ($row["estado"] == "toda") {
@@ -776,18 +931,26 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                            
                                 <td>
-                                  <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button> 
-                                </td>
+                                     </button> ' . $btn . '
+                                     
+                                  </td>
                              </tr>
                  ';
                 }
@@ -798,6 +961,11 @@ class archivo_class
             //importaciones
             case"Importacion":
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
 
                     $class = "";
                     if ($row["estado"] == "toda") {
@@ -816,17 +984,25 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                            
                                 <td>
-                                 <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button> 
+                                     </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -837,6 +1013,11 @@ class archivo_class
             //impuestos
             case"Impuestos":
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
 
                     $class = "";
                     if ($row["estado"] == "toda") {
@@ -853,18 +1034,26 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                            
                                 <td>
-                                  <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button>   
-                                </td>
+                                     </button> ' . $btn . '
+                                     
+                                   </td>
                              </tr>
                  ';
                 }
@@ -873,6 +1062,12 @@ class archivo_class
             //seguridad social
             case "Seguridad_social":
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
+
 
                     $class = "";
                     if ($row["estado"] == "toda") {
@@ -892,17 +1087,25 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                                 
                                 <td>
-                                  <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button>  
+                                     </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -912,6 +1115,11 @@ class archivo_class
             //Informe_Entrada
             case "Informe_Entrada":
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
 
                     $class = "";
                     if ($row["estado"] == "toda") {
@@ -930,17 +1138,26 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                                 
                                 <td>
-                                   <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button>      
+                                     </button> ' . $btn . '
+                                     
+                                
                                 </td>
                              </tr>
                  ';
@@ -950,6 +1167,11 @@ class archivo_class
             //Libro_oficial
             case "Libro_oficial":
                 while ($row = mysqli_fetch_array($result)) {
+
+                    $btn = null;
+                    if ($row["estado"] == "toda" or $row["estado"] == "unidad") {
+                        $btn = archivo_class::buscar($row["id_Archivos"]);
+                    }
 
                     $class = "";
                     if ($row["estado"] == "toda") {
@@ -966,17 +1188,25 @@ class archivo_class
                                 <td>' . $row["Descripcion"] . '</td>
                                 
                                 <td>
-                                  <button type="button" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Ver Transferencia" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         <a href="' . $row["archivo"] . '" target="_blank">
-                                        <span style="font-size: 15px"><i class="icon-file-pdf    "></i></span>
+                                        <span style="font-size: 15px"><i class="icon-file-pdf"></i></span>
                                         </a>
                                      </button> 
+                                     
+                                     <button type="button" title="Ver ubicacion" onclick="swale('.$row["id_Archivos"].')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                        
+                                        <span style="font-size: 15px"><i class="icon-location2"></i></span>
+                                        
+                                     </button>
+                                     
                                  
-                                     <button type="button" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
+                                     <button type="button" title="Detalles" onclick="ver(\'' . $tipodocu . '\',\'' . $row["id_Archivos"] . '\')" class="btn btn-primary btn-simple btn-xs hvr-bounce-in">
                                         
                                         <span style="font-size: 15px"><i class="icon-eye"></i></span>
                                         
-                                     </button> 
+                                     </button> ' . $btn . '
+                                     
                                 </td>
                              </tr>
                  ';
@@ -1006,7 +1236,7 @@ class archivo_class
 
             return $idu = $mysqli->insert_id;
         } else {
-            echo "Error  N: " . $sql . "<br>" . $mysqli->error;
+            echo "Error AL SAVE  N: " . $sql . "<br>" . $mysqli->error;
         }
 
 

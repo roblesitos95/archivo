@@ -14,6 +14,8 @@ if (isset($_SESSION['sesion'])) {
         window.onload = function () {
             var element = document.getElementById("versocial");
             element.classList.add("active");
+            var parent = document.getElementById("seg");
+            parent.classList.add("active");
         }
     </script>
 
@@ -66,7 +68,6 @@ if (isset($_SESSION['sesion'])) {
                                 </table>
                             </div>
                         </div>
-<button onclick="swale()">hola</button>
                         <!-- end content-->
                     </div>
                     <!--  end card  -->
@@ -188,37 +189,37 @@ if (isset($_SESSION['sesion'])) {
 
                         "                                                        <tr>" +
                         "                                                            <td class=\"text-left\">Sala</td>" +
-                        "                                                            <td class=\"text-center text-primary\">" + pm["0"] +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["sala"] +
                         "                                                            </td>" +
                         "                                                        </tr>" +
 
                         "                                                        <tr>" +
                         "                                                            <td class=\"text-left\">Fila</td>" +
-                        "                                                            <td class=\"text-center text-primary\">" + pm[1] +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["fila"] +
                         "                                                            </td>" +
                         "                                                        </tr>" +
 
                         "                                                        <tr>" +
                         "                                                            <td class=\"text-left\">Cara</td>" +
-                        "                                                            <td class=\"text-center text-primary\">" + pm[2] +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["cara"] +
                         "                                                            </td>" +
                         "                                                        </tr>" +
 
                         "                                                        <tr>" +
                         "                                                            <td class=\"text-left\">Estante</td>" +
-                        "                                                           <td class=\"text-center text-primary\">" + pm[3] +
+                        "                                                           <td class=\"text-center text-primary\">" + pm["estante"] +
                         "                                                            </td>" +
                         "                                                        </tr>" +
 
                         "                                                        <tr>" +
                         "                                                            <td class=\"text-left\">Balda</td>" +
-                        "                                                            <td class=\"text-center text-primary\">" + pm[4] +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["balda"] +
                         "                                                            </td>" +
                         "                                                        </tr>" +
 
                         "                                                        <tr>" +
                         "                                                            <td class=\"text-left\">Archivo Modular</td>" +
-                        "                                                            <td class=\"text-center text-primary\">" + pm[5] +
+                        "                                                            <td class=\"text-center text-primary\">" + pm["am"] +
                         "                                                            </td>" +
                         "                                                        </tr>" +
                         "                                                    </tbody>" +
